@@ -1,0 +1,35 @@
+site_name: Ben's Code Journal
+nav:
+    - Home: index.md
+    - Python: 
+        - Useful: 
+            - map(): python/useful/Map.md
+            - input(): python/useful/Input.md
+            - Sets: python/useful/Sets.md
+            - P.B. Reference: python/useful/Pass By Reference.md
+            - args, kwargs: python/useful/Args and Kwargs.md
+            - zip(): python/useful/Zip.md
+            - sorted(): python/useful/Sorted.md
+        - Base Modules: 
+            - Collection:
+                - Counter: python/base_modules/collections/Counter.md
+                - default_dict(): python/base_modules/collections/Default Dict.md
+        - Advanced: 
+            - Decorators: python/advanced/Decorators.md
+            - Classes: python/advanced/Classes.md
+            - Generators: python/advanced/Generators.md
+        - Strings: python/strings/Strings.md
+    - SQL:
+        - Postgres: sql/postgres/Postgres.md
+        - SQL server: sql/sql_server/Sql Server.md
+        - sqlite: sql/sqlite/Sqlite.md
+    - Javascript: javascript/Javascript.md
+    - Bash: bash/bash.md
+    - MKDocs: Quick Notes.md
+extra_css:
+    - css/extra.css
+theme:
+    name: mkdocs
+    highlightjs: true
+    hljs_style: obsidian
+
