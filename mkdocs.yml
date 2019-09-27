@@ -1,35 +1,72 @@
 site_name: Ben's Code Journal
 nav:
     - Home: index.md
-    - Python: 
-        - Useful: 
-            - map(): python/useful/Map.md
-            - input(): python/useful/Input.md
-            - Sets: python/useful/Sets.md
-            - P.B. Reference: python/useful/Pass By Reference.md
-            - args, kwargs: python/useful/Args and Kwargs.md
-            - zip(): python/useful/Zip.md
-            - sorted(): python/useful/Sorted.md
-        - Base Modules: 
-            - Collection:
-                - Counter: python/base_modules/collections/Counter.md
-                - default_dict(): python/base_modules/collections/Default Dict.md
-        - Advanced: 
-            - Decorators: python/advanced/Decorators.md
-            - Classes: python/advanced/Classes.md
-            - Generators: python/advanced/Generators.md
-        - Strings: python/strings/Strings.md
-    - SQL:
-        - Postgres: sql/postgres/Postgres.md
-        - SQL server: sql/sql_server/Sql Server.md
-        - sqlite: sql/sqlite/Sqlite.md
-    - Javascript: javascript/Javascript.md
-    - Bash: bash/bash.md
-    - MKDocs: Quick Notes.md
+
+    - Languages:
+        - Python: 
+            - Installs: python/Installs.md
+            - Useful: 
+                - map(): python/useful/Map.md
+                - input(): python/useful/Input.md
+                - Sets: python/useful/Sets.md
+                - P.B. Reference: python/useful/Pass By Reference.md
+                - args, kwargs: python/useful/Args and Kwargs.md
+                - zip(): python/useful/Zip.md
+                - sorted(): python/useful/Sorted.md
+            - Base Modules: 
+                - Collection:
+                    - Counter: python/base_modules/collections/Counter.md
+                    - default_dict(): python/base_modules/collections/Default Dict.md
+                - Pdb: python/base_modules/Pdb.md
+            - Advanced: 
+                - Decorators: python/advanced/Decorators.md
+                - Classes: python/advanced/Classes.md
+                - Generators: python/advanced/Generators.md
+            - Strings: python/strings/Strings.md
+        - SQL:
+            - Postgres: sql/postgres/Postgres.md
+            - SQL server: sql/sql_server/Sql Server.md
+            - sqlite: sql/sqlite/Sqlite.md
+        - Javascript: javascript/Javascript.md
+        - Bash: 
+            - Basics: bash/basics.md
+            - Zip and Unzip: bash/zip_and_unzip.md
+            - Screen: bash/screen.md
+            - SSH: bash/ssh.md
+            - Environment Variables: bash/environment_variables.md
+            - VI: bash/vi.md
+            - Users: bash/users.md
+
+    - Internet Of Things:
+        - AWS: internet_of_things/AWS/storage.md
+        - Azure: internet_of_things/Azure/placeholder.md
+        - General Notes: internet_of_things/General Notes.md
+
+    - Algorithms:
+        - Python: 
+            - Wheel: algorithms/python/wheel/wheel.md
+            - Breadth First Search: algorithms/python/breadth_first_search.md
+            - Names and Dates: algorithms/python/names_and_dates.md
+            - Alphabet Rangoli: algorithms/python/alphabet_rangoli.md
+            - Averages: algorithms/python/averages.md
+            - Collections Counter: algorithms/python/collections_counter.md
+            - Default Dict: algorithms/python/default_dict.md
+            - Door Mat: algorithms/python/door_mat.md
+            - Find a String: algorithms/python/find_a_string.md
+            - sWAP cASE: algorithms/python/swap_case.md
+            - Class Quiz: algorithms/python/class_quiz.md
+
+
+    - MKDocs: MKDocs/Quick Notes.md
+
 extra_css:
     - css/extra.css
 theme:
-    name: mkdocs
+    name: windmill-dark
     highlightjs: true
     hljs_style: obsidian
+    include_search_page: true
+    search_index_only: true
+
+
 
