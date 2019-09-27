@@ -55,6 +55,11 @@ nav:
             - Find a String: algorithms/python/find_a_string.md
             - sWAP cASE: algorithms/python/swap_case.md
             - Class Quiz: algorithms/python/class_quiz.md
+            - Print Directory: algorithms/python/print_directory.md
+            - Node w Classes: algorithms/python/node_w_classes.md
+            - Crossing Rects: algorithms/python/crossing_rects.md
+            - Retry: algorithms/python/retry.md
+            - Stairs: algorithms/python/stairs.md
 
 
     - MKDocs: MKDocs/Quick Notes.md
