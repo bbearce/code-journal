@@ -274,6 +274,14 @@ Dash  is the  Debian  Almquist  Shell. Dash implements the Single Unix Spec, the
 8. Dash is for Faster start-up and script execution as compared to Bash.
 
 
-## Moving and Copying - coming soon
+## Moving and Copying
 
+Use the ```mv``` command to move things or rename them.  
+Use the ```cp``` command to copy things.  
+Use the ```rsync``` command to move things. Use the *-a* flag to archive and retain permissions and time stamps.  
 
+## Check OS Version
+
+```
+$ cat /etc/os-release
+```
