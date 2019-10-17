@@ -124,3 +124,18 @@ If the table doesn't exist, sqlite will try to create it and it's scheme assumin
 sqlite> .mode csv all_images 
 sqlite> .import <path_to_csv> all_images
 ```
+
+## csv export
+
+An example export from the ```rad``` table.
+
+> Any query can be used as the basis for the export, including multi-line complex ones.
+
+```bash
+sqlite> .headers on
+sqlite> .mode csv
+sqlite> .output rad_data.csv
+sqlite> select * from rad;
+sqlite> 
+
+```
