@@ -185,3 +185,21 @@ $ screen -d -m counter.py
 
 You can see the screen momentarily before it quits by running ```screen –r```. Also we can run this in a screen and not have it automatically quit by connecting first.  
 
+
+## Problems
+
+[There is no screen to be resumed matching <screen-name\>](https://unix.stackexchange.com/questions/187001/there-are-screens-in-the-list-but-no-screen-to-be-resumed)
+
+
+```
+azureuser@cbibop3:~$ screen -r codalab
+There is a screen on:
+    8967.codalab    (10/18/2019 06:56:52 PM)    (Attached)
+There is no screen to be resumed matching codalab.
+```
+
+As ```screen -r``` says, there is one screen, but it is attached. To resume it on your current terminal, you have to detach it from the other one first: ```screen -d -r 8967```, see manpage ```-d```.
+
+Edit: use ```-d``` instead of ```-x```.
+
+Edit2: @alex78191: When using ```-x```, screen attaches to the currently running session, resulting in a "multi-display mode": you see the session on both terminals simultaneously, i.e., when entering a command on one terminal, it also appears on the second. However, detaching from a multi-display mode just detaches the current terminal. You hence get the message that it is still attached (on the other terminal).
