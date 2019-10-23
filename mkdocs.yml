@@ -43,6 +43,7 @@ nav:
             - Environment Variables: notes/bash/environment_variables.md
             - VI: notes/bash/vi.md
             - Users: notes/bash/users.md
+            - Processes: notes/bash/processes.md
     - Docker:
         - Basics: notes/docker/basics.md
     - Internet Of Things:
