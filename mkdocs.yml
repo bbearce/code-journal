@@ -27,6 +27,7 @@ nav:
             - Postgres: notes/sql/postgres/Postgres.md
             - SQL server: notes/sql/sql_server/Sql Server.md
             - sqlite: notes/sql/sqlite/Sqlite.md
+            - mySQL: notes/sql/mysql/mySQL.md
         - Front End:
             - HTML: notes/front_end/html/html_template.md
             - CSS: notes/front_end/css/css.md
