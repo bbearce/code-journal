@@ -51,6 +51,43 @@ git commit -m "Commit message"
 
 Now the file is committed to the ```HEAD```, but not in your remote repository yet.
 
+> ```git remote -v``` will tell you which remote you are connected to.
+
+```
+SYNOPSIS
+       git remote [-v | --verbose]
+
+...
+
+OPTIONS
+       -v, --verbose
+           Be a little more verbose and show remote url after name. NOTE: This must be placed between remote and subcommand.
+```
+
+## Adding a New Remote
+
+> Courtesy of [articles.assembla.com](https://articles.assembla.com/en/articles/1136998-how-to-add-a-new-remote-to-your-git-repo#targetText=To%20add%20a%20new%20remote%2C%20use%20the%20git%20remote%20add,tab%20of%20your%20Git%20repo)
+
+To add a new remote, use the ```git remote add``` command on the terminal, in the directory your repository is stored at.
+
+The git remote add command takes two arguments:
+
+* A remote name, for example, “origin”  
+* A remote URL, which you can find on the Source sub-tab of your Git repo  
+
+
+```bash
+#set a new remote
+git remote add origin git@git.assembla.com:portfolio/space.space_name.git
+
+#Verify new remote
+git remote -v
+
+origin  git@git.assembla.com:portfolio/space.space_name.git (fetch)
+origin  git@git.assembla.com:portfolio/space.space_name.git (push)
+```
+
+
 ## Pushing Changes
 
 Your changes are now in the ```HEAD``` of your local working copy. To send those changes to your remote repository, execute:
