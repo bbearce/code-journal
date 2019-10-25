@@ -193,6 +193,6 @@ print("velocity: {} in miles/hour".format(velocity/5280*60*60))
 ```
 
 <video width="400" controls>
-  <source src="/algorithms/python/wheel/wheel.mp4" type="video/mp4">
+  <source src="/notes/algorithms/python/wheel/wheel.mp4" type="video/mp4">
   Your browser does not support HTML5 video.
 </video>

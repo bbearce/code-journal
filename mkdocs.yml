@@ -46,6 +46,8 @@ nav:
             - Processes: notes/bash/processes.md
     - Docker:
         - Basics: notes/docker/basics.md
+    - Git:
+        - Basics: notes/git/git_basics.md
     - Internet Of Things:
         - AWS: notes/internet_of_things/AWS/storage.md
         - Azure: notes/internet_of_things/Azure/placeholder.md
