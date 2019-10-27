@@ -125,7 +125,7 @@ to change the url.
 
 Steps:  
 1. [Generate Key Pair](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)  
-2. [Add public key to git repo](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys)  
+2. [Add public key to git account](https://help.github.com/en/enterprise/2.14/user/articles/adding-a-new-ssh-key-to-your-github-account) or [Add public key to git repo](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) 
 
 
 
