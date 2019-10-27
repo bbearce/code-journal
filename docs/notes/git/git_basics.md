@@ -124,8 +124,31 @@ to change the url.
 > You need to have an ssh key pair generated and added to github
 
 Steps:  
-1. [Generate Key Pair](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)  
-2. [Add public key to git account](https://help.github.com/en/enterprise/2.14/user/articles/adding-a-new-ssh-key-to-your-github-account) or [Add public key to git repo](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) 
+
+[1]. [Generate Key Pair](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)  
+
+Open Terminal.
+
+Paste the text below, substituting in your GitHub email address.
+```bash
+$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+Generating public/private rsa key pair.
+```
+
+This creates a new ssh key, using the provided email as a label. When you're prompted to "Enter a file in which to save the key," press Enter. This accepts the default file location.
+
+```bash
+Enter a file in which to save the key (/home/you/.ssh/id_rsa): [Press enter]
+```
+
+At the prompt, type a secure passphrase. For more information, see [Working with SSH key passphrases](https://help.github.com/en/articles/working-with-ssh-key-passphrases).
+
+```bash
+Enter passphrase (empty for no passphrase): [Type a passphrase]> Enter same passphrase again: [Type passphrase again]
+```
+
+[2]. [Add public key to git account](https://help.github.com/en/enterprise/2.14/user/articles/adding-a-new-ssh-key-to-your-github-account) or [Add public key to git repo](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) 
 
 
 
