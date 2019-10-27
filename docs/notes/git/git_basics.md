@@ -104,6 +104,31 @@ git remote add origin <server>
 ```
 Now you are able to push your changes to the selected remote server.
 
+## Push Without User:Pass
+
+> Courtesy of [medium.com](https://medium.com/@amanze.ogbonna/accessing-pushing-to-github-without-username-and-password-3022feb077fb)
+
+A way to skip typing my username/password when using https://github, is by changing the HTTPs origin remote which pointing to an HTTP url into an SSH url.
+
+For example:
+
+https url: ```https://github.com/<Username>/<Project>.git```  
+ssh url: ```git@github.com:<Username>/<Project>.git```  
+
+You can do:
+```bash
+git remote set-url origin git@github.com:<Username>/<Project>.git
+```
+to change the url.
+
+> You need to have an ssh key pair generated and added to github
+
+Steps:  
+1. [Generate Key Pair](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)  
+2. [Add public key to git repo](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys)  
+
+
+
 
 ## Branching
 
@@ -210,3 +235,4 @@ To show log on just one line per commit, use:
 Use interactive adding:
 
 ```git add -i```
+
