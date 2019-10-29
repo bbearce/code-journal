@@ -48,7 +48,8 @@ nav:
         - Basics: notes/docker/basics.md
     - Git:
         - Basics: notes/git/git_basics.md
-        - Subtrees: notes/git/sub_trees.md
+        - Subtrees: notes/git/git_sub_trees.md
+        - Submodules: notes/git/git_submodules.md
     - Internet Of Things:
         - AWS: notes/internet_of_things/AWS/storage.md
         - Azure: notes/internet_of_things/Azure/placeholder.md

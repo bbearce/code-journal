@@ -151,8 +151,6 @@ Enter passphrase (empty for no passphrase): [Type a passphrase]> Enter same pass
 [2]. [Add public key to git account](https://help.github.com/en/enterprise/2.14/user/articles/adding-a-new-ssh-key-to-your-github-account) or [Add public key to git repo](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) 
 
 
-
-
 ## Branching
 
 Branches are used to develop features isolated from each other. The master branch is the "default" branch when you create a repository. Use other branches for development and merge them back to the master branch upon completion.
@@ -259,3 +257,11 @@ Use interactive adding:
 
 ```git add -i```
 
+
+## Clone Single Branch
+
+> Courtesy of [stackoverflow](https://stackoverflow.com/questions/4811434/clone-only-one-branch/14930421#14930421)
+
+```bash
+git clone -b <mybranch> --single-branch <git-url>
+```
