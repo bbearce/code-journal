@@ -1,0 +1,89 @@
+site_name: Ben's Code Journal
+nav:
+    - Home: index.md
+
+    - Languages:
+        - Python: 
+            - Installs: notes/python/Installs.md
+            - Useful: 
+                - map(): notes/python/useful/Map.md
+                - input(): notes/python/useful/Input.md
+                - Sets: notes/python/useful/Sets.md
+                - P.B. Reference: notes/python/useful/Pass By Reference.md
+                - args, kwargs: notes/python/useful/Args and Kwargs.md
+                - zip(): notes/python/useful/Zip.md
+                - sorted(): notes/python/useful/Sorted.md
+            - Base Modules: 
+                - Collection:
+                    - Counter: notes/python/base_modules/collections/Counter.md
+                    - default_dict(): notes/python/base_modules/collections/Default Dict.md
+                - Pdb: notes/python/base_modules/Pdb.md
+            - Advanced: 
+                - Decorators: notes/python/advanced/Decorators.md
+                - Classes: notes/python/advanced/Classes.md
+                - Generators: notes/python/advanced/Generators.md
+            - Strings: notes/python/strings/Strings.md
+        - SQL:
+            - Postgres: notes/sql/postgres/Postgres.md
+            - SQL server: notes/sql/sql_server/Sql Server.md
+            - sqlite: notes/sql/sqlite/Sqlite.md
+            - mySQL: notes/sql/mysql/mySQL.md
+        - Front End:
+            - HTML: notes/front_end/html/html_template.md
+            - CSS: notes/front_end/css/css.md
+            - SASS: notes/front_end/sass/sass.md
+            - Javascript: notes/front_end/javascript/Javascript.md
+            - Sample Layouts: 
+                - Holy Grail: notes/front_end/layouts/holy_grail.md
+        - Bash: 
+            - Basics: notes/bash/basics.md
+            - Zip and Unzip: notes/bash/zip_and_unzip.md
+            - Screen: notes/bash/screen.md
+            - SSH: notes/bash/ssh.md
+            - Environment Variables: notes/bash/environment_variables.md
+            - VI: notes/bash/vi.md
+            - Users: notes/bash/users.md
+            - Processes: notes/bash/processes.md
+    - Docker:
+        - Basics: notes/docker/basics.md
+    - Git:
+        - Basics: notes/git/git_basics.md
+        - Subtrees: notes/git/sub_trees.md
+    - Internet Of Things:
+        - AWS: notes/internet_of_things/AWS/storage.md
+        - Azure: notes/internet_of_things/Azure/placeholder.md
+        - General Notes: notes/internet_of_things/General Notes.md
+
+    - Algorithms:
+        - Python: 
+            - Wheel: notes/algorithms/python/wheel/wheel.md
+            - Breadth First Search: notes/algorithms/python/breadth_first_search.md
+            - Names and Dates: notes/algorithms/python/names_and_dates.md
+            - Alphabet Rangoli: notes/algorithms/python/alphabet_rangoli.md
+            - Averages: notes/algorithms/python/averages.md
+            - Collections Counter: notes/algorithms/python/collections_counter.md
+            - Default Dict: notes/algorithms/python/default_dict.md
+            - Door Mat: notes/algorithms/python/door_mat.md
+            - Find a String: notes/algorithms/python/find_a_string.md
+            - sWAP cASE: notes/algorithms/python/swap_case.md
+            - Class Quiz: notes/algorithms/python/class_quiz.md
+            - Print Directory: notes/algorithms/python/print_directory.md
+            - Node w Classes: notes/algorithms/python/nodes_w_classes.md
+            - Crossing Rects: notes/algorithms/python/crossing_rects.md
+            - Retry: notes/algorithms/python/retry.md
+            - Stairs: notes/algorithms/python/stairs.md
+
+
+    - MKDocs: notes/MKDocs/Quick Notes.md
+
+extra_css:
+    - css/extra.css
+theme:
+    name: windmill-dark
+    highlightjs: true
+    hljs_style: obsidian
+    include_search_page: true
+    search_index_only: true
+
+
+
