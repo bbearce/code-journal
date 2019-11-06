@@ -285,3 +285,18 @@ Use the ```rsync``` command to move things. Use the *-a* flag to archive and ret
 ```
 $ cat /etc/os-release
 ```
+
+## make files
+
+> Courtesty of [stackoverflow](https://stackoverflow.com/questions/3915067/what-are-makefiles-make-install)
+
+```make``` is part of the build system commonly used in unix type systems - [binutils](http://www.gnu.org/software/binutils/).
+
+It looks at make files which hold configuration information and build targets.
+
+Specifically:
+
+* ./configure - this is a script that sets up the environment for the build  
+* make - calls ```make``` with the default build target. Normally builds the app.  
+* make install - calls ```make``` with the ```install``` build target. Normally installs the app.  
+

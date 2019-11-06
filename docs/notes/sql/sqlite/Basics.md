@@ -101,7 +101,7 @@ Here is the output:
 |playlist_track|
 |tracks        |
 
-## .schema
+## .schema / create table
 
 View the schema of a particular table:
 
