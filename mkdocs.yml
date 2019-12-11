@@ -57,6 +57,9 @@ nav:
         - AWS: notes/internet_of_things/AWS/storage.md
         - Azure: notes/internet_of_things/Azure/placeholder.md
         - General Notes: notes/internet_of_things/General Notes.md
+        - Servers:
+            - SimpleHTTPServer: notes/internet_of_things/SimpleHTTPServer.md
+            - Nginx: notes/internet_of_things/nginx.md
 
     - Algorithms:
         - Python: 

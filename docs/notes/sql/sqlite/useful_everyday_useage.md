@@ -1,14 +1,30 @@
 # Useful Everyday Code
 
+## Drop If Exists
+
+```sql
+DROP TABLE [IF EXISTS] [schema_name.]table_name;
+```
+
+## Select Into
+
+*source [stackoverflow](https://stackoverflow.com/questions/2361921/select-into-statement-in-sqlite)*
+
+```sql
+CREATE TABLE equipments_backup AS SELECT * FROM equipments
+```
+
 ## Ranks / Row_Number
 
 > Courtest of [sqlitetutorial](https://www.sqlitetutorial.net/sqlite-window-functions/sqlite-rank/)
+
+*Window function support was first added to SQLite with release version 3.25.0 (2018-09-15). The SQLite developers used the PostgreSQL window function documentation as their primary reference for how window functions ought to behave.*
 
 The ```RANK()``` function is a window function that assigns a rank to each row in a query’s result set. The rank of a row is calculated by one plus the number of ranks that comes before it.
 
 The following shows the syntax of the ```RANK()``` function:
 
-```
+```sql
 RANK() OVER (
     PARTITION BY <expression1>[{,<expression2>...}]
     ORDER BY <expression1> [ASC|DESC], [{,<expression1>...}]
