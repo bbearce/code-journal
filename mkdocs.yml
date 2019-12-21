@@ -25,7 +25,9 @@ nav:
             - Strings: notes/python/strings/Strings.md
             - S3: notes/python/s3.md
         - SQL:
-            - Postgres: notes/sql/postgres/Postgres.md
+            - Postgres: 
+                - Postgres: notes/sql/postgres/Postgres.md
+                - pgAdmin: notes/sql/postgres/pgadmin.md
             - SQL server: notes/sql/sql_server/Sql Server.md
             - sqlite: 
                 - Installing: notes/sql/sqlite/installing.md
