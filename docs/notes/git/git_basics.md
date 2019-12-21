@@ -150,6 +150,34 @@ Enter passphrase (empty for no passphrase): [Type a passphrase]> Enter same pass
 
 [2]. [Add public key to git account](https://help.github.com/en/enterprise/2.14/user/articles/adding-a-new-ssh-key-to-your-github-account) or [Add public key to git repo](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) 
 
+### Possible Issues:
+
+If you get this error:
+```bash
+ERROR: Permission to bbearce/code-journal.git denied to deploy key
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+```
+You need to add your ssh key to the ssh-agent. Before adding a new SSH key to the ssh-agent to manage your keys, you should have [checked for existing SSH keys and generated a new SSH key](https://help.github.com/en/articles/checking-for-existing-ssh-keys).
+
+If you have checked for existing SSH keys and find one you want to use, follow the below instructions.
+
+1. Start the ssh-agent in the background.
+
+```bash
+$ eval "$(ssh-agent -s)"
+> Agent pid 59566
+```
+
+2. Add your SSH private key to the ssh-agent. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_rsa in the command with the name of your private key file.
+```bash
+$ ssh-add ~/.ssh/<your_ssh_key>
+```
+> not the <your_ssh_key>.pub file but the <your_ssh_key> file with no extension.
+
+Add the SSH key to your GitHub account.
 
 ## Branching
 
