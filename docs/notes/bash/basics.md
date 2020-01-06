@@ -332,3 +332,15 @@ On BSD and macOS, to unmount the filesystem:
 ```bash
 umount mountpoint
 ```
+
+*If you get an error:*
+```bash
+fuse: mountpoint is not empty
+fuse: if you are sure this is safe, use the 'nonempty' mount option
+```
+You might need to kill all sshfs processes and restart:
+```bash
+~$ killall sshfs
+```
+*Then restart your sshfs mounting procedure*
+
