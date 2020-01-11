@@ -6,52 +6,34 @@ Find file ```/etc/rc.local```. You can place scripts that you want to run at sta
 
 */etc/rc.local*
 ```bash
-#! /bin/sh
-### BEGIN INIT INFO
-# Provides:          rc.local
-# Required-Start:    $all
-# Required-Stop:
-# Default-Start:     2 3 4 5
-# Default-Stop:
-# Short-Description: Run /etc/rc.local if it exist
-### END INIT INFO
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
 
 
-PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
-. /lib/init/vars.sh
-. /lib/lsb/init-functions
+### BB - 01/11/2020 - Add startup commands here ###
 
-do_start() {
-    if [ -x /etc/rc.local ]; then
-            [ "$VERBOSE" != no ] && log_begin_msg "Running local boot scripts (/etc/rc.local)"
-        /etc/rc.local
-        ES=$?
-        [ "$VERBOSE" != no ] && log_end_msg $ES
-        return $ES
-    fi
-}
-
-case "$1" in
-    start)
-    do_start
-        ;;
-    restart|reload|force-reload)
-        echo "Error: argument '$1' not supported" >&2
-        exit 3
-        ;;
-    stop|status)
-        # No-op
-        exit 0
-        ;;
-    *)
-        echo "Usage: $0 start|stop" >&2
-        exit 3
-        ;;
-esac
-
-### BB - Add startup commands here ###
+# Mounting via sshfs
 sshfs bbearce@medici-codalab-master.eastus.cloudapp.azure.com:/home/bbearce/src/MedICI/codalab-competitions /home/bbearce/mounts/medici;
 sshfs azureuser@cbibop3.cloudapp.net:/home/azureuser/codalab-competitions /home/bbearce/mounts/cbibop3;
+
+# add github ssh key to agent
+eval "$(ssh-agent -s)";
+ssh-add ~/.ssh/github;
+
 ### BB - Add startup commands here ###
+
+
+exit 0
+
 ```
