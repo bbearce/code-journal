@@ -15,6 +15,7 @@ NAME
 .
 ```
 
+### zipping files
 To zip files into a *.zip* file run this command:
 ```bash
 bbearce@bbearce-XPS-15-9560:~/Desktop$ ls
@@ -29,6 +30,7 @@ example.zip  something.txt  wheel.py
 
 ```
 
+### zipping folder contents
 To zip eveything in a directory into zip file use ```./*```
 > This is useful for pointing to ```<some directory>/*```
 ```bash
@@ -64,6 +66,7 @@ updating: wheel.py (deflated 79%)
 ```
 
 > Notice how zipping to *example.zip* again updates pre-existing files and adds new ones.
+> Also flag ```-j``` can be used to make sure a folder's contents only get zipped. By default if you include a folder name, the folder is included in the zip file. Using ```-j``` will explicitly exclude the folder.
 
 ### unzip
 ```bash
