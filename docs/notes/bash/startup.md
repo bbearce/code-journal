@@ -7,14 +7,17 @@
 
 ### BB - 01/11/2020 - Add startup commands here ###
 
+
 # Mounting via sshfs
 if [ "$1" == mount ]; then
-  sshfs bbearce@medici-codalab-master.eastus.cloudapp.azure.com:/home/bbearce/src/MedICI/codalab-competitions /home/bbearce/mounts/medici;
+  sshfs bbearce@medici-codalab-master.eastus.cloudapp.azure.com:/home/bbearce/srr
+c/MedICI/codalab-competitions /home/bbearce/mounts/medici;
 
-  sshfs azureuser@cbibop3.cloudapp.net:/home/azureuser/codalab-competitions /home/bbearce/mounts/cbibop3;
+  sshfs azureuser@cbibop3.cloudapp.net:/home/azureuser/codalab-competitions /homm
+e/bbearce/mounts/cbibop3;
 
 # Postgres and pgAdmin
-elif [ "$1" == postgres ]; then
+elif [ "$1" == postgres ] || [ "$1" == pg ]; then
 
   cd /home/bbearce/pgAdmin4/pgAdmin4;
   . bin/activate;
@@ -25,10 +28,31 @@ elif [ "$1" == code-journal ]; then
   . venv/bin/activate;
   mkdocs serve;
 
+elif [ "$1" == cj-commit ]; then
+  git add /home/bbearce/Documents/code-journal/.;
+  git commit -m ""$2"";
+  echo "$2"
+  git push origin master;
+  cd /home/bbearce/Documents/code-journal;
+  . venv/bin/activate;
+  cd /home/bbearce/Documents/bbearce.github.io;
+  mkdocs gh-deploy --config-file ../code-journal/mkdocs.yml --remote-branch mastt
+er;
+
 elif [ "$1" == github_key ] || [ "$1" == gk ]; then
   # add github ssh key to agent
   eval "$(ssh-agent -s)";
   ssh-add ~/.ssh/github;
+
+elif [ "$1" == qtim-site ] || [ "$1"  == qs ]; then
+  cd /home/bbearce/Documents/qtim-lab.github.io;
+  bundle exec jekyll serve;
+
+elif [ "$1" == qs-commit ]; then
+  cd /home/bbearce/Documents/qtim-lab.github.io;
+  git add .;
+  git commit -m ""$2"";
+  git push origin master;
 
 elif [ "$1" == thegratefulbrauer ] || [ "$1"  == tgb ]; then
   cd /home/bbearce/Documents/thegratefulbrauer;
