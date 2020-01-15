@@ -7,7 +7,6 @@
 
 ### BB - 01/11/2020 - Add startup commands here ###
 
-
 # Mounting via sshfs
 if [ "$1" == mount ]; then
   sshfs bbearce@medici-codalab-master.eastus.cloudapp.azure.com:/home/bbearce/srr
@@ -29,15 +28,15 @@ elif [ "$1" == code-journal ]; then
   mkdocs serve;
 
 elif [ "$1" == cj-commit ]; then
-  git add /home/bbearce/Documents/code-journal/.;
+  cd /home/bbearce/Documents/code-journal/;
+  git add .;
   git commit -m ""$2"";
   echo "$2"
   git push origin master;
   cd /home/bbearce/Documents/code-journal;
   . venv/bin/activate;
   cd /home/bbearce/Documents/bbearce.github.io;
-  mkdocs gh-deploy --config-file ../code-journal/mkdocs.yml --remote-branch mastt
-er;
+  mkdocs gh-deploy --config-file ../code-journal/mkdocs.yml --remote-branch master;
 
 elif [ "$1" == key_github ] || [ "$1" == gk ]; then
   # add github ssh key to agent
@@ -67,6 +66,7 @@ fi
 
 
 ### BB - Add startup commands here ###
+
 ```
 
 
