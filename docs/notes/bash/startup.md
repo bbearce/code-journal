@@ -39,10 +39,11 @@ elif [ "$1" == cj-commit ]; then
   mkdocs gh-deploy --config-file ../code-journal/mkdocs.yml --remote-branch mastt
 er;
 
-elif [ "$1" == github_key ] || [ "$1" == gk ]; then
+elif [ "$1" == key_github ] || [ "$1" == gk ]; then
   # add github ssh key to agent
   eval "$(ssh-agent -s)";
   ssh-add ~/.ssh/github;
+
 
 elif [ "$1" == qtim-site ] || [ "$1"  == qs ]; then
   cd /home/bbearce/Documents/qtim-lab.github.io;
