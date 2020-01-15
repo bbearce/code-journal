@@ -9,11 +9,9 @@
 
 # Mounting via sshfs
 if [ "$1" == mount ]; then
-  sshfs bbearce@medici-codalab-master.eastus.cloudapp.azure.com:/home/bbearce/srr
-c/MedICI/codalab-competitions /home/bbearce/mounts/medici;
+  sshfs bbearce@medici-codalab-master.eastus.cloudapp.azure.com:/home/bbearce/src/MedICI/codalab-competitions /home/bbearce/mounts/medici;
 
-  sshfs azureuser@cbibop3.cloudapp.net:/home/azureuser/codalab-competitions /homm
-e/bbearce/mounts/cbibop3;
+  sshfs azureuser@cbibop3.cloudapp.net:/home/azureuser/codalab-competitions /home/bbearce/mounts/cbibop3;
 
 # Postgres and pgAdmin
 elif [ "$1" == postgres ] || [ "$1" == pg ]; then
