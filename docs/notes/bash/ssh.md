@@ -63,7 +63,7 @@ restorecon -Rv ~/.ssh
 > If you get "The program 'restorecon' is currently not installed. You can install it by typing"
 
 ```bash
-restorecon -Rv ~/.ssh
+sudo apt install policycoreutils
 ```
 
 ...then run that
