@@ -198,6 +198,21 @@ Postgres:
 postgres=# DROP USER testuser; 
 ```
  
- 
+## Bulk Insert:
+> https://stackoverflow.com/questions/12856377/the-correct-copy-command-to-load-postgresql-data-from-csv-file-that-has-single-q
 
- 
+
+Double single quotes (if standard_conforming_strings is on, see the docs)
+```sql
+COPY my_table FROM 'c:\downloads\file.csv' DELIMITERS ',' CSV QUOTE '''';
+```
+
+or use the non-standard PostgreSQL-specific escape string:
+```sql
+COPY my_table FROM 'c:\downloads\file.csv' DELIMITERS ',' CSV QUOTE E'\'';
+```
+
+If you have a header:
+COPY my_table FROM 'c:\downloads\file.csv' WITH DELIMITER ',' CSV HEADER;
+
+> use \copy in bash
