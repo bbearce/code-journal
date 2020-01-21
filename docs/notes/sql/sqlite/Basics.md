@@ -171,10 +171,30 @@ CREATE TABLE all_images(
 
 If the table doesn't exist, sqlite will try to create it and it's scheme assuming a header.
 
+> .mode csv assumes a ',' separator.
 ```bash
-sqlite> .mode csv all_images 
-sqlite> .import <path_to_csv> all_images
+sqlite> .mode csv <table_name> 
+sqlite> .import <path_to_csv> <table_name>
 ```
+
+> if you want to specify a different separator use this instead (I used a specific csv for this...):
+```bash
+sqlite> .separator ,
+sqlite> .import <path_to_csv> <table_name>
+sqlite> .schema
+CREATE TABLE measurements(
+  "seriesUID" TEXT,
+  "instanceUID" TEXT,
+  "length" TEXT,
+  "start_x" TEXT,
+  "start_y" TEXT,
+  "end_x" TEXT,
+  "end_y" TEXT,
+  "annotator" TEXT
+);
+```
+> I noticed that it was lazy about assigning data types.
+
 
 ## csv export
 
