@@ -58,3 +58,43 @@ SQLite supports the following 11 built-in window functions:
 * ntile(N)  
 
     Argument N is handled as an integer. This function divides the partition into N groups as evenly as possible and assigns an integer between 1 and N to each group, in the order defined by the ORDER BY clause, or in arbitrary order otherwise. If necessary, larger groups occur first. This function returns the integer value assigned to the group that the current row is a part of.
+
+## Add/Change Column Data Type
+
+> Source [techonthenet](https://www.techonthenet.com/sqlite/tables/alter_table.php)
+
+### Add Column
+The syntax to ADD A COLUMN in a table in SQLite (using the ALTER TABLE statement) is:
+
+```sql
+ALTER TABLE table_name
+  ADD new_column_name column_definition;
+```
+
+### Change Column
+You can not use the ALTER TABLE statement to modify a column in SQLite. Instead you will need to rename the table, create a new table, and copy the data into the new table.
+
+Syntax
+The syntax to MODIFY A COLUMN in a table in SQLite is:
+
+```sql
+PRAGMA foreign_keys=off;
+
+BEGIN TRANSACTION;
+
+ALTER TABLE table1 RENAME TO _table1_old;
+
+CREATE TABLE table1 (
+( column1 datatype [ NULL | NOT NULL ],
+  column2 datatype [ NULL | NOT NULL ],
+  ...
+);
+
+INSERT INTO table1 (column1, column2, ... column_n)
+  SELECT column1, column2, ... column_n
+  FROM _table1_old;
+
+COMMIT;
+
+PRAGMA foreign_keys=on;
+```
