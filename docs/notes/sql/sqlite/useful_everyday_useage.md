@@ -98,3 +98,34 @@ COMMIT;
 
 PRAGMA foreign_keys=on;
 ```
+
+### Pivot Table
+
+> Courtesty of [modern-sql](https://modern-sql.com/use-case/pivot)
+
+Essentially what you need to do is a subquery in which the inner query has the data you want to source and pivot. The outer query will group by a *key* and **explicitly** define the columns that should be created from values in a particular row. Use *FILTER* to filter for the rows that will belong to each column. *Note:* This should be replaced by *CASE* statements in the future. 
+
+```sql
+SELECT year
+     , SUM(revenue) FILTER (WHERE month =  1) jan_revenue
+     , SUM(revenue) FILTER (WHERE month =  2) feb_revenue
+     ...
+     , SUM(revenue) FILTER (WHERE month = 12) dec_revenue
+  FROM (SELECT invoices.*
+             , EXTRACT(YEAR  FROM invoice_date) year
+             , EXTRACT(MONTH FROM invoice_date) month
+          FROM invoices 
+       ) invoices
+ GROUP BY year
+```
+
+
+
+
+
+
+
+
+
+
+
