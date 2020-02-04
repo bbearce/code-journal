@@ -1,7 +1,6 @@
 site_name: Ben's Code Journal
 nav:
     - Home: index.md
-
     - Languages:
         - Python: 
             - Installs: notes/python/Installs.md
@@ -56,6 +55,8 @@ nav:
     - Docker:
         - Basics: notes/docker/basics.md
         - Remote Registry: notes/docker/remote_registry.md
+    - Singularity:
+        - Basics: notes/singularity/basics.md
     - Git:
         - Basics: notes/git/git_basics.md
         - Subtrees: notes/git/git_sub_trees.md
