@@ -4,7 +4,7 @@
 
 *Introduction*: By default, the cloud server comes with a user named ```ubuntu```. You can use such primary user account for sysadmin tasks on Ubuntu. However, sometimes you need to add a user account on Ubuntu for additional sysadmin tasks. This page shows how to create a regular user account or sysadmin account on the Ubuntu server.
 
-## $ adduser 
+## Add User
 
 **Steps to create a user account on Ubuntu Linux**
 1. Open the terminal application  
@@ -51,7 +51,7 @@ $ grep '^vivek' /etc/passwd
 vivek:x:1001:1001:,,,:/home/vivek:/bin/bash
 ```
 
-## $ userdel
+## Delete User
 
 ### Remove the user
 1. Log in to your server via SSH.  
@@ -64,3 +64,18 @@ vivek:x:1001:1001:,,,:/home/vivek:/bin/bash
 
 > Warning: Only delete a user's home directory if you are certain you no longer need their files or mail.
 
+## Change Password
+
+> Source: [cyberciti](https://www.cyberciti.biz/faq/linux-set-change-password-how-to/)
+
+Type following passwd command to change your own password:
+```$ passwd```
+
+Sample Outputs:
+```bash
+Changing password for vivek
+(current) UNIX password:
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+```
