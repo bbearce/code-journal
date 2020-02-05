@@ -84,13 +84,153 @@ Let's discuss what happened. First the HTML layout.
 </html>
 
 ```
+## scss
+```scss
+html {
+    height: 94vh;
+}
+
+body {
+  height: 100%;
+  background: rgba(100,100,100, 0.1);
+}
+
+header {
+  background: rgba(100, 0, 0, 0.1);
+  height: 20%;
+  width: 100%;
+  
+  .navbar {
+    width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    li {
+      display: inline-block;
+      width: 50px;
+      border: 1px solid;
+    } 
+  }
+
+  .contact-info {
+    float: right;
+  }
+   
+}
+
+.content {
+  height: 80%;
+}
+
+.left {
+  color: blue;
+  float: left;
+  width: 20%;
+  height: 100%;
+  background: rgba(0,0,100, 0.1);
+  display: inline-block;
+}
+
+.middle {
+  width: 60%;
+  height: 100%;
+  background: rgba(100,100,100, 0.1);
+  display: inline-block;
+}
+
+.right {
+  color: green;
+  float:right;
+  width: 20%;
+  height: 100%;
+  background: rgba(0,100,0, 0.1);
+  display: inline-block;
+}
+
+footer {
+  background: rgba(100,0,0, 0.1);
+
+  .icons {
+
+    display: block;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+  
+}
+
+
+
+```
 
 ## CSS
 
-```html
+```css
+html {
+  height: 94vh; }
+
+body {
+  height: 100%;
+  background: rgba(100, 100, 100, 0.1); }
+
+header {
+  background: rgba(100, 0, 0, 0.1);
+  height: 20%;
+  width: 100%; }
+  header .navbar {
+    width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+    header .navbar li {
+      display: inline-block;
+      width: 50px;
+      border: 1px solid; }
+  header .contact-info {
+    float: right; }
+
+.content {
+  height: 80%; }
+
+.left {
+  color: blue;
+  float: left;
+  width: 20%;
+  height: 100%;
+  background: rgba(0, 0, 100, 0.1);
+  display: inline-block; }
+
+.middle {
+  width: 60%;
+  height: 100%;
+  background: rgba(100, 100, 100, 0.1);
+  display: inline-block; }
+
+.right {
+  color: green;
+  float: right;
+  width: 20%;
+  height: 100%;
+  background: rgba(0, 100, 0, 0.1);
+  display: inline-block; }
+
+footer {
+  background: rgba(100, 0, 0, 0.1); }
+  footer .icons {
+    display: block;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto; }
+
+/*# sourceMappingURL=style.css.map */
+
 ```
 
 ## JS
 
 ```javascript
+// none requred for this example
 ```
