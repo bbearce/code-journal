@@ -16,9 +16,8 @@ nav:
                 - Collection:
                     - Counter: notes/python/base_modules/collections/Counter.md
                     - default_dict(): notes/python/base_modules/collections/Default Dict.md
-                - Pandas:
-                    - Pandas: notes/python/base_modules/pandas/basics.md
                 - Pdb: notes/python/base_modules/Pdb.md
+            - Pandas: notes/python/pandas/basics.md
             - Advanced: 
                 - Decorators: notes/python/advanced/Decorators.md
                 - Classes: notes/python/advanced/Classes.md

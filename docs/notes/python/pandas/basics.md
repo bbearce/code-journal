@@ -55,3 +55,26 @@ cars = pd.read_excel(r'C:\Users\Ron\Desktop\Cars.xlsx')
 df = pd.DataFrame(cars, columns = ['Brand', 'Price'])
 
 ```
+
+## Apply Function
+
+```python
+
+x = pd.DataFrame({'A':[1,1,1,1,2,2,2,2], 'B':[0,0,0,0,0,1,0,1], 'C':['a' for i in range(8)]})
+y = pd.DataFrame({'A':[1,1,1,1,1,2,2,2,2,2], 'B':[1,0,1,0,1,0,1,0,1,1], 'C':['a' for i in range(10)]})
+z = pd.DataFrame({'A':[1,1,1,1,2,2,2,2], 'B':[2,3,6,9,1,1,6,7], 'C':['a' for i in range(8)]})
+
+def some_agg_function(df_group):
+    # It's important for the values to be sorted to make this easier
+    df_group = df_group.sort_values('B')
+    nrows = len(df_group)
+    if nrows % 2 == 0:
+    middle_index = nrows / 2 - 1; # for 0 based inded purposes; chooses 2 out of (1,[2],3,4)
+    else:
+    middle_index = math.floor(nrows / 2)
+    # pdb.set_trace()
+    return df_group.iloc[int(middle_index),:]
+print(x); print(x[['A','B']].groupby('A').apply(some_agg_function))
+print(y);print(y[['A','B']].groupby('A').apply(some_agg_function))
+print(z);print(z[['A','B']].groupby('A').apply(some_agg_function))
+```
