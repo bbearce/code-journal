@@ -50,6 +50,7 @@ nav:
             - VI: notes/bash/vi.md
             - Users: notes/bash/users.md
             - Processes: notes/bash/processes.md
+            - Mount: notes/bash/mount.md
             - On Startup: notes/bash/startup.md
     - Docker:
         - Basics: notes/docker/basics.md
