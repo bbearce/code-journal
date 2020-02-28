@@ -1,5 +1,7 @@
 # Chapter 1
 
+> Source [github](https://github.com/PacktPublishing/Learn-D3.js/)
+
 ## What is D3?
 D3 Stands for Data Driven Documents. It is a javascript library but not a charting library. It focuses on the data. It will replace the DOM API and libraries such as jQuery. It uses data to drive everything. Data is first. "This API is also used to bind and dispatch events, and to generate animated transitions. It can also parse different data formats, such as JSON and CSV, perform general data manipulation on objects and arrays.
 
