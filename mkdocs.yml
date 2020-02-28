@@ -34,13 +34,14 @@ nav:
                 - Basics: notes/sql/sqlite/Basics.md
                 - Useful Code: notes/sql/sqlite/useful_everyday_useage.md
             - mySQL: notes/sql/mysql/mySQL.md
-        - Front End:
-            - HTML: notes/front_end/html/html_template.md
-            - CSS: notes/front_end/css/css.md
-            - SASS: notes/front_end/sass/sass.md
-            - Javascript: notes/front_end/javascript/Javascript.md
-            - Sample Layouts: 
-                - Holy Grail: notes/front_end/layouts/holy_grail.md
+        - HTML: notes/html/html_template.md
+        - CSS: notes/css/css.md
+        - SASS: notes/sass/sass.md
+        - Javascript:
+            - Basics: notes/javascript/basics.md
+            - D3js: notes/javascript/D3js/basics.md
+        - Sample Web Layouts: 
+            - Holy Grail: notes/layouts/holy_grail.md
         - Bash: 
             - Basics: notes/bash/basics.md
             - Zip and Unzip: notes/bash/zip_and_unzip.md
@@ -69,7 +70,9 @@ nav:
             - SimpleHTTPServer: notes/internet_of_things/SimpleHTTPServer.md
             - Nginx: notes/internet_of_things/nginx.md
         - TLS Security: notes/internet_of_things/TLS Security/TLS Security.md
-
+    - Fast.ai:
+        - Introduction: notes/fast.ai/introduction.md
+        - Lessons (Part 1): notes/fast.ai/lessons_part_1.md
     - Algorithms:
         - Python: 
             - Wheel: notes/algorithms/python/wheel/wheel.md
