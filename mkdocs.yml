@@ -38,8 +38,10 @@ nav:
         - CSS: notes/css/css.md
         - SASS: notes/sass/sass.md
         - Javascript:
-            - Basics: notes/javascript/basics.md
-            - D3js: notes/javascript/D3js/basics.md
+            - D3js: 
+                - d3js.org: notes/javascript/D3js/d3js.org/basics.md
+                - D3.js - Rocha: 
+                    - Chapter 1: notes/javascript/D3js/Rocha/chapter-1.md
         - Sample Web Layouts: 
             - Holy Grail: notes/layouts/holy_grail.md
         - Bash: 
