@@ -1,6 +1,79 @@
 # Installs
 
-## Installing
+## Installing python3.6
+
+>Source [realpython](https://realpython.com/installing-python/)
+
+Ubuntu 17.10, Ubuntu 18.04 (and above) come with Python 3.6 by default. You should be able to invoke it with the command ```python3```.
+
+Ubuntu 16.10 and 17.04 do not come with Python 3.6 by default, but it is in the Universe repository. You should be able to install it with the following commands:
+
+```bash
+$ sudo apt-get update
+$ sudo apt-get install python3.6
+```
+
+You can then invoke it with the command ```python3.6```.
+
+If you are using Ubuntu 14.04 or 16.04, Python 3.6 is not in the Universe repository, and you need to get it from a Personal Package Archive (PPA). For example, to install Python from the “deadsnakes” PPA, do the following:
+
+```bash
+$ sudo add-apt-repository ppa:deadsnakes/ppa
+$ sudo apt-get update
+$ sudo apt-get install python3.6
+```
+
+As above, invoke with the command ```python3.6```.
+
+## Installing python3.7+
+
+>Source [linuxize](https://linuxize.com/post/how-to-install-python-3-7-on-ubuntu-18-04/)
+
+### Install with Apt
+
+Installing Python 3.7 on Ubuntu with apt is a relatively straightforward process and will only take a few minutes:
+
+Start by updating the packages list and installing the prerequisites:
+
+```bash
+sudo apt update
+sudo apt install software-properties-common
+```
+
+Next, add the deadsnakes PPA to your sources list:
+
+```bash
+sudo add-apt-repository ppa:deadsnakes/ppa
+```
+
+When prompted press Enter to continue:
+
+```bash
+Press [ENTER] to continue or Ctrl-c to cancel adding it.
+```
+
+Once the repository is enabled, install Python 3.7 with:
+
+```bash
+sudo apt install python3.7
+```
+
+At this point, Python 3.7 is installed on your Ubuntu system and ready to be used. You can verify it by typing:
+
+```bash
+python3.7 --version
+Python 3.7.3
+```
+
+### Install from source
+>Source [linuxize](https://linuxize.com/post/how-to-install-python-3-7-on-ubuntu-18-04/)
+
+This first step may or may not be necessary but is probably a good idea. First, update the packages list and install the packages necessary to build Python source:
+
+```bash
+sudo apt update
+sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget
+```
 
 You an use ```wget``` to grab the latest like so:
 
@@ -62,6 +135,9 @@ install``.  Install all other versions using ``make altinstall``.
 
 
 To continue run ```make```:
+
+> Note that 
+
 ```bash
 $ ./configure
 $ make
