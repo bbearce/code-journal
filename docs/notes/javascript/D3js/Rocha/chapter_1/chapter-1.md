@@ -1,3 +1,14 @@
+## References:
+
+* D3.js documentation: d3js.org  
+* D3.js API reference: github.com/d3/d3/blob/master/API.md  
+* D3.js module repository: github.com/d3  
+* D3.js gallery: github.com/d3/d3/wiki/Gallery  
+* D3.js wiki: github.com/d3/d3/wiki  
+* Bl.ocks portfolios: bl.ocks.org  
+* Observable notebooks: observablehq.com  
+
+
 > Source [github](https://github.com/PacktPublishing/Learn-D3.js/)
 
 ## What is D3?
