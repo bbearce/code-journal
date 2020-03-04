@@ -41,7 +41,7 @@ nav:
             - D3js: 
                 - d3js.org: notes/javascript/D3js/d3js.org/basics.md
                 - D3.js - Rocha: 
-                    - Chapter 1: notes/javascript/D3js/Rocha/chapter-1.md
+                    - Chapter 1: notes/javascript/D3js/Rocha/chapter_1/chapter-1.md
         - Sample Web Layouts: 
             - Holy Grail: notes/layouts/holy_grail.md
         - Bash: 
