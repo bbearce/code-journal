@@ -249,7 +249,7 @@ You can also align text horizontally using the text-anchor attribute. The follow
 
 Properties for aligning text. Code: SVG/15-text-align.html.
 
-It's best to configure baselines and alignments in CSS instead of using XML attributes.
+**It's best to configure baselines and alignments in CSS instead of using XML attributes.**
 
 If your text spans multiple lines, you can use the ```<tspan>``` element inside ```<text>``` to move words or letters to positions relative to the parent ```<text>``` element (see SVG/16-tspan.html).
 
@@ -257,7 +257,7 @@ If your text spans multiple lines, you can use the ```<tspan>``` element inside 
 
 You can group several shapes in SVG with the ```<g>``` element. It's analogous to a ```<div>``` in HTML. This is an invisible element and it's positioned at the center of coordinates. CSS properties applied to a group affect all the objects it contains. You can also apply matrix transforms to groups to move, rotate and scale all its contents. A group container can also contain other group containers.
 
-In the following SVG, circles and ellipses are in a group, and rectangles are in another. The color of the elements is each group is declared in CSS, and they are translated, scaled and rotated together:
+In the following SVG, circles and ellipses are in a group, and rectangles are in another. The color of the elements in each group is declared in CSS, and they are translated, scaled and rotated together:
 
 ```html
 <style>
@@ -282,6 +282,8 @@ In the following SVG, circles and ellipses are in a group, and rectangles are in
 
 
 The following screenshot shows the groups before applying any transforms or styles to their groups (at left), and after applying the transforms and styles from the code above (right):
+
+>Left pic is without the ```<g>``` tags or with no arguments to them if they are there.
 
 ![grouped_containers](grouped_containers.png)
 
