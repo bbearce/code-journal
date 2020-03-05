@@ -44,6 +44,7 @@ nav:
                     - Chapter 1: notes/javascript/D3js/Rocha/chapter_1/chapter-1.md
                     - Chapter 2: notes/javascript/D3js/Rocha/chapter_2/chapter-2.md
                     - Chapter 3: notes/javascript/D3js/Rocha/chapter_3/chapter-3.md
+                - Basics: notes/javascript/basics.md
         - Sample Web Layouts: 
             - Holy Grail: notes/layouts/holy_grail.md
         - Bash: 

@@ -6,7 +6,7 @@ This chapter covers fundamental standard web technologies used by D3: SVG, JavaS
 
 Most data visualizations created with D3.js generate SVG graphics. Good knowledge of SVG is important to make the most of D3, but you only really need to know the basics.
 
-## SVG
+## 1) SVG
 
 SVG stands for Scalable Vector Graphics. It’s an XML-based image format that describes graphics using geometrical attributes. Unlike HTML5 Canvas, which is another standard for vector graphics, SVG primitives are made of individual XML elements described using tags and attributes. It is also object-based and provides a DOM, which allows CSS styling, dynamic shape creation and manipulation, and coordinate transforms using JavaScript or CSS.
 
@@ -536,8 +536,13 @@ Compare this code and the following image it generates it with an identical imag
 An image created using SVG. Code: SVG/29-example.html.
 
 
-## Essential JavaScript data structures
+## 2) Essential JavaScript data structures
 
-## HTML Canvas
+I'm actually going to organize this somewhere else to help with my code journal.
 
-## Data Formats
+[Link to the Basics](../../../basics.md)
+
+
+## 3) HTML Canvas
+
+## 4) Data Formats
