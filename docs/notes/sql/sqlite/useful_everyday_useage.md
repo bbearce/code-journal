@@ -119,6 +119,66 @@ SELECT year
  GROUP BY year
 ```
 
+## Julian Day
+
+>Source [techonthenet](https://www.techonthenet.com/sqlite/functions/julianday.php)
+
+Syntax:
+
+The syntax for the julianday function in SQLite is:
+```sql
+julianday(timestring [, modifier1, modifier2, ... modifier_n ] )
+```
+
+More concrete example:
+
+```sql
+select
+mrn,
+date,
+julianday(date) as j_day
+from mrns_dates;
+```
+
+output:
+
+| # | mrn     | date       | j_day     |
+|---|---------|------------|-----------|
+| 1 | ####### | 2011-04-19 | 2455670.5 |
+| 2 | ####### | 2011-09-26 | 2455830.5 |
+| 3 | ####### | 2012-02-01 | 2455958.5 |
+| 4 | ####### | 2012-03-19 | 2456005.5 |
+| 5 | ####### | 2012-04-24 | 2456041.5 |
+| 6 | ####### | 2014-07-30 | 2456868.5 |
+
+
+Notes: A date value. It can be one of the following:
+
+
+| timestring              | Explanation                                                                                                            |
+|-------------------------|------------------------------------------------------------------------------------------------------------------------|
+| now                     | now is a literal used to return the current date                                                                       |
+| YYYY-MM-DD              | Date value formatted as 'YYYY-MM-DD'                                                                                   |
+| YYYY-MM-DD HH:MM        | Date value formatted as 'YYYY-MM-DD HH:MM'                                                                             |
+| YYYY-MM-DD HH:MM:SS     | Date value formatted as 'YYYY-MM-DD HH:MM:SS'                                                                          |
+| YYYY-MM-DD HH:MM:SS.SSS | Date value formatted as 'YYYY-MM-DD HH:MM:SS.SSS'                                                                      |
+| HH:MM                   | Date value formatted as 'HH:MM'                                                                                        |
+| HH:MM:SS                | Date value formatted as 'HH:MM:SS'                                                                                     |
+| HH:MM:SS.SSS            | Date value formatted as 'HH:MM:SS.SSS'                                                                                 |
+| YYYY-MM-DDTHH:MM        | Date value formatted as 'YYYY-MM-DDTHH:MM' where T is a literal character separating the date and time portions        |
+| YYYY-MM-DDTHH:MM:SS     | Date value formatted as 'YYYY-MM-DDTHH:MM:SS' where T is a literal character separating the date and time portions     |
+| YYYY-MM-DDTHH:MM:SS.SSS | Date value formatted as 'YYYY-MM-DDTHH:MM:SS.SSS' where T is a literal character separating the date and time portions |
+| DDDDDDDDDD              | Julian date number                                                                                                     |
+
+
+
+
+
+
+
+
+
+
 
 
 
