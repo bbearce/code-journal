@@ -252,5 +252,397 @@ The preceding code will generate an HTML list with the data.
 
 ## Creating a bar chart with D3 and HTML
 
+Now that you have had a quick introduction to D3's basic data-binding mechanisms, let's create some full data visualization examples that will demonstrate the power of D3. You should know HTML very well, so we will start with a simple bar chart using HTML and CSS. Later, we will repeat the exact same procedure using SVG, the main standard used by D3 to create visualizations.
 
+All the code for these examples is available in the GitHub repository for this chapter.
+
+### Binding data to HTML
+
+In this example, we will draw a horizontal bar chart using HTML ```<div>``` elements. The colors and length of each bar are controlled by CSS, which we can configure using the ```selection.style()``` command. We will use the object array containing planetary distances from the last example. First, let's create a style sheet with classes for the ```bar-chart``` and each individual ```bar```:
+
+```html
+<style>
+    .bar-chart {
+        border: solid 1px gray; /* a gray border around the container */
+        position: relative;
+    }
+    .bar {
+        height: 20px;
+        background-color: orange;
+        position: absolute;
+    }
+</style>
+```
+
+The bars are positioned absolutely. Since each bar has an equal height (20px), we need to position each bar slightly below the previous one. This can be achieved by setting the value for the CSS ```top``` property (in pixels) so that it contains the sum of the heights of all the previous bars, plus an extra pixel to keep them slightly apart. The ```top``` property can be dynamically calculated as proportional to each entry's array index, using a callback in ```selection.style()``` (see ```HTML_Bar/1-bar-chart.html```):
+
+```js
+d3.select("body")
+    .append("div").attr("class", "bar-chart")                 // container div for the chart
+    .style("height", () => distances.length * 21 + "px")      // set chart height
+    .selectAll("div").data(distances)                         // binds data
+    .enter().append("div")                                    // appends a div for each data element
+    .attr("class", "bar")                                     // these divs are the bars of  the chart
+    .style("top", (d,i) => i * 21 + "px")                     // stacks bars 
+    .style("width", "100px")                                  // fixed width
+```
+
+output:
+
+![bar_chart_0](bar_chart_0.png)
+
+This prints all the bars, one on top of the other, but they all have the same static width! We need to use a callback to change the width of each individual bar. In a bar chart, the actual width should be **proportional** to the distance. A solution would be to multiply each value by 10. This will make the smallest bar three pixels wide, and the largest over 670 pixels:
+
+```js
+.style("width", d => (d.distance * 10) + "px")
+```
+
+Now, the lengths of the bars are proportional to the data values. This code is in ```HTML_Bar/2-bar-width.html```. The result is shown as follows:
+
+![bar_chart_1](bar_chart_1.png)
+
+
+HTML bar chart with D3: Drawing DIVs and using the data to change the CSS width. Code: ```HTML_Bar/2-bar-width.html```
+
+### Scales
+What if a new planet is discovered that is 10 times the largest distance? The bars wouldn't fit and their widths would need to be recalculated! D3 also provides a solution for this: ```scales```.
+
+Scales are mappings between different dimensions. In our case, we have to deal with two dimensions: the dimension of the data, called the ```domain```, and the dimension of the graphics context where the data will be displayed, called the ```range```. Before using a scale, you have to configure its domain and range. There are several different kinds of scales in D3, including linear and logarithmic scales, with many configuration options.
+
+A scale is created with a special generator function available in the ```d3-scale``` module. To use this module, you need to load several dependencies, so let's replace the ```<script>``` tag with the default bundle:
+
+```html
+<script src="https://d3js.org/d3.v5.min.js"></script>
+```
+
+To create a scale function, you call a special generator function. A linear scale function can be created using the following:
+
+```js
+const barScale = d3.scaleLinear();
+```
+ 
+
+To use the scale function you created, you pass a value as the argument and receive the converted result:
+
+```js
+const result = barScale(45); // returns 45
+```
+
+This will return ```45```, because the scale hasn't been configured yet (the default scale is 1:1). To configure the scale, you need to call two methods to set up the domain (data dimensions) and range (graphical dimensions). Each method receives an array. For example, we can set up the domain as follows:
+
+```js
+barScale.domain([0, 100]); // input domain from 0 to 100
+```
+
+This fits all the distances in our data. The range is set up in a similar fashion:
+
+```js
+barScale.range([0, 600]); // output domain from 0 to 600
+```
+
+This means that zero is mapped to zero, and 100 **astronomical units (AU)** is mapped to 600 (pixels). Intermediate values will be interpolated.
+
+If you now call ```barScale(45)```, you will get ```270```. We can use the scale to convert the distances in AU to pixels, replacing the previous expression with a scale conversion (see ```HTML_Bar/3-scales.html```):
+
+```js
+.style("width", d => barScale(d.distance) + "px");
+```
+
+### Array utilities
+
+We chose 100 as the upper limit in our scale domain because it's larger than any of the distances in the data, but the choice was rather arbitrary. We could have chosen the largest value in the array. If you have hundreds of lines of data, you can use JavaScript array functions (see **Chapter 1, Introduction**) to find out the maximum value.
+
+D3 also includes a collection of array manipulation functions that extend JavaScript's native functions. Some look similar but may be more efficient for data manipulation (for example, by ignoring ```null```, ```NaN```, and ```undefined``` values). In order to use them, you need the d3-array module (which is also part of the default bundle).
+
+Here, we changed the configuration of our ```barScale()``` function so that it uses the largest distance from the ```distances``` object array as the upper value for the domain. This is achieved with by calling the ```d3.max()``` function, which receives an array and an accessor function for each array element, as follows:
+
+```js
+const barScale = d3.scaleLinear()
+                   .domain([0, d3.max(distances, d => d.distance)]) 
+                   .range([0, 600]);
+```
+
+The ```d3.max()``` function will scan the ```distances``` array and compare the ```distance``` property of each object, returning the largest one.
+
+There are many more useful functions in **d3-array**, which we will cover in the next chapter. Two of them, ```d3.descending(a,b)``` and ```d3.ascending(a,b)```, are used to provide a sorting rule for JavaScript's native ```sort()``` method. We can use it to sort the array by the distance:
+
+```js
+distances.sort((a,b) => d3.ascending(a.distance, b.distance));
+```
+
+See and run the code after these transformations in ```HTML_Bar/4-max-sort.html```.
+
+### Adding labels
+Since the ```<div>``` elements in HTML can contain text, you can call the ```text()``` method for each ```<div>``` and set its contents based on the data:
+
+```js
+d3.select("body")
+        .append("div").attr("class", "bar-chart")
+        // ...all previous code to build chart
+        .text(d => d.distance); // display distance in the <div>
+```
+
+With CSS, we can right-align the text and adjust the fonts. Since these styles are static and don't change with the data, instead of calling ```style()``` for each property, you should use a style sheet:
+
+```html
+<style>
+    /* ... */
+    .bar {
+        height: 20px;
+        left: 100px;
+        background-color: orange;
+        position: absolute;
+        text-align: right;
+        padding: 0 5px;
+        font-family: sans-serif;
+        font-size: 9pt;
+    }
+</style>
+```
+
+As a result, the labels are placed inside the bars, as follows:
+![bar_chart_2](bar_chart_2.png)
+
+Adding labels to the bars. Code: ```HTML_Bar/5-labels.html```.
+
+### More labels, formatting, and colors
+
+Each object in our data array also contains a name property that can be used to label each bar. To position text outside the bar, we will need to refactor the code so that each data entry contains a container ```<div>```, which will be bound to the data values. This entry ```<div>``` will then contain three other ```<div>``` elements: a category label (the name of the planet), the bar, and a value label (the distance). Classes will be used to identify each ```<div>```. The following style sheet contains the static properties for these elements:
+
+```html
+<style>
+    .bar-chart {         /* The container <div> for the entire chart */
+        border: solid 1px gray;
+        position: relative;
+        width: 800px;
+    }
+    .entry {             /* a container <div> for each data entry */
+        position: absolute;
+        width: 100%;
+    }
+    .bar {               /* the colored rectangle */
+        height: 20px;
+        top: 1px;
+        left: 100px;
+        background-color: orange;
+        position: absolute;
+    }
+    .label {             /* a text label */ 
+        padding: 4px 5px;
+        font-family: sans-serif;
+        font-size: 9pt;
+        position: absolute;
+        height: 20px;
+    } 
+    .category {           /* the category text label at left (name) */
+        text-align: right;
+        width: 80px;
+    }
+    .value {              /* the value text label at right (distance) */
+        text-align: left;
+    }
+</style>
+```
+
+Since each entry ```<div>``` has three children, we need to keep a reference to its selection so that the child elements can be appended. The following code saves references for each one of the container ```<div>``` elements. The ```chart``` constant contains a selection of the root ```<div>``` element, and the ```entries``` constant contains the selection of all entry ```<div>``` elements:
+
+```js
+// selects the entire chart (one node)
+ const chart = d3.select("body")
+                 .append("div").attr("class", "bar-chart")
+                 .style("height", distances.length * 21 + "px");
+
+ // selects each entry (a nodelist)
+ const entries = chart.selectAll("div").data(distances)
+         .enter().append("div")
+         .attr("class", "entry")
+         .style("top", (d,i) => i * 21 + "px");
+```
+
+You can now use the ```entries``` constant to append the child elements to each entry ```<div>``` (see ```HTML_Bar/6-entries.html```):
+
+```js
+entries.append("div").attr("class", "label category")
+        .text(d => d.name);
+
+entries.append("div").attr("class", "bar")
+        .style("width", d => barScale(d.distance) + "px");
+
+entries.append("div").attr("class", "label value")
+        .style("left", d => (barScale(d.distance) + 100) + "px")
+        .text(d => d.distance + " AU");
+```
+
+Each ```append()``` shown is called once for each entry. The attributes, style, and text are set using the data that was bound to the parent container.
+
+You can add child elements without having to break the selection chain with the ```selection.each()``` method, which calls a function for each entry. Inside it, you can obtain a selection to the current element using ```d3.select(this)```. The following code produces the same result (see ```HTML_Bar/7-entries-each.html```):
+
+```js
+entries.each(function(d) { 
+    const entry = d3.select(this); // the current entry
+    entry.append("div").attr("class", "label category")
+         .text(d.name);
+
+    entry.append("div").attr("class", "bar")
+         .style("width", barScale(d.distance) + "px");
+
+    entry.append("div").attr("class", "label value")
+         .style("left", (barScale(d.distance) + 100) + "px")
+         .text(d.distance + " AU");
+});
+```
+
+We can improve the rendering of the labels by formatting the numbers to display only two decimal places, using the ```d3.format()``` generator function (from the ```d3-format``` module). The following code creates a function ```fmt()``` that can be used to format numbers:
+
+```js
+const fmt = d3.format(".2f");
+```
+
+Now, we can use it to format the distances:
+
+```js
+.text(d => fmt(d.distance) + " AU");
+```
+The final result is shown as follows:
+![bar_chart_3](bar_chart_3.png)
+
+Adding category names and placing the formatted label values outside the bars. Code: ```HTML_Bar/7-entries-each.html```
+
+### Changing colors
+
+The **d3-colors** module contains functions to generate, convert, and transform colors. Passing any CSS-compatible color representation to ```d3.color()``` generates an object with methods that can be used to modify the color. The ```darker()``` and ```brighter()``` methods receive a value between 0 (no change) and 1 (maximum change) to adjust the lightness component of a color and return a hexadecimal color string.
+
+Let's use this feature to darken the bars when the distance from the sun increases. We will need a scale that maps the ```distance``` domain to the [0-1] range, which contains the values accepted by the ```darker()``` function:
+
+```js
+colorScale = d3.scaleLinear()
+        .domain([0, d3.max(distances, d => d.distance)])
+        .range([0,1])
+```
+
+Now, this colorScale can be used to generate different tones for the bars:
+
+```js
+entry.append("div").attr("class", "bar")
+    .style("width", barScale(d.distance) + "px")
+    .style("background-color", d3.color('orange')
+    .darker(colorScale(d.distance)))
+```
+
+See the code in ```HTML_Bar/8-colors.html```. The result is shown as follows:
+![bar_chart_4](bar_chart_4.png)
+
+Changing bar colors with the distance. Code: ```HTML_Bar/8-colors.html```
+
+### Loading external files
+
+Usually, your data will come from external files that need to be loaded with an Ajax request. You can, of course, use jQuery or ECMAScript ```fetch()``` commands (and promises, if you need to load multiple files). After loading, you will also need to parse the data and convert it into JavaScript arrays and objects. D3 again provides a more efficient solution in the ```d3-fetch``` module: a set of convenient methods for loading and parsing files in popular formats, such as XML, JSON, or CSV. The ```d3-fetch``` module is also included in the default bundle.
+
+The planetary data we used in the previous examples is actually part of a larger JSON file containing several properties for planets, asteroids, and satellites. The basic structure of this file (```Data/sol_2016.json```) is shown as follows:
+
+```js
+{
+     "star":{…},
+     "planets":[
+         {
+             "id":"p1",
+             "name":"Mercury",
+             "diameterKm":4879, 
+             "semiMajorAxisAU":0.387, 
+             …
+            },{
+             "id":"p2",
+             "name":"Venus",
+             "diameterKm":12104, 
+             "semiMajorAxisAU":0.723, 
+               …
+            }, …
+ }
+ ```
+
+You can load the data using the ```d3.json()``` function. After it loads and parses the file, it will become available in a callback provided as a parameter to the ```then()``` method (which is a JavaScript promise).
+
+We don't need all the loaded data. The distance used in our examples is stored in the property called ```semiMajorAxisAU```. After loading the file, we can filter the dataset to only save the ```semiMajorAxisAU``` and ```name``` properties. The following code demonstrates this. It loads the file, and it then uses the data obtained in the ```then()``` callback to loop through the planets array, adding only the chosen properties to a new object and pushing it into an array. The array is used to create an HTML list with these properties (see``` Loading/1-loading-json.html```):
+
+```js
+//d3.json("../Data/sol_2016.json") // if you down load it
+d3.json("https://raw.githubusercontent.com/PacktPublishing/Learn-D3.js/master/Chapter03/Data/sol_2016.json") // if you use the git hub data. This is so cool!
+        .then(function(data) {
+            const planets = [];
+            data.planets.forEach(function(obj) {
+                planets.push({
+                    name: obj.name,
+                    distance: obj.semiMajorAxisAU
+                });
+            });
+            draw(planets);
+        });
+
+function draw(distances) {
+    d3.select("body").append("ol")
+      .selectAll("li")
+      .data(distances)
+      .join("li")
+      .text(d => d.name + " (" + d.distance + " AU)");
+}
+```
+
+To apply this to our chart, you just need to replace the contents of the ```draw()``` method shown with the entire code used in the previous examples (except for the distances array). See an example in ```HTML_Bar/9-load-json.html```. As an exercise, try feeding the bar chart with a list of Jupiter's moons, instead of the planets (use ```data.planets[4].satellites``` to obtain the array, and the ```semiMajorAxisKm``` property as the distance, and ```d3.format(",.0f")``` to format the distance values).
+
+Full Example:
+
+```js
+
+
+
+d3.json("https://raw.githubusercontent.com/PacktPublishing/Learn-D3.js/master/Chapter03/Data/sol_2016.json") // if you use the git hub data. This is so cool!
+        .then(function(data) {
+            const planets = [];
+            data.planets.forEach(function(obj) {
+                planets.push({name: obj.name, distance: obj.semiMajorAxisAU});
+            });
+            draw(planets);
+        });
+
+function draw(distances) {
+    const barScale = d3.scaleLinear()
+    .domain([0, d3.max(distances, d => d.distance)]) 
+    .range([0, 600]);
+
+    const colorScale = d3.scaleLinear()
+        .domain([0, d3.max(distances, d => d.distance)])
+        .range([0,1])
+
+    // selects the entire chart (one node)
+    const chart = d3.select("body")
+    .append("div").attr("class", "bar-chart")
+    .style("height", distances.length * 21 + "px");
+
+    // selects each entry (a nodelist)
+    const entries = chart.selectAll("div").data(distances.sort((a,b) => d3.ascending(a.distance, b.distance)))
+    .enter().append("div")
+    .attr("class", "entry")
+    .style("top", (d,i) => i * 21 + "px");
+
+
+    entries.each(function(d) { 
+    const entry = d3.select(this); // the current entry
+    const fmt = d3.format(".2f"); // format for each entry
+
+    entry.append("div").attr("class", "label category")
+    .text(d.name);
+
+    entry.append("div").attr("class", "bar")
+    .style("width", barScale(d.distance) + "px")
+    .style("background-color", d3.color('orange')
+                        .darker(colorScale(d.distance)))
+
+    entry.append("div").attr("class", "label value")
+    .style("left", (barScale(d.distance) + 100) + "px")
+    .text(d => fmt(d.distance) + " AU");
+    });
+}
+```
+
+## Creating a bar chart with D3 and SVG
 

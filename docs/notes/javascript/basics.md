@@ -327,3 +327,29 @@ const array2 = [... map.values()];  // an array of values
 const array3 = Array.from(map.values()); // an array of keys  
 ```
 
+## Promises
+
+>Source [Web Dev Simplified](https://www.youtube.com/watch?v=DHvZLI7Db8E)
+
+Define a promise. ```1+1``` is what we want the promise to do. The object itself accepts a function that has inputs *resolve* and *reject*.
+
+```js
+let p = new Promise((resolve, reject) => {
+    let a = 1 + 1 // if you change of one these to 2 to make it fail you have to have the p.then().catch() code implemented of you will get a "Uncaught (in promise) Failed" message
+    if (a == 2) {
+        resolve('Success')
+    } else {
+        reject('Failed')
+    }
+})
+```
+Interact with promises. the ```.then``` method runs if the promise *resolves*. If the promise rejects it runs the *.catch* method. 
+
+```js
+p.then((message) => {
+    console.log('This is in the then ' + message)
+}).catch ((message) => {
+    console.log('This is in the catch '+ message)
+})
+```
+
