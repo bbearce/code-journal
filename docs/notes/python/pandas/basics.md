@@ -6,10 +6,12 @@
 
 ```python
 pd.set_option('display.max_columns', 50) # How many to show
+pd.set_option('display.min_rows', 25) # How many to show
 pd.set_option('display.max_rows', 25) # How many to show
 pd.set_option('display.width', 1000) # How far across the screen
 pd.set_option('display.max_colwidth', 1) # Column width in px
 pd.set_option('display.max_colwidth', 40) # Column width in px
+pd.set_option('expand_frame_repr', True) # allows for the representation of dataframes to stretch across pages, wrapped over the full column vs row-wise
 ```
 
 ## Making DataFrames

@@ -592,9 +592,6 @@ To apply this to our chart, you just need to replace the contents of the ```draw
 Full Example:
 
 ```js
-
-
-
 d3.json("https://raw.githubusercontent.com/PacktPublishing/Learn-D3.js/master/Chapter03/Data/sol_2016.json") // if you use the git hub data. This is so cool!
         .then(function(data) {
             const planets = [];
@@ -646,3 +643,108 @@ function draw(distances) {
 
 ## Creating a bar chart with D3 and SVG
 
+It's easy to create a horizontal bar chart in HTML. It's a bit trickier to make a vertical one, and quite challenging to create other charts, such as line charts, pie charts, and network diagrams, since HTML wasn't intended for vector graphics. **While you can create such charts using HTML and CSS, it's not at all simple, nor is it recommended**. You can, of course, use Canvas, but there are no graphical DOM elements to bind in Canvas. Canvas is used in D3 charts, but mostly for performance optimization. **D3 works best with SVG**.
+
+The same bar chart that we created with HTML can be created with SVG. Do you think you can do it? Why not try it as an exercise before proceeding? You already learned how to use D3 and HTML, and you know the basics of SVG rectangles, attributes, and styles. That's all you need!
+
+Most of the code is the same. You can reuse the scales, formatting function, sorting function, and JSON parsing code. The CSS will be simpler, since positioning is done in SVG. You only need to change the selection code, replacing the bar ```<div>``` element with ```<rect>```, text label ```<div>``` elements with ```<text>```, and container ```<div>``` elements with ```<g>```. Remember to use fill (and not background-color) to fill the bars.
+
+The same step-by-step files that were used in the HTML example are available for the SVG example in the ```SVG_Bar/ folder```. The following, final code produces exactly the same chart as the HTML version.
+
+This is the CSS style sheet that's used. Since all positioning is done in SVG, it's much smaller:
+
+```html
+<style>
+     * {
+         font-family: sans-serif;
+     }
+     .bar-chart {
+         border: solid 1px gray;
+         width: 800px;
+     }
+     .bar {
+         height: 20px;
+         fill: orange;
+     }
+     .label {
+         font-size: 9pt;
+     }
+     .category {
+         text-anchor: end;
+     }
+ </style>
+```
+
+The main container is the ```<svg>``` element, which is appended to the body, as shown in the following code snippet. We renamed the chart object ```svg```:
+
+```js
+
+// selects the entire chart (one node)
+ const svg = d3.select("body")
+               .append("svg").attr("class", "bar-chart")
+               .style("height", distances.length * 21);
+```
+
+The containers used for each entry are ```<g>``` elements, which group several child elements and can have their own coordinate system configured using a **transform**. Although the ```transform``` property is supported in both CSS and SVG, you should use the SVG version (selected with the ```attr()``` method), because it considers pixel values and degrees as the default. You don't have to append ```deg``` or ```px``` to any values:
+
+```js
+// selects each entry (a nodelist)
+ const entries = svg.selectAll("g").data(distances)
+                    .enter().append("g")
+                    .attr("class", "entry")
+                    .attr("transform", (d,i) => `translate(0, ${i * 21})`);
+```               
+
+The ```entries``` are appended to the container ```<g>``` in the ```each()``` method, as follows. Compare this code to the HTML version:
+
+```js
+
+// sort distances
+distances = distances.sort((a,b) => d3.ascending(a.distance, b.distance));
+
+// selects the entire chart (one node)
+const svg = d3.select("body")
+.append("svg").attr("class", "bar-chart")
+.style("height", distances.length * 21);
+
+// barScales
+const barScale = d3.scaleLinear()
+.domain([0, d3.max(distances, d => d.distance)]) 
+.range([0, 600]);
+
+// colorScale
+const colorScale = d3.scaleLinear()
+.domain([0, d3.max(distances, d => d.distance)])
+.range([0,1])
+
+// decimal format
+const fmt = d3.format(".2f");
+
+// selects each entry (a nodelist)
+const entries = svg.selectAll("g").data(distances)
+.enter().append("g")
+.attr("class", "entry")
+.attr("transform", (d,i) => `translate(0, ${i * 21})`);
+
+entries.each(function(d) {
+    const entry = d3.select(this); // the current entry
+
+    entry.append("text").attr("class", "label category")
+         .attr("y", 15)
+         .attr("x", 90)
+         .text(d.name);
+
+    entry.append("rect").attr("class", "bar")
+         .attr("x", 100)
+         .attr("width", barScale(d.distance) + "px")
+         .style("fill", d3.color('orange')
+                          .darker(colorScale(d.distance)))
+
+    entry.append("text").attr("class", "label value")
+        .attr("y", 15)
+        .attr("x", barScale(d.distance) + 105)
+        .text(fmt(d.distance) + " AU");
+});
+```
+
+Try the full code from ```SVG_Bar/9-load-json.html```. If you open it in your browser, you will notice that the result is identical to the one you get with ```HTML_Bar/9-load-json.html```. To explore more D3 features, in the next sections, we will use the SVG version of this bar chart.

@@ -2,7 +2,9 @@
 
 ## Installing python3.6
 
->Source [realpython](https://realpython.com/installing-python/)
+>Source1 [realpython](https://realpython.com/installing-python/)
+
+>Source2 [stackoverflow](https://stackoverflow.com/questions/52656887/how-to-unistall-python3-5-and-re-install-python3-7/52657343)
 
 Ubuntu 17.10, Ubuntu 18.04 (and above) come with Python 3.6 by default. You should be able to invoke it with the command ```python3```.
 
@@ -143,4 +145,35 @@ $ ./configure
 $ make
 $ make test
 $ sudo make altinstall
+```
+
+## Uninstall
+
+>Source [howtoinstall](https://www.howtoinstall.co/en/ubuntu/xenial/python?action=remove)
+
+### Uninstall python
+To remove just python package itself from Ubuntu 16.04 (Xenial Xerus) execute on terminal:
+
+```bash
+sudo apt-get remove python
+```
+
+###Uninstall python and it's dependent packages
+To remove the python package and any other dependant package which are no longer needed from Ubuntu Xenial.
+
+```bash
+sudo apt-get remove --auto-remove python
+```
+
+### Purging python
+If you also want to delete configuration and/or data files of python from Ubuntu Xenial then this will work:
+
+```bash
+sudo apt-get purge python
+```
+
+To delete configuration and/or data files of python and it's dependencies from Ubuntu Xenial then execute:
+
+```bash
+sudo apt-get purge --auto-remove python
 ```
