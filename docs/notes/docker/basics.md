@@ -299,3 +299,8 @@ Another way to share is with:
 
 [save/load docs](https://docs.docker.com/engine/reference/commandline/save/ )
  
+## Internet issues
+
+>Source [medium.com](https://medium.com/@faithfulanere/solved-docker-build-could-not-resolve-archive-ubuntu-com-apt-get-fails-to-install-anything-9ea4dfdcdcf2)
+
+I had issues while connected to vpn. It was solved once I disconnected...
