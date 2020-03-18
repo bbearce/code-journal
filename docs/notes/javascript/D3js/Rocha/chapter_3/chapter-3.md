@@ -748,3 +748,268 @@ entries.each(function(d) {
 ```
 
 Try the full code from ```SVG_Bar/9-load-json.html```. If you open it in your browser, you will notice that the result is identical to the one you get with ```HTML_Bar/9-load-json.html```. To explore more D3 features, in the next sections, we will use the SVG version of this bar chart.
+
+## Updating Data Visualizations
+
+Once the data is bound to SVG elements, you can change the original data values and reflect the changes in the chart. Values can change immediately or transition smoothly. This section will provide an introduction on how to trigger data updates and configure smooth transitions using D3.
+
+First, we need more data. Let's change the code where we create our data object and include two more values that use the same dimensions: the **aphelium** (the longest distance between a planet and the sun) in the ```max``` property, and the **perihelium** (the shortest distance) in the ```min``` property. The distance is now stored in the avg property (see ```Updating/1-three-charts.html```):
+
+```js
+const planets = []; // this array will store all the data when loaded
+
+ d3.json("../Data/sol_2016.json")
+   .then(function(data) {
+       data.planets.forEach(function(obj) {
+           planets.push({
+             name: obj.name,
+             avg: obj.semiMajorAxisAU,
+             max: obj.apheliumAU,
+             min: obj.periheliumAU});
+       });
+       init();
+   });
+```
+
+You can create bar charts with any of these three values, or all of them. Let's create an application where the user can choose which chart to display using HTML buttons. The following is the HTML code for the page; it includes an ```<svg>``` element and some buttons:
+
+```html
+<body>
+<h1><span id="chart">Average</span> distance from the Sun</h1>
+<svg class="bar-chart"></svg>
+<form>
+    <button type="button" id="avg">Average</button>
+    <button type="button" id="max">Maximum</button>
+    <button type="button" id="min">Minimum</button>
+</form>
+
+<script>...</script>
+</body>
+```
+
+These buttons will be attached to event handlers. They will select the data that should be displayed in the bar charts. The following array relates a key to a title and a color. The key contains the name of a property from each element in the planets array. It's also used for the button IDs:
+
+```js
+const charts = [
+    {key: "avg", title: "Average", color: "orange"},
+    {key: "max", title: "Maximum", color: "blue"},
+    {key: "min", title: "Minimum", color: "red"},
+];
+```
+
+The chart object stores the dimensions of the current chart (which may have a variable height) and the chart that is currently displayed:
+
+```js
+const chart = {
+    width: 800,
+    height: 0,          // the height is set after data is loaded
+    current: charts[0]  // chart to display first
+}
+```
+
+These other global constants initialize scales, a formatting function, and a selection of the ```svg``` object:
+
+```js
+const barScale = d3.scaleLinear().range([0, 600]);
+const colorScale = d3.scaleLinear().range([0, 1]);
+const format = d3.format(".2f");
+
+const svg = d3.select("svg.bar-chart"); // the container SVG
+```
+ 
+
+The ```init()``` function that is called right after the data is loaded and the planets array is populated performs basic initialization that requires the loaded data. In this case, it sets the height of the chart:
+
+```js
+function init() {   // runs once
+    chart.height = planets.length * 21;
+    svg.attr("width", chart.width)
+       .attr("height", chart.height);
+
+    setupView(); // sets up scales; Not defined yet...see below
+
+    // ...
+}
+```
+
+The ```setupView()``` function called inside ```init()``` configures the current view. It disables the button that refers to the currently displayed view, replaces the ```<span>``` element in the title with the title of the current chart, sorts the planets array, and initializes the domains of the scales, based on the current data:
+
+```js
+function setupView() {
+    // disable all buttons
+    d3.selectAll("button").property("disabled", false);
+
+    // enable only buttons that are not current chart
+    d3.select("#" + chart.current.key).property("disabled", true);
+
+    // update page title
+    d3.select("#chart").text(chart.current.title);
+
+    // sort the planets using current data
+    planets.sort((a,b) => d3.ascending(a[chart.current.key], 
+                                        b[chart.current.key]));
+
+    // update scale domain with current data
+    const maxValue = d3.max(planets, d => d[chart.current.key]);
+    barScale.domain([0, maxValue]);
+    colorScale.domain([0, maxValue]);
+}
+```
+
+After setting up the view, the ```init()``` function uses the ```current``` data to render the chart. This code is identical to the code we used in the previous examples. The only difference is that it uses a key reference to access the data property: instead of ```d.avg```, it uses ```d[chart.current.key]```. This will allow the chart to reference other properties when the current key changes:
+
+```js
+function init() {
+     // ...
+     setupView();
+
+     svg.selectAll("g")
+        .data(planets)
+        .enter().append("g").attr("class", "entry")
+        .attr("transform", (d,i) => `translate(0,${i * 21})`)
+        .each(function(d) {
+            const entry = d3.select(this); // the current entry
+
+            entry.append("text").attr("class", "label category")
+                .attr("y", 15)
+                .attr("x", 90)
+                .text(d.name);
+
+            entry.append("rect").attr("class", "bar")
+                .attr("x", 100)
+                .attr("height", 20)
+                .attr("width", barScale(d[chart.current.key]) )
+                .style("fill", d3.color(chart.current.color)
+                                 .darker(colorScale(d[chart.current.key])) )
+
+            entry.append("text").attr("class", "label value")
+                .attr("y", 15)
+                .attr("x", barScale(d[chart.current.key]) + 105)
+                .text(format(d[chart.current.key]) + " AU");
+        });
+}
+```
+
+The result is shown as follows. It's the same chart we created before, with a title and some buttons that don't work yet:
+
+![bar_chart_5](bar_chart_5.png)
+
+The previous example adapted to show three different charts. Code: Updating/1-three-charts.html.
+
+### Handling events
+
+The ```on()``` method is used to handle events, and it can be called from any selection. The first parameter is a standard JavaScript event name string (such as **click** or **mouseover**), and the second parameter is the handler function that will execute when the event happens.
+
+The following code obtains a selection containing all button objects and attaches an event handler to all of them. It obtains the ```id``` of the button that was clicked and uses it to change the current chart by assigning a corresponding object from the ```charts``` array. After changing the current chart, it calls the ```draw()``` function, which will update the chart. This code should be placed in a global context, since it only needs to run once:
+
+```js
+d3.selectAll("button")
+     .on("click", function() {
+         chart.current = charts.filter(c => c.key == this.id)[0];
+         draw();
+     });
+```
+
+The ```draw``` function in this example only prints the current array. You can use it to test whether the buttons are selecting the correct chart, as expected. The call to ```setupView()``` will disable/enable the buttons and update the chart's title according to the current view (see ```Updating/2-events.html```):
+
+```js
+function draw() {
+     console.log(chart.current.key);
+     setupView();
+ }
+```
+
+### Data updates
+
+To update the data on a selection, you just need to update the styles and attributes. If the data has changed, you should call the ```selection.data()``` method with the new data, and then update everything that depends on it, such as attributes and styles, and any functions called by them, such as scales.
+
+In our case, the data bound to the container ```g.entry``` object is the entire ```planets``` array, which may have been sorted in a different order (in the ```setupView()``` function). It can be updated simply by reassigning it to the selection:
+
+```js
+svg.selectAll("g.entry").data(planets)
+```
+
+Then, you need to update the attributes and styles, which depend on properties from this array that have changed, but **before** doing that, you need to update the scales' domains, since they are called from the ```style()``` and ```attr()``` methods, and their maximum value depends on the new data. The scales were updated in the ```setupView()``` function. The rest of the ```draw()``` function contains the data updates:
+
+```js
+function draw() {
+    setupView(); // sorts data and updates scales
+
+    svg.selectAll("g.entry").data(planets)
+        .each(function (d) {
+            d3.select(this).select(".label.category")
+                .text(d.name); // the order may have changed
+            d3.select(this).select(".bar")
+                .attr("width", barScale(d[chart.current.key]))
+                .style("fill", d3.color(chart.current.color)
+                                .darker(colorScale(d[chart.current.key])));
+            d3.select(this).select(".label.value")
+                .attr("x", barScale(d[chart.current.key]) + 105)
+                .text(format(d[chart.current.key]) + " AU");
+        });
+}
+```
+
+Now, when you click any button, a new bar chart will be displayed. The chart reuses the same graphical elements, changing its colors, dimensions, and text contents. Bars are always sorted in ascending order (see ```Updating/3-updates.html```):
+
+![bar_chart_6](bar_chart_6.png)
+
+Each button replaces the current chart with a new chart, reusing the same chart elements. Code: ```Updating/3-updates.html```.
+
+### Smooth transitions
+
+Instead of immediately replacing one chart with another, you can add transitions, so that they occur in smooth animations. Adding a transition is very easy. You just need to call the ```transition()``` method on a selection before setting the new properties and styles. Instead of changing the old data with the new data, it will interpolate intermediate values during a quarter of a second. Add it to your update selections, and you will notice that when you change the chart, the bars and labels will animate to their new sizes, colors, and positions.
+
+In our examples, transitions were added before changing the color and width of each bar, and before changing the position of each value label (see ```Updating/4-transitions.html```):
+
+```js
+svg.selectAll("g.entry").data(planets)
+     .each(function (d) {
+         d3.select(this).select(".label.category").text(d.name); 
+         d3.select(this).select(".bar")
+           .transition()                 // 1) transition fill and width
+             .attr("width", barScale(d[chart.current.key]))
+             .style("fill", d3.color(chart.current.color)
+                              .darker(colorScale(d[chart.current.key])));
+         d3.select(this).select(".label.value")
+           .transition()                 // 2) transition x position
+             .attr("x", barScale(d[chart.current.key]) + 105)
+             .text(format(d[chart.current.key]) + " AU");
+     });
+```
+
+If you want a slower transition, just add ```duration(value)``` after the ```transition()``` command, with a value in milliseconds. The following code will make the animation last one second (see ```Updating/5-durations.html```):
+
+```js
+d3.select(this).select(".bar")
+   .transition()
+   .duration(1000)               // animate during a second
+     .attr("width", barScale(d[chart.current.key]))
+     .style("fill", d3.color(chart.current.color)
+                      .darker(colorScale(d[chart.current.key])));
+```
+
+You can also configure a delay before the transition starts with the ```delay()``` method. It can receive a fixed value in milliseconds, or a callback function that will apply a different delay for each object. In the following example, each bar will wait an amount of milliseconds proportional to its array index (the second parameter in the ```each()``` function), making each bar animate in a sequence:
+
+```js
+.each(function (d,i) {     // include the i (index) parameter
+     // ...
+     d3.select(this).select(".bar")
+       .transition()
+       .duration(1000)         // animate during a second
+       .delay(50 * i)          // longer animations for each bar
+         .attr("width", barScale(d[chart.current.key]))
+         .style("fill", d3.color(chart.current.color)
+                          .darker(colorScale(d[chart.current.key])));
+     // ...
+ });
+```
+
+The following diagram shows a snapshot of the animation captured in the middle of a transition. Try it out and see the effects for yourself (see the code in ```Updating/6-delays.html```):
+
+![bar_chart_7](bar_chart_7.png)
+
+Transition with delay. Code: ```Updating/6-delays.html```.
+
+So far, you've used the most common features of D3, rendering charts in HTML and SVG. We will finish this chapter with a D3 visualization of a map of the world, using the same methods you have used in the previous examples.
+

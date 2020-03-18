@@ -18,6 +18,7 @@ nav:
                     - default_dict(): notes/python/base_modules/collections/Default Dict.md
                 - Pdb: notes/python/base_modules/Pdb.md
             - Pandas: notes/python/pandas/basics.md
+            - Seaborn: notes/python/seaborn/basics.md
             - Advanced: 
                 - Decorators: notes/python/advanced/Decorators.md
                 - Classes: notes/python/advanced/Classes.md
@@ -38,12 +39,15 @@ nav:
         - CSS: notes/css/css.md
         - SASS: notes/sass/sass.md
         - Javascript:
-            - D3js: 
+            - Vue:
+                - Vue - Flask: notes/javascript/single_page_app/basics.md
+            - D3js:
                 - d3js.org: notes/javascript/D3js/d3js.org/basics.md
                 - D3.js - Rocha: 
                     - Chapter 1: notes/javascript/D3js/Rocha/chapter_1/chapter-1.md
                     - Chapter 2: notes/javascript/D3js/Rocha/chapter_2/chapter-2.md
                     - Chapter 3: notes/javascript/D3js/Rocha/chapter_3/chapter-3.md
+                    - Chapter 4: notes/javascript/D3js/Rocha/chapter_4/chapter-4.md
                 - Basics: notes/javascript/basics.md
         - Sample Web Layouts: 
             - Holy Grail: notes/layouts/holy_grail.md

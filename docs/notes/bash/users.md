@@ -79,3 +79,12 @@ Enter new UNIX password:
 Retype new UNIX password:
 passwd: password updated successfully
 ```
+
+## Add User to Sudo
+
+>Source [phoenixnap](https://phoenixnap.com/kb/how-to-create-sudo-user-on-ubuntu)
+
+
+```bash
+usermod –aG sudo newuser
+```
