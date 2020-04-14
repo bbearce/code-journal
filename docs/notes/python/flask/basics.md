@@ -12,7 +12,7 @@ Here all we need to do is import the app
 from app import app
 ```
 
-*app/__init__.py*
+*app/\_\_init\_\_.py*
 ```
 from flask import Flask
 from flask_cors import CORS
