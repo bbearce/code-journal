@@ -8,7 +8,9 @@
 
 *flask_cors_and_redesign.py*
 Here all we need to do is import the app
-
+```python
+from app import app
+```
 
 *app/__init__.py*
 ```
