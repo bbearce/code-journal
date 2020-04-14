@@ -19,6 +19,7 @@ nav:
                 - Pdb: notes/python/base_modules/Pdb.md
             - Pandas: notes/python/pandas/basics.md
             - Seaborn: notes/python/seaborn/basics.md
+            - Flask: notes/python/flask/basics.md
             - Advanced: 
                 - Decorators: notes/python/advanced/Decorators.md
                 - Classes: notes/python/advanced/Classes.md
