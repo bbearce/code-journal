@@ -47,3 +47,31 @@ For more on how TLS/SSL certificates work, see What is an SSL certificate?
 
 ## Get a CA Certificate
 
+> [Source](https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs#about-certificate-signing-requests-(csrs))
+
+> [Helpful! - from serverfault](https://serverfault.com/questions/9708/what-is-a-pem-file-and-how-does-it-differ-from-other-openssl-generated-key-file)
+
+> [Also Helpful!](https://certbot.eff.org/docs/using.html#where-are-my-certificates)
+
+### Generate a Self-Signed Certificate
+Use this method if you want to use HTTPS (HTTP over TLS) to secure your Apache HTTP or Nginx web server, and you do not require that your certificate is signed by a CA.
+
+This command creates a 2048-bit private key (```domain.key```) and a self-signed certificate (```domain.crt```) from scratch:
+
+```bash
+openssl req \
+       -newkey rsa:2048 -nodes -keyout domain.key \
+       -x509 -days 365 -out domain.crt
+```
+
+The ```-x509``` option tells ```req``` to create a self-signed cerificate. The ```-days 365``` option specifies that the certificate will be valid for 365 days. A temporary CSR is generated to gather information to associate with the certificate.
+
+### Talks about the CSR and getting a real CA verified key pair.
+
+> source [a2hosting](https://www.a2hosting.com/kb/security/ssl/generating-a-private-key-and-csr-from-the-command-line)
+
+
+### CA Authority: certbot 
+
+> [Source](https://certbot.eff.org/lets-encrypt/ubuntuxenial-other)
+
