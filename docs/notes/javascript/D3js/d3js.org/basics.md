@@ -19,7 +19,7 @@ Example:
 
 <!-- Insert HTML here!!! -->
 
-<sbcript type="text/javascript" src="javascript.js"></script>
+<script type="text/javascript" src="javascript.js"></script>
 
 </body>
 </html>
