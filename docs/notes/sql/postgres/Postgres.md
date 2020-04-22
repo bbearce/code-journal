@@ -121,8 +121,16 @@ codalab_website=# \dt *
  pg_catalog | pg_cast                             | table | postgres
  pg_catalog | pg_class                            | table | postgres
 ...
-
 ```
+
+## Display Schema
+
+>Source [objectrocket](https://kb.objectrocket.com/postgresql/connect-to-postgresql-and-show-the-table-schema-967)
+
+```sql
+SELECT column_name FROM information_schema.columns WHERE TABLE_NAME = 'some_table';
+```
+
 ## Display Connection Information
 
 ```sql
