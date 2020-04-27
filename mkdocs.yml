@@ -86,6 +86,7 @@ nav:
         - Lessons (Part 1): notes/fast.ai/lessons_part_1.md
     - Algorithms:
         - Python: 
+            - Folder\File Compare: notes/algorithms/python/directory_compare.md
             - CSV Loader: notes/algorithms/python/csv_loader.md
             - Wheel: notes/algorithms/python/wheel/wheel.md
             - Breadth First Search: notes/algorithms/python/breadth_first_search.md
