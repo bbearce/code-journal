@@ -4,6 +4,8 @@
 
 This is an amazing tutorial. Worked first time. No bugs.
 
+> This is mainly a db tutorial, but the link "testdriven" above links to a great post app in Vuejs. It's a good a tutorial as any.
+
 Also learned about an amazing python package for light json databases. There is an equivalent nodejs one too.
 
 ## python - jsondb
