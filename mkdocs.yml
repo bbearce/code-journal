@@ -19,13 +19,16 @@ nav:
                 - Pdb: notes/python/base_modules/Pdb.md
             - Pandas: notes/python/pandas/basics.md
             - Seaborn: notes/python/seaborn/basics.md
-            - Flask: notes/python/flask/basics.md
+            - Flask: 
+                - Basics: notes/python/flask/basics.md
+                - Links to Check Out: notes/python/flask/links_to_checkout.md
             - Advanced: 
                 - Decorators: notes/python/advanced/Decorators.md
                 - Classes: notes/python/advanced/Classes.md
                 - Generators: notes/python/advanced/Generators.md
             - Strings: notes/python/strings/Strings.md
             - S3: notes/python/s3.md
+            - TinyDB: notes/python/tinydb/basics.md
         - SQL:
             - Postgres: 
                 - Postgres: notes/sql/postgres/Postgres.md
@@ -40,8 +43,7 @@ nav:
         - CSS: notes/css/css.md
         - SASS: notes/sass/sass.md
         - Javascript:
-            - Vue:
-                - Vue - Flask: notes/javascript/single_page_app/basics.md
+            - Basics: notes/javascript/basics.md
             - D3js:
                 - d3js.org: notes/javascript/D3js/d3js.org/basics.md
                 - D3.js - Rocha: 
@@ -49,7 +51,12 @@ nav:
                     - Chapter 2: notes/javascript/D3js/Rocha/chapter_2/chapter-2.md
                     - Chapter 3: notes/javascript/D3js/Rocha/chapter_3/chapter-3.md
                     - Chapter 4: notes/javascript/D3js/Rocha/chapter_4/chapter-4.md
-                - Basics: notes/javascript/basics.md
+                - Links To Checkout: notes/javascript/D3js/links_to_checkout.md
+            - NodeJS:
+                - Issues Solved: notes/javascript/NodeJS/issues_solved.md
+            - Vue:
+                - Vue - Flask Integration: notes/javascript/Vue/single_page_app/basics.md
+                - Links To Checkout: notes/javascript/Vue/links_to_checkout.md
         - Sample Web Layouts: 
             - Holy Grail: notes/layouts/holy_grail.md
         - Bash: 

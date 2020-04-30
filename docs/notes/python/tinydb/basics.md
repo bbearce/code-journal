@@ -1,12 +1,6 @@
-# Vue and Flask Single Page App
+# TinyDB
 
->Source [testdriven](https://testdriven.io/blog/developing-a-single-page-app-with-flask-and-vuejs/)
-
-This is an amazing tutorial. Worked first time. No bugs.
-
-> This is mainly a db tutorial, but the link "testdriven" above links to a great post app in Vuejs. It's a good a tutorial as any.
-
-Also learned about an amazing python package for light json databases. There is an equivalent nodejs one too.
+This is great small json db, an amazing python package, for light json databases. There is an equivalent nodejs one too.
 
 ## python - jsondb
 [tinydb](https://tinydb.readthedocs.io/en/latest/getting-started.html)
