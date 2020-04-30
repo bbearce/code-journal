@@ -75,7 +75,8 @@ nav:
         - Basics: notes/docker/basics.md
         - Tutorial: notes/docker/tutorial.md
         - Remote Registry: notes/docker/remote_registry.md
-    - Nginx: notes/nginx/nginx.md
+    - Nginx: 
+        - Basics: notes/nginx/nginx.md
     - Singularity:
         - Basics: notes/singularity/basics.md
     - Git:
