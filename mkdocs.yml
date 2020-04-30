@@ -11,6 +11,7 @@ nav:
                 - P.B. Reference: notes/python/useful/Pass By Reference.md
                 - args, kwargs: notes/python/useful/Args and Kwargs.md
                 - zip(): notes/python/useful/Zip.md
+                - servers: notes/python/useful/basic_servers.md
                 - sorted(): notes/python/useful/Sorted.md
             - Base Modules: 
                 - Collection:
@@ -74,6 +75,7 @@ nav:
         - Basics: notes/docker/basics.md
         - Tutorial: notes/docker/tutorial.md
         - Remote Registry: notes/docker/remote_registry.md
+    - Nginx: notes/nginx/nginx.md
     - Singularity:
         - Basics: notes/singularity/basics.md
     - Git:
@@ -84,9 +86,6 @@ nav:
         - AWS: notes/internet_of_things/AWS/storage.md
         - Azure: notes/internet_of_things/Azure/placeholder.md
         - General Notes: notes/internet_of_things/General Notes.md
-        - Servers:
-            - SimpleHTTPServer: notes/internet_of_things/SimpleHTTPServer.md
-            - Nginx: notes/internet_of_things/nginx.md
         - TLS Security: notes/internet_of_things/TLS Security/TLS Security.md
     - Fast.ai:
         - Introduction: notes/fast.ai/introduction.md

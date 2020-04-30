@@ -1,10 +1,16 @@
-# SimpleHTTPServer
+# Some Quick Python Based Servers
+
+> Update [Anvileight has a better article covering more topics](https://blog.anvileight.com/posts/simple-python-http-server/)
 
 > Courtesy of [2ality](https://2ality.com/2014/06/simple-http-server.html)
 
+*Below notes are from second link*
+
+## Python2
+
 **SimpleHTTPServer: a quick way to serve a directory**
 
-## Using SimpleHTTPServer  
+### Using SimpleHTTPServer  
 SimpleHTTPServer is invoked like this (the parameter <port> is optional):
 
 ```bash
@@ -28,7 +34,7 @@ Afterwards, I can access the following URLs:
 * http://localhost:8000/foo.html displays the file foo.html in the current directory.  
 
 
-## Customizing SimpleHTTPServer  
+### Customizing SimpleHTTPServer  
 
 The following Unix shell script demonstrates how to customize SimpleHTTPServer so that it serves files that have a given file name extension with a given media type. One case where that matters is Firefox being picky about the media type of the webapp.manifest.
 
@@ -50,3 +56,12 @@ httpd = SocketServer.TCPServer(("", PORT), Handler)
 print "Serving at port", PORT
 httpd.serve_forever()
 ```
+
+## Python3
+
+In python 3 you can run:
+```python
+python3 -m http.server 8080
+```
+
+to create a server that will serve to the folder you are currntly in.
