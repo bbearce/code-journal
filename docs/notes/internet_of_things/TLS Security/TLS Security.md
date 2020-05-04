@@ -47,11 +47,23 @@ For more on how TLS/SSL certificates work, see What is an SSL certificate?
 
 ## Get a CA Certificate
 
+Notes to self sign for testing, but in practice I still see the "Not Secure" when useing this method, though https will work:
 > [Source](https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs#about-certificate-signing-requests-(csrs))
 
+Useful Stackoverflow article discussing file extensions and protocols\file types:
 > [Helpful! - from serverfault](https://serverfault.com/questions/9708/what-is-a-pem-file-and-how-does-it-differ-from-other-openssl-generated-key-file)
 
+In summary, there are four different ways to present certificates and their components:
+
+* PEM - Governed by RFCs, its used preferentially by open-source software. It can have a **variety of extensions (.pem, .key, .cer, .cert, more)**
+* PKCS7 - An open standard used by Java and supported by Windows. Does not contain private key material.
+* PKCS12 - A Microsoft private standard that was later defined in an RFC that provides enhanced security versus the plain-text PEM format. This can contain private key material. Its used preferentially by Windows systems, and can be freely converted to PEM format through use of openssl.
+* DER - The parent format of PEM. It's useful to think of it as a binary version of the base64-encoded PEM file. Not routinely used very much outside of Windows.
+
+
 > [Also Helpful!](https://certbot.eff.org/docs/using.html#where-are-my-certificates)
+
+Above link is from certbot, a CA, and has useful notes regarding locations of certificates once generated and definitions of each file type. The follows notes are for generating certificates from them.
 
 ### Generate a Self-Signed Certificate
 Use this method if you want to use HTTPS (HTTP over TLS) to secure your Apache HTTP or Nginx web server, and you do not require that your certificate is signed by a CA.
@@ -74,4 +86,135 @@ The ```-x509``` option tells ```req``` to create a self-signed cerificate. The `
 ### CA Authority: certbot 
 
 > [Source](https://certbot.eff.org/lets-encrypt/ubuntuxenial-other)
+
+#### SSH into the server
+
+SSH into the server running your HTTP website as a user with sudo privileges.
+
+#### Add Certbot PPA
+You'll need to add the Certbot PPA to your list of repositories. To do so, run the following commands on the command line on the machine:
+
+```bash
+sudo apt-get update
+sudo apt-get install software-properties-common
+sudo add-apt-repository universe
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get update
+```
+
+#### Install Certbot
+Run this command on the command line on the machine to install Certbot.
+
+```bash
+sudo apt-get install certbot
+```
+
+#### Choose how you'd like to run Certbot
+Are you ok with temporarily stopping your website?
+
+Yes, my web server is not currently running on this machine.
+Stop your webserver, then run this command to get a certificate. Certbot will temporarily spin up a webserver on your machine.
+
+```bash
+sudo certbot certonly --standalone
+```
+
+This gives this output:
+```bash
+bbearce@miccai2019:~$ sudo certbot certonly --standalone
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Plugins selected: Authenticator standalone, Installer None
+Starting new HTTPS connection (1): acme-v02.api.letsencrypt.org
+Please enter in your domain name(s) (comma and/or space separated)  (Enter 'c'
+to cancel): miccai2020.eastus.cloudapp.azure.com
+Cert not yet due for renewal
+
+You have an existing certificate that has exactly the same domains or certificate name you requested and isn't close to expiry.
+(ref: /etc/letsencrypt/renewal/miccai2020.eastus.cloudapp.azure.com.conf)
+
+What would you like to do?
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+1: Keep the existing certificate for now
+2: Renew & replace the cert (limit ~5 per 7 days)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 2
+Renewing an existing certificate
+
+IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at:
+   /etc/letsencrypt/live/miccai2020.eastus.cloudapp.azure.com/fullchain.pem
+   Your key file has been saved at:
+   /etc/letsencrypt/live/miccai2020.eastus.cloudapp.azure.com/privkey.pem
+   Your cert will expire on 2020-08-02. To obtain a new or tweaked
+   version of this certificate in the future, simply run certbot
+   again. To non-interactively renew *all* of your certificates, run
+   "certbot renew"
+ - If you like Certbot, please consider supporting our work by:
+
+   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+   Donating to EFF:                    https://eff.org/donate-le
+```
+
+Notice where it put the cert:
+```bash
+/etc/letsencrypt/live/miccai2020.eastus.cloudapp.azure.com/
+```
+
+```bash
+bbearce@miccai2019:~$ sudo ls /etc/letsencrypt/live/miccai2020.eastus.cloudapp.azure.com/
+cert.pem  chain.pem  fullchain.pem  privkey.pem  README
+```
+
+The README has this info:
+
+```bash
+bbearce@miccai2019:~$ sudo cat /etc/letsencrypt/live/miccai2020.eastus.cloudapp.azure.com/README
+This directory contains your keys and certificates.
+
+`privkey.pem`  : the private key for your certificate.
+`fullchain.pem`: the certificate file used in most server software.
+`chain.pem`    : used for OCSP stapling in Nginx >=1.3.7.
+`cert.pem`     : will break many server configurations, and should not be used
+                 without reading further documentation (see link below).
+
+WARNING: DO NOT MOVE OR RENAME THESE FILES!
+         Certbot expects these files to remain in this location in order
+         to function properly!
+
+We recommend not moving these files. For more information, see the Certbot
+User Guide at https://certbot.eff.org/docs/using.html#where-are-my-certificates.
+
+
+```
+
+Let's look inside just to get a feel for what is going on:
+
+#### fullchain
+![fullchain.pem](fullchain.png)
+
+#### cert and chain
+![cert_and_chain.pem](cert_and_chain.png)
+
+> Note how the fullchain is really just the cert and chain together in one file.
+
+#### privkey
+![privkey.pem](privkey.png)
+
+
+
+
+
+If you need to keep my web server running.
+If you have a webserver that's already using port 80 and don't want to stop it while Certbot runs, run this command and follow the instructions in the terminal.
+
+```bash
+sudo certbot certonly --webroot
+```
+
+
+#### Install your certificate
+You'll need to install your new certificate in the configuration file for your webserver.
+
+
+
 
