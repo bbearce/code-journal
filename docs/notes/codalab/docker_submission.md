@@ -57,7 +57,7 @@ b93b3f7e0a3b        codalab-competitions_rabbit                    "docker-entry
 
 We need use manage.py from the django container to migrate the database. This will talk to the postgres container for us. Codalab has notes for how to do this so we will [follow their lead](https://github.com/codalab/codalab-competitions/wiki/Dev_Database-Migrations):
 
-> Note, in the link from codalab then have a placeholder for ```APPNAME```. Substitute ```web``` in for this.
+> Note, in the link from codalab they have a placeholder for ```APPNAME```. Substitute ```web``` in for this.
 
 ```bash
 root@django:/app/codalab# ./manage schemamigration web --auto
@@ -137,9 +137,9 @@ class CompetitionForm(forms.ModelForm):
             'published',
             'enable_medical_image_viewer',
             'enable_detailed_results',
-            # BB change start
+            # change start
             'enable_docker_submission',
-            # BB change end
+            # change end
             'admins',
 ...
 ```
@@ -162,7 +162,7 @@ Replace the inside of the else block with this code:
 ```html
 {% if phase.competition.enable_docker_submission %}
 
-<h1>ENABLE DOCKER SUBMISSION</h1>
+<h1>DOCKER SUBMISSION ENABLED </h1>
 <!-- Submit Docker Button -->
 
 <button id=submit-button type="button" data-toggle="modal" data-target="#submit-docker-dialog" class="btn btn-secondary">Submit Docker</button>
@@ -171,7 +171,7 @@ Replace the inside of the else block with this code:
 
 {% else %}
 
-<h1>DISABLED DOCKER SUBMISSION</h1>
+<h1>DOCKER SUBMISSION DISABLED</h1>
 <!-- original code from codalab -->
 
 <button id="fileUploadButton"
