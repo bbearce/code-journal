@@ -111,8 +111,8 @@ nav:
             - Crossing Rects: notes/algorithms/python/crossing_rects.md
             - Retry: notes/algorithms/python/retry.md
             - Stairs: notes/algorithms/python/stairs.md
-
-
+    - Codalab:
+        - Docker Submission: notes/codalab/docker_submission.md
     - MKDocs: notes/MKDocs/Quick Notes.md
 
 extra_css:
