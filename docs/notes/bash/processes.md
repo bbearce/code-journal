@@ -7,6 +7,21 @@
 
 Ex: ```$ kill 1234```
 
+## By Port
+> Source [mr-khan.gitlab.io](https://mr-khan.gitlab.io/linux/2018/05/02/kill-specific-port-on-linux.html)
+
+Sometimes I fed up with searching my program PID. As you know the port number so you can easily find the port PID and kill it. If you want to kill a process running on port number 8000 then first you need to find the PID and then kill it. Run the following command to find port number PID:
+
+```bash
+sudo lsof -t -i:8000
+```
+
+then kill:
+
+```bash
+sudo kill $(sudo lsof -t -i:8000)
+```
+
 > Courtesy of [booleanworld.com](booleanworld.com/kill-process-linux/#targetText=It%20is%20very%20easy%20to,that%20you%20want%20to%20kill.)
 
 ...more...below:
@@ -173,3 +188,4 @@ As we mentioned previously, the default is to use a ```SIGTERM```. To use a ```S
 Killing processes with the ```top``` command:
 
 It is very easy to kill processes using the ```top``` command. First, search for the process that you want to kill and note the PID. Then, press ```k``` while top is running (this is case sensitive). It will prompt you to enter the PID of the process that you want to kill.
+
