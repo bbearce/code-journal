@@ -1,9 +1,5 @@
 # Docker
 
-## Install
-
-Docker has good documentation [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
-
 Recap and cheat sheet: 
 
 **List Docker CLI commands**

@@ -74,6 +74,7 @@ nav:
             - Mount: notes/bash/mount.md
             - On Startup: notes/bash/startup.md
     - Docker:
+        - Install: notes/docker/install.md 
         - Basics: notes/docker/basics.md
         - Tutorial: notes/docker/tutorial.md
         - Remote Registry: notes/docker/remote_registry.md
