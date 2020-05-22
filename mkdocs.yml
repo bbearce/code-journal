@@ -80,6 +80,7 @@ nav:
         - Remote Registry: notes/docker/remote_registry.md
     - CouchDB:
         - As container: notes/couchdb/container.md
+        - Basics: notes/couchdb/basics.md
     - Nginx: 
         - Basics: notes/nginx/nginx.md
     - Singularity:
