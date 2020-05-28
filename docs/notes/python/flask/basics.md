@@ -77,3 +77,7 @@ def get_latlngs():
 ```python
 # Not shown, but this layout is for directory structure mainly.
 ```
+Before running it, though, Flask needs to be told how to import it, by setting the ```FLASK_APP``` environment variable:
+```
+(venv) $ export FLASK_APP=microblog.py
+```
