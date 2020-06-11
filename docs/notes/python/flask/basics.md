@@ -78,6 +78,16 @@ def get_latlngs():
 # Not shown, but this layout is for directory structure mainly.
 ```
 Before running it, though, Flask needs to be told how to import it, by setting the ```FLASK_APP``` environment variable:
-```
+
+```bash
 (venv) $ export FLASK_APP=microblog.py
 ```
+If you are using Microsoft Windows, use ```set``` instead of ```export``` in the command above.
+
+Are you ready to be blown away? You can run your first web application, with the following command:
+
+```bash
+(venv) $ flask run
+ * Serving Flask app "microblog"
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ ```
