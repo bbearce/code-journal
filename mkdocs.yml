@@ -73,6 +73,7 @@ nav:
             - Processes: notes/bash/processes.md
             - Mount: notes/bash/mount.md
             - On Startup: notes/bash/startup.md
+            - PDFs: notes/bash/pdfs.md
     - Docker:
         - Install: notes/docker/install.md 
         - Basics: notes/docker/basics.md
