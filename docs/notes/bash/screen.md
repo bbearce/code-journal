@@ -203,3 +203,25 @@ As ```screen -r``` says, there is one screen, but it is attached. To resume it o
 Edit: use ```-d``` instead of ```-x```.
 
 Edit2: @alex78191: When using ```-x```, screen attaches to the currently running session, resulting in a "multi-display mode": you see the session on both terminals simultaneously, i.e., when entering a command on one terminal, it also appears on the second. However, detaching from a multi-display mode just detaches the current terminal. You hence get the message that it is still attached (on the other terminal).
+
+## Resize Region
+
+[gnu](http://www.gnu.org/software/screen/manual/screen.html#Resize)
+
+> Find section "resize" under "9.5 - Regions"
+
+The amount of lines to add or remove can be expressed a couple of different ways. By specifying a number ```n``` by itself will resize the region by that absolute amount. You can specify a relative amount by prefixing a plus ‘+’ or minus ‘-’ to the amount, such as adding +n lines or removing -n lines. Resizing can also be expressed as an absolute or relative percentage by postfixing a percent sign ‘%’. Using zero ‘0’ is a synonym for min and using an underscore ‘\_’ is a synonym for max.
+
+Some examples are:
+```bash
+resize +N       increase current region by N
+resize -N       decrease current region by N
+resize N        set current region to N
+resize 20%      set current region to 20% of original size
+resize +20%     increase current region by 20%
+resize -b =     make all windows equally
+resize max      maximize current region
+resize min      minimize current region
+```
+
+Without any arguments, screen will prompt for how you would like to resize the current region.

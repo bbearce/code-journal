@@ -67,3 +67,19 @@ sudo apt install policycoreutils
 ```
 
 ...then run that
+
+## Over Two ssh Hops
+
+[larkinweb](https://www.larkinweb.co.uk/computing/mounting_file_systems_over_two_ssh_hops.html)
+
+
+ssh from systemA trough systemB into systemC:
+
+```bash
+$ ssh -t user1@systemB "ssh user2@systemC"
+```
+
+Mount file system under similar circumstances:
+```bash
+
+```
