@@ -20,6 +20,8 @@ nav:
                 - Decorators: notes/python/advanced/Decorators.md
                 - Classes: notes/python/advanced/Classes.md
                 - Generators: notes/python/advanced/Generators.md
+            - RabbitMQ:
+                - Hellow World: notes/python/rabbitmq/hello_world.md
             - Strings: notes/python/strings/Strings.md
             - S3: notes/python/s3.md
             - TinyDB: notes/python/tinydb/basics.md
