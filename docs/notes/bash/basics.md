@@ -275,10 +275,67 @@ Dash  is the  Debian  Almquist  Shell. Dash implements the Single Unix Spec, the
 
 
 ## Moving and Copying
-
 Use the ```mv``` command to move things or rename them.  
 Use the ```cp``` command to copy things.  
 Use the ```rsync``` command to move things. Use the *-a* flag to archive and retain permissions and time stamps.  
+
+### scp
+
+Local to local:
+```bash
+$ scp <from> <to> 
+```
+Local to Remote:
+```bash
+$ scp [-i identity_file] <from_local> user@remote:<to_remote> 
+```
+Remote to Local:
+```bash
+$ scp [-i identity_file] user@remote:<from_remote> <to_local> 
+```
+
+### rsync
+
+Local to local:
+```bash
+$ rsync <from> <to> 
+```
+Local to Remote:
+```bash
+$ rsync [-e "ssh -i <path to identity_file>"] <from_local> user@remote:<to_remote> 
+```
+Remote to Local:
+```bash
+$ rsync [-e "ssh -i <path to identity_file>"] user@remote:<from_remote> <to_local> 
+```
+
+Most important flags:
+```-a -v -z```
+
+```bash
+rsync -avz foo:src/bar /data/tmp
+
+This  would  recursively  transfer  all  files  from  the  directory src/bar on the machine foo into the
+/data/tmp/bar directory on the local machine. The files are transferred in "archive" mode, which ensures
+that  symbolic  links, devices, attributes, permissions, ownerships, etc. are preserved in the transfer.
+Additionally, compression will be used to reduce the size of data portions of the transfer.
+```
+
+*-a*:
+```-a, --archive               archive mode; equals -rlptgoD (no -H,-A,-X)```
+
+*-v*:
+```-v, --verbose               increase verbosity```
+
+*-z*:
+``` -z, --compress```
+
+*--progress*:
+```--progress
+              This option tells rsync to print information showing the progress of the transfer. This  gives  a
+              bored   user  something  to  watch.
+```
+
 
 ## Check OS Version
 

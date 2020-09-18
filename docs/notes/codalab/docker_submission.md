@@ -20,7 +20,7 @@ First we need a running instance installed. Setup the challenge to accept a resu
 
 ### Add New Column in Competition Table
 
-Find file ```/codalab/apps/web/models.py```. Approximately on line 230 is the Competition model definition. It has definitions for the columns of this table. It looks like this:
+Find file ```/codalab/apps/web/models.py```. Approximately on line 233 is the Competition model definition. It has definitions for the columns of this table. It looks like this:
 
 ```python
 class Competition(ChaHubSaveMixin, models.Model):
@@ -196,7 +196,7 @@ Now if we go to "Edit" and look at the competition options, we see that if we ch
 
 Next we need the "Submit Docker" button to do something. Let's add a modal that get's triggered when you click the button.
 
-Add this code just before the line that has ```{% include "web/common/_submission_details_template.html" %}``` on line ~160:
+Add this code just before the line that has ```{% include "web/common/_submission_details_template.html" %}``` on line ~167:
 
 ```html
 <div class="modal fade" id="submit-docker-dialog">
@@ -422,7 +422,7 @@ $ docker exec -it codalab/competitions-v1-compute-worker:latest
 ```
 ...or use the compute image that you need. 
 
-Once inside you should be able to see "worker.py". Open it. Find function ```run(task_id, task_args)```. This is where we will add our code. 
+Once inside you should be able to see "worker.py". Open it. Find function ```run(task_id, task_args)```. This is where we will add our code on approx line 500. 
 
 Add this:
 ```python
@@ -444,7 +444,108 @@ participant_docker_cmd = task_args['submit_docker_command'].format(input_dir+"/r
 This line substitutes the results directory into a mount placeholder so that the container can put the results from the run into it. Then the compute-worker can consume the results.
 
 
+Update (7/17/2020):
 
+Docker Image Submission only and resulting handling:
+```python
+                participant_docker_submission_cmd = [
+                    'docker',
+                    'run',
+                    # Ask all participants to add this user
+                    '-u',
+                    'participant',
+                    # Cut internet
+                    '--net',
+                    'none',
+                    # Remove it after run
+                    '--rm',
+                    # Add support for GPUs and nvidia
+                    '--gpus',
+                    'all',
+                    # Give it a name associated to task_id
+                    '--name={}'.format("participant_docker_submission_taskid_"+str(task_id)),
+                    # Try the new timeout feature
+                    '--stop-timeout={}'.format(execution_time_limit),
+                    # Don't allow subprocesses to raise privileges
+                    '--security-opt=no-new-privileges',
+                    # Set the right volume
+                    '-v', '{0}:/mnt/in:ro'.format('/home/bbearce/Documents/docker_submissions/directory_of_files'), # :ro for read-only file system
+                    '-v', '{0}:/mnt/out'.format(input_dir+"/res"),
+                    # Set aside 512m memory for the host
+                    #'--memory', '{}MB'.format(available_memory_mib - 512),
+                    # Don't buffer python output, so we don't lose any
+                    #'-e', 'PYTHONUNBUFFERED=1',
+                    # Set current working directory
+                    #'-w', run_dir,
+                    # Note that hidden data dir is excluded here!
+                    # Set the right image
+                    task_args['submit_docker_command'],
+                ]
 
+                if task_args['submit_docker_command'] != 'this is not a docker submission':
+                  print('@CUSTOM DOCKER START@')
+                  logger.info("Invoking participant docker submission: %s", participant_docker_submission_cmd)
+                  participant_docker_process = Popen(participant_docker_submission_cmd)
+                  participant_docker_process.wait() # This halts other actions till this run isfinished.
+                  print('@CUSTOM DOCKER END@')
+
+```
+
+Below I will discuss some of the important options...
+
+> Note, we need to mount two folders (*datain:/mnt/in*, *dataout:/mnt/out*). We don't need to change anything about *datain* because we can use ```:ro``` to make it read-only inside the docker container like so */mnt/in:ro*. This keeps users from tampering with input data. *dataout* needs to be owned by user "participant". We do this like so...
+
+```bash
+$ chown participant:participant <path to>/dataout
+```
+
+and make it writable as well:
+
+```bash
+$ chmod 0777 <path to>/dataout
+```
+
+If participant is the user that will be using these mounts then we need the container to run as *participant*. Notice we run the docker with ```-u participant```, but how do we get that user in the docker ahead of time. 
+
+In the Dockerfile for a submission add this to the top:
+
+```
+ARG USER=participant
+ARG UID=1000
+ARG GID=1000
+# default password for user
+ARG PW=participant
+# Option1: Using unencrypted password/ specifying password
+RUN useradd -m ${USER} --uid=${UID} && echo "${USER}:${PW}" | \
+      chpasswd
+
+```
+
+This should add user *participant* with password *participant*.
+
+Finally we need to make sure the container has no internet. We add flag ```--net none``` to cut internet to the docker rendering it unable to transfer data.
+
+Lastly if this is an nvidia compute worker ```codalab/competitions-v1-nvidia-worker:latest``` then we have a few extra things ot take care of. On lines 274-275 there are two variables that don't exist being referenced. 
+
+```
+    max_execution_time_limit = task_args['max_execution_time_limit']
+    previous_execution_time = task_args['previous_execution_time']
+```
+to
+
+```
+    #max_execution_time_limit = task_args['max_execution_time_limit'] # -BB-
+    #previous_execution_time = task_args['previous_execution_time'] # -BB- 
+```
+
+and at the bottom of the file (~ line 700):
+
+```
+signal.alarm(int(math.fabs(math.ceil(max_execution_time_limit - time_difference - previous_execution_time)))) # Total Execution
+```
+to
+```
+#signal.alarm(int(math.fabs(math.ceil(max_execution_time_limit - time_difference - previous_execution_time)))) # Total Execution -BB-
+```
 
 
