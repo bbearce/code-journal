@@ -1,3 +1,4 @@
+
 # Basic bash commands
 
 ## Help from the ```man``` ;)
@@ -410,4 +411,14 @@ You might need to kill all sshfs processes and restart:
 ~$ killall sshfs
 ```
 *Then restart your sshfs mounting procedure*
+
+## Mouse sensitivity
+
+> Source: [askubuntu](https://askubuntu.com/questions/205676/how-to-change-mouse-speed-sensitivity/272534#272534?newreg=6f7d8e99ca264da893fdef1f5828746c)
+
+Sometimes (happened to me) the mouse UI options in settings are not enough to control the mouse sensitivity. If that is the case then try this:
+
+```bash
+
+```
 
