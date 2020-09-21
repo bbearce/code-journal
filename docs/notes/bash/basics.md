@@ -175,6 +175,16 @@ drwxrwxr-x  3 bbearce bbearce 1M May 23 16:51 .azure-shell
 -rw-r--r--  1 bbearce bbearce 1M May 16 16:13 .bash_logout
 ...
 ```
+## Count files
+
+Use ```wc``` to count things and get their byte sizes. The ```-l``` flag stands for lines and can be used with ```ls``` and ```|``` to count files in a directory:
+
+Ex:
+```bash
+user@server:~/$ ls data/rsna | wc -l
+26684
+
+```
 
 ## sudo, su
 
