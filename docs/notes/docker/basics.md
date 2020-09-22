@@ -39,6 +39,22 @@ docker container ls --all
 docker container ls –aq 
 ``` 
 
+**Location of Docker logs**
+
+> Source: [stackoverflow](https://stackoverflow.com/questions/41144589/how-to-redirect-docker-container-logs-to-a-single-file)
+
+Use this command to locate the logs:
+```bash
+docker inspect --format='{{.LogPath}}' containername
+```
+and this to view live:
+```bash
+tail -f `docker inspect --format='{{.LogPath}}' containername`
+```
+
+> PS: Don't know why but ```docker logs containername > docker.log``` just creates a blank file.
+
+
 **List Docker services**
 ```
 docker service ls 
