@@ -51,6 +51,22 @@ $ grep '^vivek' /etc/passwd
 vivek:x:1001:1001:,,,:/home/vivek:/bin/bash
 ```
 
+### Check group, groupid and userid of user:
+
+Use ```id```:
+
+```bash
+$ id <user>
+```
+
+Ex:
+
+```bash
+bbearce@bbearce-XPS-15-9560:~$ id bbearce
+uid=1000(bbearce) gid=1000(bbearce) groups=1000(bbearce),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),113(lpadmin),128(sambashare),130(docker),999(microk8s)
+```
+
+
 ## Delete User
 
 ### Remove the user
