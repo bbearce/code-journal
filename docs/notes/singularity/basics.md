@@ -75,7 +75,7 @@ You can build from multiple sources and even create interactive containers that 
 
 ![build_sources](build_input_output.svg)
 
-> Red arrows represent operations that must be carried out with root privileges. Also I believe looking at the documentation that --writable and --sandbox containers are now 1 type singularity v3+. The difference is that you can either a ```--writable``` or non ```writable``` sandbox.
+> Red arrows represent operations that must be carried out with root privileges. Also I believe looking at the documentation that --writable and --sandbox containers are now 1 type singularity v3+. The difference is that you can either be in a ```--writable``` or non ```writable``` sandbox.
 
 #### Interactive Builds
 
