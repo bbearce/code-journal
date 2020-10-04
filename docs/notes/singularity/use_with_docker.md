@@ -50,6 +50,8 @@ Remember Singularity wants to auto ```--bind``` mount these 3 directories:
 * /tmp  
 * $PWD  
 
+> Update, I think there are more but it depends on Help Desk. See [docs](https://sylabs.io/guides/3.5/user-guide/bind_paths_and_mounts.html?highlight=home)
+
 I have a sanbox made from a regular ubuntu image (docker://ubuntu:latest) that was first pulled to ```ubuntu.simg``` and then the sandbox is called ```s_ubuntu```. Let's try to shell into it.
 
 This is my current $PWD:
@@ -118,6 +120,8 @@ dotter[0]:bb927$
 ```
 
 Ugh, what happend? Well the WARNINGS were sort of ignored but the FATAL error is because /homes doesn't exist in the container. We can work around this by creating it before hand:
+
+> Note, see these [notes](https://sylabs.io/guides/3.5/user-guide/bind_paths_and_mounts.html?highlight=home#a-note-on-using-bind-with-the-writable-flag)
 
 ```bash
 dotter[0]:bb927$ mkdir s_ubuntu/homes

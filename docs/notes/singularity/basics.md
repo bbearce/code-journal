@@ -61,7 +61,7 @@ Sections in recipe file:
 * post: Run commands once container is created  
 * runscript: A command to run by default   
 
-### Build Images from Scratch
+## Build Images from Scratch
 
 Use this command to build the recipe file into a ```*.simg```
 
@@ -77,7 +77,7 @@ You can build from multiple sources and even create interactive containers that 
 
 > Red arrows represent operations that must be carried out with root privileges. Also I believe looking at the documentation that --writable and --sandbox containers are now 1 type singularity v3+. The difference is that you can either be in a ```--writable``` or non ```writable``` sandbox.
 
-#### Interactive Builds
+### Interactive Builds
 
 Singularity v3.0 and above produces immutable images in the Singularity Image File (SIF) format. This ensures
 reproducible and verifiable images and allows for many extra benefits such as the ability to sign and verify your
@@ -123,7 +123,7 @@ touch: cannot touch '/mnt/anything.txt': Read-only file system
 ```
 ahhh, there we go. So how do we write inside a singularity container?
 
-##### Enter the --sandbox
+### Enter the --sandbox
 
 First we have to create a sandbox out of the original container:
 ```bash
@@ -185,7 +185,7 @@ anything.txt
 
 Boom! So to recap, you need to build a ```--sandbox``` image from just about any image source, be it a hub or recipe file. Then shell into that container directory with flag ```--writable```.
 
-### Run
+## Run
 
 > Continue from the Build section above with files test.py and Singularity.recipe.
 
@@ -218,7 +218,7 @@ Hello World
 
 > This example works because hello-kitty.txt exists in the user’s home directory. By default singularity bind mounts ```/home/$USER```, ```/tmp```, and ```$PWD``` into your container at runtime.
 
-### Mounting
+## Mounting
 You can specify additional directories to bind mount into your container with the --bind option. In this example, the ```/data``` directory on the host system is bind mounted to the ```/mnt``` directory inside the container.
 ```bash
 $ echo "I am your father" >/data/vader.sez
@@ -227,7 +227,7 @@ I am your father
 ```
 
 
-### Inspect
+## Inspect
 
 Look at meta-data with ```inspect```. Notice the ```%labels``` sections details shows up under ```"CREATOR": "Ben"```
 
@@ -246,3 +246,64 @@ bbearce@bryce:~/singularity$ singularity inspect ubuntu.simg
     "org.label-schema.build-size": "135MB"
 }
 ```
+
+## Useful flags
+
+Here are some of the flags we will need routinely:
+
+### ```-B``` or ```--bind```
+
+> Note mounts can be specified as read only ```ro``` or read write ```rw``` (default).
+
+This is equivalent to dockers ```-v``` flag. Use this to mount directories:
+
+```bash
+dotter[0]:bb927$ singularity shell -B ./in:/mnt/in -B ./out:/mnt/out s_ubuntu/
+Singularity> ls /mnt/in
+in.txt  new_file.txt  out.txt
+Singularity> ls /mnt/out
+out.txt
+Singularity> 
+```
+
+you can comma delimit multiple mounts:
+
+```bash
+dotter[0]:bb927$ singularity shell -B ./in:/mnt/in,./out:/mnt/out s_ubuntu/
+Singularity> ls /mnt/in
+in.txt  new_file.txt  out.txt
+Singularity> ls /mnt/out
+out.txt
+Singularity> 
+```
+
+If you do not specify where in the container you mount to, the local mount will be mounted to the same directory inside the container:
+
+```bash
+dotter[0]:bb927$ singularity shell -B /opt s_ubuntu/
+Singularity> ls /opt
+containerd  google  microsoft  rh
+Singularity> exit 
+exit
+dotter[0]:bb927$ ls /opt
+containerd  google  microsoft  rh
+dotter[0]:bb927$ 
+```
+
+This is the same as ```-B /opt:/opt```
+
+### ```--fakeroot```
+
+This is important for interactive development because since you are not "root" normally you can't install stuff with apt-get. With this you can.
+
+### ```--net```
+
+Gives you internet access.
+
+### ```--nv```
+
+Give ccontainer access to GPUs
+
+### ```--no-home```
+
+When shelling into your container image, Singularity allows you to mount your current working directory (```CWD```) without mounting your host ```$HOME``` directory with the ```--no-home``` flag.
