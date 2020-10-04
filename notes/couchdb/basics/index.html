@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Basics - Ben's Code Journal</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <link href="../../../css/extra.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "CouchDB", url: "#_top", children: [
+              {title: "Good delete script", url: "#good-delete-script" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../nginx/nginx/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../nginx/nginx/" class="btn btn-xs btn-link">
+        Basics
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../container/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../container/" class="btn btn-xs btn-link">
+        As container
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="couchdb">CouchDB</h1>
+<h2 id="good-delete-script">Good delete script</h2>
+<blockquote>
+<p>Source <a href="https://moduliertersingvogel.de/2018/03/15/bulk-delete-in-couchdb/">moduliertersingvogel</a></p>
+<p>Supplementary Material <a href="https://www.tutorialspoint.com/couchdb/couchdb_deleting_a_document.htm">tutorialspoint</a></p>
+</blockquote>
+<p><em>Keep in mind that your view determines how you structure the <code>object</code> in todelete.append(<code>object</code>)</em></p>
+<pre><code class="python">#!/usr/bin/env python3
+# coding: utf-8
+import json
+import requests
+import sys
+
+database=sys.argv[1]
+if len(database)==0:
+    sys.exit(1)
+
+
+# You can use views 
+r=requests.get(&quot;http://localhost:5984/{}/_all_docs&quot;.format(database))
+rows=json.loads(r.text)['rows']
+print(len(rows))
+
+todelete=[]
+for doc in rows:
+    # original
+    # todelete.append({&quot;_deleted&quot;: True, &quot;_id&quot;: doc[&quot;id&quot;], &quot;_rev&quot;: doc[&quot;value&quot;][&quot;rev&quot;]})
+    todelete.append({&quot;_deleted&quot;: True, &quot;_id&quot;: doc[&quot;id&quot;], &quot;_rev&quot;: doc[&quot;value&quot;][0]})
+
+r=requests.post(&quot;http://localhost:5984/{}/_bulk_docs&quot;.format(database), json={&quot;docs&quot;: todelete})
+print(r.status_code)
+</code></pre>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../nginx/nginx/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../nginx/nginx/" class="btn btn-xs btn-link">
+        Basics
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../container/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../container/" class="btn btn-xs btn-link">
+        As container
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>
