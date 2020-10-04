@@ -1,0 +1,2 @@
+mkdocs
+mkdocs-windmill-dark==0.2.0
