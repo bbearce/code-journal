@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>VI - Ben's Code Journal</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <link href="../../../css/extra.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "VI", url: "#_top", children: [
+              {title: "Find and Replace", url: "#find-and-replace" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../users/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../users/" class="btn btn-xs btn-link">
+        Users
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../environment_variables/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../environment_variables/" class="btn btn-xs btn-link">
+        Environment Variables
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="vi">VI</h1>
+<h2 id="find-and-replace">Find and Replace</h2>
+<blockquote>
+<p>Source <a href="http://www.linfo.org/vi/search.html">linfo</a></p>
+</blockquote>
+<p>vi also has powerful search and replace capabilities. To search the text of an open file for a specific string (combination of characters or words), in the command mode type a colon (:), "s," forward slash (/) and the search string itself. What you type will appear on the bottom line of the display screen. Finally, press ENTER, and the matching area of the text will be highlighted, if it exists. If the matching string is on an area of text that is not currently displayed on the screen, the text will scroll to show that area.</p>
+<p>The formal syntax for searching is:</p>
+<pre><code class="bash">:s/string
+</code></pre>
+
+<p>For example, suppose you want to search some text for the string "cherry." Type the following and press ENTER:</p>
+<pre><code class="bash">:s/cherry
+</code></pre>
+
+<p>The first match for "cherry" in your text will then be highlighted. To see if there are additional occurrences of the same string in the text, type n, and the highlight will switch to the next match, if one exists.</p>
+<p>The syntax for replacing one string with another string in the current line is</p>
+<pre><code class="bash">:s/pattern/replace/
+</code></pre>
+
+<p>Here "pattern" represents the old string and "replace" represents the new string. For example, to replace each occurrence of the word "lemon" in a line with "orange," type:</p>
+<pre><code class="bash">:s/lemon/orange/
+</code></pre>
+
+<p>The syntax for replacing every occurrence of a string in the entire text is similar. The only difference is the addition of a "%" in front of the "s":</p>
+<pre><code class="bash">:%s/pattern/replace/
+</code></pre>
+
+<p>Thus repeating the previous example for the entire text instead of just for a single line would be:</p>
+<pre><code class="bash">:%s/lemon/orange/
+</code></pre>
+
+<p>Next: Working With Multiple Files</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../users/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../users/" class="btn btn-xs btn-link">
+        Users
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../environment_variables/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../environment_variables/" class="btn btn-xs btn-link">
+        Environment Variables
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>

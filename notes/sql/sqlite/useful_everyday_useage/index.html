@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Useful Code - Ben's Code Journal</title>
+    <link href="../../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../css/highlight.css">
+    <link href="../../../../css/extra.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Useful Everyday Code", url: "#_top", children: [
+              {title: "Drop If Exists", url: "#drop-if-exists" },
+              {title: "Select Into", url: "#select-into" },
+              {title: "Ranks / Row_Number", url: "#ranks-row_number" },
+              {title: "Add/Change Column Data Type", url: "#addchange-column-data-type" },
+              {title: "Julian Day", url: "#julian-day" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../mysql/mySQL/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../mysql/mySQL/" class="btn btn-xs btn-link">
+        mySQL
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Basics/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Basics/" class="btn btn-xs btn-link">
+        Basics
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="useful-everyday-code">Useful Everyday Code</h1>
+<h2 id="drop-if-exists">Drop If Exists</h2>
+<pre><code class="sql">DROP TABLE [IF EXISTS] [schema_name.]table_name;
+</code></pre>
+
+<h2 id="select-into">Select Into</h2>
+<p><em>source <a href="https://stackoverflow.com/questions/2361921/select-into-statement-in-sqlite">stackoverflow</a></em></p>
+<pre><code class="sql">CREATE TABLE equipments_backup AS SELECT * FROM equipments
+</code></pre>
+
+<h2 id="ranks-row_number">Ranks / Row_Number</h2>
+<blockquote>
+<p>Courtest of <a href="https://www.sqlitetutorial.net/sqlite-window-functions/sqlite-rank/">sqlitetutorial</a></p>
+</blockquote>
+<p><em>Window function support was first added to SQLite with release version 3.25.0 (2018-09-15). The SQLite developers used the PostgreSQL window function documentation as their primary reference for how window functions ought to behave.</em></p>
+<p>The <code>RANK()</code> function is a window function that assigns a rank to each row in a query’s result set. The rank of a row is calculated by one plus the number of ranks that comes before it.</p>
+<p>The following shows the syntax of the <code>RANK()</code> function:</p>
+<pre><code class="sql">RANK() OVER (
+    PARTITION BY &lt;expression1&gt;[{,&lt;expression2&gt;...}]
+    ORDER BY &lt;expression1&gt; [ASC|DESC], [{,&lt;expression1&gt;...}]
+)
+</code></pre>
+
+<blockquote>
+<p>Courtesty of <a href="https://www.sqlite.org/windowfunctions.html">sqlite</a></p>
+</blockquote>
+<p>SQLite supports the following 11 built-in window functions:</p>
+<ul>
+<li>
+<p>row_number()  </p>
+<p>The number of the row within the current partition. Rows are numbered starting from 1 in the order defined by the ORDER BY clause in the window definition, or in arbitrary order otherwise.</p>
+</li>
+<li>
+<p>rank()  </p>
+<p>The row_number() of the first peer in each group - the rank of the current row with gaps. If there is no ORDER BY clause, then all rows are considered peers and this function always returns 1.</p>
+</li>
+<li>
+<p>dense_rank()  </p>
+<p>The number of the current row's peer group within its partition - the rank of the current row without gaps. Partitions are numbered starting from 1 in the order defined by the ORDER BY clause in the window definition. If there is no ORDER BY clause, then all rows are considered peers and this function always returns 1.</p>
+</li>
+<li>
+<p>percent_rank()  </p>
+<p>Despite the name, this function always returns a value between 0.0 and 1.0 equal to (rank - 1)/(partition-rows - 1), where rank is the value returned by built-in window function rank() and partition-rows is the total number of rows in the partition. If the partition contains only one row, this function returns 0.0.</p>
+</li>
+<li>
+<p>cume_dist()  </p>
+<p>The cumulative distribution. Calculated as row-number/partition-rows, where row-number is the value returned by row_number() for the last peer in the group and partition-rows the number of rows in the partition.</p>
+</li>
+<li>
+<p>ntile(N)  </p>
+<p>Argument N is handled as an integer. This function divides the partition into N groups as evenly as possible and assigns an integer between 1 and N to each group, in the order defined by the ORDER BY clause, or in arbitrary order otherwise. If necessary, larger groups occur first. This function returns the integer value assigned to the group that the current row is a part of.</p>
+</li>
+</ul>
+<h2 id="addchange-column-data-type">Add/Change Column Data Type</h2>
+<blockquote>
+<p>Source <a href="https://www.techonthenet.com/sqlite/tables/alter_table.php">techonthenet</a></p>
+</blockquote>
+<h3 id="add-column">Add Column</h3>
+<p>The syntax to ADD A COLUMN in a table in SQLite (using the ALTER TABLE statement) is:</p>
+<pre><code class="sql">ALTER TABLE table_name
+  ADD new_column_name column_definition;
+</code></pre>
+
+<h3 id="change-column">Change Column</h3>
+<p>You can not use the ALTER TABLE statement to modify a column in SQLite. Instead you will need to rename the table, create a new table, and copy the data into the new table.</p>
+<p>Syntax
+The syntax to MODIFY A COLUMN in a table in SQLite is:</p>
+<pre><code class="sql">PRAGMA foreign_keys=off;
+
+BEGIN TRANSACTION;
+
+ALTER TABLE table1 RENAME TO _table1_old;
+
+CREATE TABLE table1 (
+( column1 datatype [ NULL | NOT NULL ],
+  column2 datatype [ NULL | NOT NULL ],
+  ...
+);
+
+INSERT INTO table1 (column1, column2, ... column_n)
+  SELECT column1, column2, ... column_n
+  FROM _table1_old;
+
+COMMIT;
+
+PRAGMA foreign_keys=on;
+</code></pre>
+
+<h3 id="pivot-table">Pivot Table</h3>
+<blockquote>
+<p>Courtesty of <a href="https://modern-sql.com/use-case/pivot">modern-sql</a></p>
+</blockquote>
+<p>Essentially what you need to do is a subquery in which the inner query has the data you want to source and pivot. The outer query will group by a <em>key</em> and <strong>explicitly</strong> define the columns that should be created from values in a particular row. Use <em>FILTER</em> to filter for the rows that will belong to each column. <em>Note:</em> This should be replaced by <em>CASE</em> statements in the future. </p>
+<pre><code class="sql">SELECT year
+     , SUM(revenue) FILTER (WHERE month =  1) jan_revenue
+     , SUM(revenue) FILTER (WHERE month =  2) feb_revenue
+     ...
+     , SUM(revenue) FILTER (WHERE month = 12) dec_revenue
+  FROM (SELECT invoices.*
+             , EXTRACT(YEAR  FROM invoice_date) year
+             , EXTRACT(MONTH FROM invoice_date) month
+          FROM invoices 
+       ) invoices
+ GROUP BY year
+</code></pre>
+
+<h2 id="julian-day">Julian Day</h2>
+<blockquote>
+<p>Source <a href="https://www.techonthenet.com/sqlite/functions/julianday.php">techonthenet</a></p>
+</blockquote>
+<p>Syntax:</p>
+<p>The syntax for the julianday function in SQLite is:</p>
+<pre><code class="sql">julianday(timestring [, modifier1, modifier2, ... modifier_n ] )
+</code></pre>
+
+<p>More concrete example:</p>
+<pre><code class="sql">select
+mrn,
+date,
+julianday(date) as j_day
+from mrns_dates;
+</code></pre>
+
+<p>output:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>mrn</th>
+<th>date</th>
+<th>j_day</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>#######</td>
+<td>2011-04-19</td>
+<td>2455670.5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>#######</td>
+<td>2011-09-26</td>
+<td>2455830.5</td>
+</tr>
+<tr>
+<td>3</td>
+<td>#######</td>
+<td>2012-02-01</td>
+<td>2455958.5</td>
+</tr>
+<tr>
+<td>4</td>
+<td>#######</td>
+<td>2012-03-19</td>
+<td>2456005.5</td>
+</tr>
+<tr>
+<td>5</td>
+<td>#######</td>
+<td>2012-04-24</td>
+<td>2456041.5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>#######</td>
+<td>2014-07-30</td>
+<td>2456868.5</td>
+</tr>
+</tbody>
+</table>
+<p>Notes: A date value. It can be one of the following:</p>
+<table>
+<thead>
+<tr>
+<th>timestring</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>now</td>
+<td>now is a literal used to return the current date</td>
+</tr>
+<tr>
+<td>YYYY-MM-DD</td>
+<td>Date value formatted as 'YYYY-MM-DD'</td>
+</tr>
+<tr>
+<td>YYYY-MM-DD HH:MM</td>
+<td>Date value formatted as 'YYYY-MM-DD HH:MM'</td>
+</tr>
+<tr>
+<td>YYYY-MM-DD HH:MM:SS</td>
+<td>Date value formatted as 'YYYY-MM-DD HH:MM:SS'</td>
+</tr>
+<tr>
+<td>YYYY-MM-DD HH:MM:SS.SSS</td>
+<td>Date value formatted as 'YYYY-MM-DD HH:MM:SS.SSS'</td>
+</tr>
+<tr>
+<td>HH:MM</td>
+<td>Date value formatted as 'HH:MM'</td>
+</tr>
+<tr>
+<td>HH:MM:SS</td>
+<td>Date value formatted as 'HH:MM:SS'</td>
+</tr>
+<tr>
+<td>HH:MM:SS.SSS</td>
+<td>Date value formatted as 'HH:MM:SS.SSS'</td>
+</tr>
+<tr>
+<td>YYYY-MM-DDTHH:MM</td>
+<td>Date value formatted as 'YYYY-MM-DDTHH:MM' where T is a literal character separating the date and time portions</td>
+</tr>
+<tr>
+<td>YYYY-MM-DDTHH:MM:SS</td>
+<td>Date value formatted as 'YYYY-MM-DDTHH:MM:SS' where T is a literal character separating the date and time portions</td>
+</tr>
+<tr>
+<td>YYYY-MM-DDTHH:MM:SS.SSS</td>
+<td>Date value formatted as 'YYYY-MM-DDTHH:MM:SS.SSS' where T is a literal character separating the date and time portions</td>
+</tr>
+<tr>
+<td>DDDDDDDDDD</td>
+<td>Julian date number</td>
+</tr>
+</tbody>
+</table>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../mysql/mySQL/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../mysql/mySQL/" class="btn btn-xs btn-link">
+        mySQL
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Basics/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Basics/" class="btn btn-xs btn-link">
+        Basics
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>
