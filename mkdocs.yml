@@ -87,6 +87,10 @@ nav:
         - Use With Docker: notes/singularity/use_with_docker.md
     - Kubernetes:
         - Cheat Sheet: notes/kubernetes/basics.md
+        - Greenfield: notes/kubernetes/greenfield_deployment.md
+        - Sample Deployment (Django): notes/kubernetes/sample-django-deployment.md
+        - Sample Deployment (Flask): notes/kubernetes/sample-flask-deployment.md
+        - Azure Ingress\Cert\Static IP: notes/kubernetes/azure_ingress_cert_static_ip.md
     - CouchDB:
         - As container: notes/couchdb/container.md
         - Basics: notes/couchdb/basics.md

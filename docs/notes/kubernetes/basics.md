@@ -2,6 +2,40 @@
 
 > Source [kubernetes](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 
+<label>Namespace:</label>
+<input type="text" name="namespace">
+
+<label>Pod:</label>
+<input type="text" name="pod">
+
+<label>Container:</label>
+<input type="text" name="container">
+
+
+
+
+<code>kubectl logs <span class="pod">my-pod</span></code>
+<code>kubectl logs <span class="pod">my-pod</span></code>
+<code>kubectl logs <span class="pod">my-pod</span></code>
+<code>kubectl logs <span class="pod">my-pod</span></code>
+
+<script type="text/javascript">
+    const pods = document.getElementsByClassName("pod")
+    setTimeout(function() {
+        const pods = document.getElementsByClassName("pod")
+        console.log(pods)
+        pods.forEach(function(i, pod, pods) {
+            console.log("pod")
+            pod.innerText = "asfasdfasdf"        
+        })    
+    }, 20)
+    
+
+    // for all pods
+    
+
+</script>
+
 ## Viewing, finding resources
 ```bash
 # Get commands with basic output
