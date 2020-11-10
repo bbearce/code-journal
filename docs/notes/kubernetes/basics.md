@@ -3,36 +3,76 @@
 > Source [kubernetes](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 
 <label>Namespace:</label>
-<input type="text" name="namespace">
+<input type="text" style="color:black;" id="namespace" value="my-namespace">
 
 <label>Pod:</label>
-<input type="text" name="pod">
+<input type="text" style="color:black;" id="pod" value="my-pod">
 
 <label>Container:</label>
-<input type="text" name="container">
+<input type="text" style="color:black;" id="container" value="my-container">
+
+
+
+## My main commands:
+<pre><code class="bash hljs"><span class="hljs-comment"># List all pods in all namespaces</span>
+$ kubectl get pods -A
+$ kubectl get pods --all-namespaces
+<span class="hljs-comment"># Additional Info:</span>
+$ kubectl get pods -A -o wide
+<span class="hljs-comment"># Get logs for a pod</span>
+$ kubectl logs <span class="pod">my-pod</span>
+$ kubectl logs <span class="pod">my-pod</span> -c <span class="pod-container">my-container</span>
+$ kubectl logs -f <span class="pod">my-pod</span> -c <span class="pod-container">my-container</span>  
+<span class="hljs-comment"># Get interactive bash shell</span>
+$ kubectl exec -it <span class="pod">my-pod</span> -c <span class="pod-container">my-container</span> -- bash
+$ kubectl get ingress
+
+<span class="hljs-comment"># Get nodes</span>
+$ kubectl get nodes
+</code></pre>
 
 
 
 
-<code>kubectl logs <span class="pod">my-pod</span></code>
-<code>kubectl logs <span class="pod">my-pod</span></code>
-<code>kubectl logs <span class="pod">my-pod</span></code>
-<code>kubectl logs <span class="pod">my-pod</span></code>
 
-<script type="text/javascript">
-    const pods = document.getElementsByClassName("pod")
-    setTimeout(function() {
-        const pods = document.getElementsByClassName("pod")
-        console.log(pods)
-        pods.forEach(function(i, pod, pods) {
-            console.log("pod")
-            pod.innerText = "asfasdfasdf"        
-        })    
-    }, 20)
-    
+<script>
+    // get pods
+    var pods = document.getElementsByClassName("pod")
 
-    // for all pods
-    
+    // get containers
+    var containers = document.getElementsByClassName("pod-container")
+
+    // get inputs
+    var namespace = document.getElementById("namespace");
+    var pod = document.getElementById('pod');
+    var container = document.getElementById('container');
+
+    // add listeners
+    namespace.addEventListener('input',updateValue)
+    pod.addEventListener('input',updateValue)
+    container.addEventListener('input',updateValue)
+
+    // define what to update
+    function updateValue(e) {
+        // debugger
+        // loop through both to switch in the new name
+        switch (e.currentTarget.id) {
+            case "namespace":
+                console.log("placeholder for namespaces")
+                break;
+            case "pod":
+                for(let i=0;i < pods.length;i++){
+                    pods[i].innerText = e.currentTarget.value
+                }
+                break;
+            case "container":
+                for(let j=0;j < containers.length;j++){
+                    containers[j].innerText = e.currentTarget.value
+                }
+                break;
+        }
+
+    }
 
 </script>
 
