@@ -66,6 +66,7 @@ nav:
             - Holy Grail: notes/layouts/holy_grail.md
         - Bash: 
             - Basics: notes/bash/basics.md
+            - Sed: notes/bash/sed.md
             - Zip and Unzip: notes/bash/zip_and_unzip.md
             - Screen: notes/bash/screen.md
             - SSH: notes/bash/ssh.md
