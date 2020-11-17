@@ -1,6 +1,7 @@
 # Submodules
 
-> Courtesy of [github](https://gist.github.com/gitaarik/8735255)
+> Courtesy of [github](https://gist.github.com/gitaarik/8735255)  
+> Awesome [demo](https://www.youtube.com/watch?v=UQvXst5I41I)
 
 Git Submodules basic explanation
 

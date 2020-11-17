@@ -86,6 +86,7 @@ nav:
         - Install: notes/singularity/install.md
         - Basics: notes/singularity/basics.md
         - Use With Docker: notes/singularity/use_with_docker.md
+        - Demo for QTIM: notes/singularity/demo_for_qtim.md
     - Kubernetes:
         - Cheat Sheet: notes/kubernetes/basics.md
         - Greenfield: notes/kubernetes/greenfield_deployment.md
