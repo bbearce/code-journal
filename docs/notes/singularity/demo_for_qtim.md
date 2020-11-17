@@ -73,7 +73,7 @@ share  singularity
 
 [1] Images are read-only by default...more on that later.
 
-[2] You are not rot inside your image, but rather your username on linux (Ex: ```bb927```).
+[2] You are not ```root``` inside your image, but rather your username on linux (Ex: ```bb927```).
 
 [3] Remember Singularity wants to auto ```--bind``` mount these 3 directories in the background whether you say to or not:
 
