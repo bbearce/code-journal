@@ -83,6 +83,7 @@ nav:
         - Basics: notes/docker/basics.md
         - Tutorial: notes/docker/tutorial.md
         - Remote Registry: notes/docker/remote_registry.md
+        - Docker Compose: notes/docker/docker-compose.md
     - Singularity:
         - Install: notes/singularity/install.md
         - Basics: notes/singularity/basics.md
