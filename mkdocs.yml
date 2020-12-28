@@ -4,11 +4,22 @@ nav:
     - Languages:
         - Python: 
             - Installs: notes/python/Installs.md
-            - Base Modules: 
+            - Base Modules\Concepts: 
                 - Collection:
                     - Counter: notes/python/base_modules/collections/Counter.md
                     - default_dict(): notes/python/base_modules/collections/Default Dict.md
                 - Pdb: notes/python/base_modules/Pdb.md
+                - Strings: notes/python/base_modules/strings/Strings.md 
+                - map(): notes/python/base_modules/Map.md
+                - input(): notes/python/base_modules/Input.md
+                - Sets: notes/python/base_modules/Sets.md
+                - P.B. Reference: notes/python/base_modules/Pass By Reference.md
+                - args, kwargs: notes/python/base_modules/Args and Kwargs.md
+                - zip(): notes/python/base_modules/Zip.md
+                - Zip Files: notes/python/base_modules/zip_files.md
+                - IO: notes/python/base_modules/io.md
+                - servers: notes/python/base_modules/basic_servers.md
+                - sorted(): notes/python/base_modules/Sorted.md
             - Flask: 
                 - Basics: notes/python/flask/basics.md
                 - Links to Check Out: notes/python/flask/links_to_checkout.md
@@ -22,18 +33,8 @@ nav:
                 - Generators: notes/python/advanced/Generators.md
             - RabbitMQ:
                 - Hellow World: notes/python/rabbitmq/hello_world.md
-            - Strings: notes/python/strings/Strings.md
             - S3: notes/python/s3.md
             - TinyDB: notes/python/tinydb/basics.md
-            - Useful: 
-                - map(): notes/python/useful/Map.md
-                - input(): notes/python/useful/Input.md
-                - Sets: notes/python/useful/Sets.md
-                - P.B. Reference: notes/python/useful/Pass By Reference.md
-                - args, kwargs: notes/python/useful/Args and Kwargs.md
-                - zip(): notes/python/useful/Zip.md
-                - servers: notes/python/useful/basic_servers.md
-                - sorted(): notes/python/useful/Sorted.md
         - SQL:
             - Postgres: 
                 - Postgres: notes/sql/postgres/Postgres.md
@@ -123,7 +124,7 @@ nav:
             - Collections Counter: notes/algorithms/python/collections_counter.md
             - Default Dict: notes/algorithms/python/default_dict.md
             - Door Mat: notes/algorithms/python/door_mat.md
-            - Find a String: notes/algorithms/python/find_a_string.md
+            - Find a : notes/algorithms/python/find_a_string.md
             - sWAP cASE: notes/algorithms/python/swap_case.md
             - Class Quiz: notes/algorithms/python/class_quiz.md
             - Print Directory: notes/algorithms/python/print_directory.md
@@ -137,6 +138,7 @@ nav:
 
 extra_css:
     - css/extra.css
+dev_addr: '0.0.0.0:8080'
 theme:
     name: windmill-dark
     highlightjs: true
