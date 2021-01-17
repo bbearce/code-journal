@@ -5,6 +5,22 @@
 
 >Source [linfo](http://www.linfo.org/vi/search.html)
 
+
+>TL;DR
+
+Single Line scope (single replacement):
+```bash
+:s/search_for_text/replace_text/
+```
+Single Line scope (global replacement):
+```bash
+:s/search_for_text/replace_text/g
+```
+Whole file scope:
+```bash
+:s%/search_for_text/replace_text/<g or no g>
+```
+## Formal Notes:
 vi also has powerful search and replace capabilities. To search the text of an open file for a specific string (combination of characters or words), in the command mode type a colon (:), "s," forward slash (/) and the search string itself. What you type will appear on the bottom line of the display screen. Finally, press ENTER, and the matching area of the text will be highlighted, if it exists. If the matching string is on an area of text that is not currently displayed on the screen, the text will scroll to show that area.
 
 The formal syntax for searching is:
