@@ -321,7 +321,7 @@ So remeber that singulariy doesn't let you run as root but rather as your normal
 
 ![Wait What?](./wait_what.jpg)
 
-Last wonky flag I promise, but we need to be ```--fake-root```. Install as this user.
+Last wonky flag I promise, but we need to be ```--fakeroot```. Install as this user.
 
 
 ```bash
