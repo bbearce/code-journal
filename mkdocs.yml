@@ -1,6 +1,8 @@
 site_name: Ben's Code Journal
 nav:
     - Home: index.md
+    - GPU Notes:
+        - MIG: notes/gpu_notes/a100_mig.md
     - Languages:
         - Python: 
             - Installs: notes/python/Installs.md
