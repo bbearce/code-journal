@@ -109,7 +109,7 @@ nav:
         - Submodules: notes/git/git_submodules.md
     - Internet Of Things:
         - AWS: notes/internet_of_things/AWS/storage.md
-        - Azure: notes/internet_of_things/Azure/placeholder.md
+        - Azure: notes/internet_of_things/Azure/overview.md
         - General Notes: notes/internet_of_things/General Notes.md
         - TLS Security: notes/internet_of_things/TLS Security/TLS Security.md
     - Fast.ai:
