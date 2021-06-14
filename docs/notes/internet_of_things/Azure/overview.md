@@ -16,7 +16,7 @@ A dedicated and trusted instance of Azure AD that's automatically created when y
 
 Used to pay for Azure cloud services. You can have many subscriptions and they're linked to a credit card.
 
-> More terms here: https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis#:~:text=Azure%20tenant,tenant%20represents%20a%20single%20organization.
+> More terms [here](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis#:~:text=Azure%20tenant,tenant%20represents%20a%20single%20organization)
 
 ## Service Principal Object
 
