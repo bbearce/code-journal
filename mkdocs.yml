@@ -127,7 +127,7 @@ nav:
             - Collections Counter: notes/algorithms/python/collections_counter.md
             - Default Dict: notes/algorithms/python/default_dict.md
             - Door Mat: notes/algorithms/python/door_mat.md
-            - Find a : notes/algorithms/python/find_a_string.md
+            - Find a String: notes/algorithms/python/find_a_string.md
             - sWAP cASE: notes/algorithms/python/swap_case.md
             - Class Quiz: notes/algorithms/python/class_quiz.md
             - Print Directory: notes/algorithms/python/print_directory.md
@@ -135,6 +135,8 @@ nav:
             - Crossing Rects: notes/algorithms/python/crossing_rects.md
             - Retry: notes/algorithms/python/retry.md
             - Stairs: notes/algorithms/python/stairs.md
+            - Quick Sort: notes/algorithms/python/quick_sort.md
+            - Binary Search: notes/algorithms/python/binary_search.md
     - Codalab:
         - Docker Submission: notes/codalab/docker_submission.md
     - MKDocs: notes/MKDocs/Quick Notes.md
