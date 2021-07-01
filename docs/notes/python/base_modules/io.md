@@ -49,6 +49,15 @@ dest="./to_here/"
 shutil.move(src, dest)
 ```
 
+## Copy File
+```python
+import shutil
+
+src="from_here.txt"
+dest="./to_here/"
+shutil.copyfile(src, os.path.join(dest,src))
+```
+
 ## Delete A File
 ```python
 import os
