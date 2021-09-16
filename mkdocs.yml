@@ -22,6 +22,8 @@ nav:
                 - IO: notes/python/base_modules/io.md
                 - servers: notes/python/base_modules/basic_servers.md
                 - sorted(): notes/python/base_modules/Sorted.md
+            - DICOM:
+                - DICOM to img file: notes/python/dicom/dicom_to_viewable_img_file.md
             - Flask: 
                 - Basics: notes/python/flask/basics.md
                 - Links to Check Out: notes/python/flask/links_to_checkout.md

@@ -216,5 +216,35 @@ sudo certbot certonly --webroot
 You'll need to install your new certificate in the configuration file for your webserver.
 
 
+## Renew
+```bash
+$ sudo certbot renew
+```
+Ex:
+```bash
+azureuser@spie-aapm-nci-dair:~/src/MedICI/codalab$ sudo certbot renew
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Processing
+/etc/letsencrypt/renewal/spie-aapm-nci-dair.westus2.cloudapp.azure.com.conf
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Renewing an existing certificate for spie-aapm-nci-dair.westus2.cloudapp.azure.com
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Congratulations, all renewals succeeded: 
+  /etc/letsencrypt/live/spie-aapm-nci-dair.westus2.cloudapp.azure.com/fullchain.pem (success)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+azureuser@spie-aapm-nci-dair:~/src/MedICI/codalab$ ls certs
+fullchain.pem  privkey.pem
+azureuser@spie-aapm-nci-dair:~/src/MedICI/codalab$ mv certs/fullchain.pem certs/fullchain_old.pem 
+azureuser@spie-aapm-nci-dair:~/src/MedICI/codalab$ mv certs/privkey.pem certs/privkey_old.pem 
+azureuser@spie-aapm-nci-dair:~/src/MedICI/codalab$ ls certs
+fullchain_old.pem  privkey_old.pem
+azureuser@spie-aapm-nci-dair:~/src/MedICI/codalab$ sudo cp /etc/letsencrypt/live/spie-aapm-nci-dair.westus2.cloudapp.azure.com/privkey.pem certs/
+azureuser@spie-aapm-nci-dair:~/src/MedICI/codalab$ sudo cp /etc/letsencrypt/live/spie-aapm-nci-dair.westus2.cloudapp.azure.com/fullchain.pem certs/
+azureuser@spie-aapm-nci-dair:~/src/MedICI/codalab$ ls certs
+fullchain.pem  fullchain_old.pem  privkey.pem  privkey_old.pem
+
+```
 
