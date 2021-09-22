@@ -74,6 +74,7 @@ nav:
             - Sed: notes/bash/sed.md
             - Zip and Unzip: notes/bash/zip_and_unzip.md
             - Screen: notes/bash/screen.md
+            - TMUX: notes/bash/tmux/tmux.md
             - SSH: notes/bash/ssh.md
             - Environment Variables: notes/bash/environment_variables.md
             - VI: notes/bash/vi.md
