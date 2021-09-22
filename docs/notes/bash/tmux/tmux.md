@@ -3,7 +3,7 @@
 Source [leimao.github.io](https://leimao.github.io/blog/Tmux-Tutorial/)
 
 ## Cheat Sheets and Config
-[Tmux Cheat Sheet](https://tmuxcheatsheet.com/)
+[Tmux Cheat Sheet](https://tmuxcheatsheet.com/)  
 [Customize Config](https://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/)
 
 ## Concepts
