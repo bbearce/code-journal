@@ -1,8 +1,59 @@
 site_name: Ben's Code Journal
 nav:
-    - Home: index.md
+    - Algorithms:
+        - Python: 
+            - Folder\File Compare: notes/algorithms/python/directory_compare.md
+            - CSV Loader: notes/algorithms/python/csv_loader.md
+            - Wheel: notes/algorithms/python/wheel/wheel.md
+            - Breadth First Search: notes/algorithms/python/breadth_first_search.md
+            - Names and Dates: notes/algorithms/python/names_and_dates.md
+            - Alphabet Rangoli: notes/algorithms/python/alphabet_rangoli.md
+            - Averages: notes/algorithms/python/averages.md
+            - Collections Counter: notes/algorithms/python/collections_counter.md
+            - Default Dict: notes/algorithms/python/default_dict.md
+            - Door Mat: notes/algorithms/python/door_mat.md
+            - Find a String: notes/algorithms/python/find_a_string.md
+            - sWAP cASE: notes/algorithms/python/swap_case.md
+            - Class Quiz: notes/algorithms/python/class_quiz.md
+            - Print Directory: notes/algorithms/python/print_directory.md
+            - Node w Classes: notes/algorithms/python/nodes_w_classes.md
+            - Crossing Rects: notes/algorithms/python/crossing_rects.md
+            - Retry: notes/algorithms/python/retry.md
+            - Stairs: notes/algorithms/python/stairs.md
+            - Quick Sort: notes/algorithms/python/quick_sort.md
+            - Binary Search: notes/algorithms/python/binary_search.md
+    - Codalab:
+        - Docker Submission: notes/codalab/docker_submission.md
+    - CouchDB:
+        - As container: notes/couchdb/container.md
+        - Basics: notes/couchdb/basics.md
+    - Docker:
+        - Install: notes/docker/install.md 
+        - Basics: notes/docker/basics.md
+        - Tutorial: notes/docker/tutorial.md
+        - Remote Registry: notes/docker/remote_registry.md
+        - Docker Compose: notes/docker/docker-compose.md
+    - Fast.ai:
+        - Introduction: notes/fast.ai/introduction.md
+        - Lessons (Part 1): notes/fast.ai/lessons_part_1.md
+    - Git:
+        - Basics: notes/git/git_basics.md
+        - Subtrees: notes/git/git_sub_trees.md
+        - Submodules: notes/git/git_submodules.md
     - GPU Notes:
         - MIG: notes/gpu_notes/a100_mig.md
+    - Home: index.md
+    - Internet Of Things:
+        - AWS: notes/internet_of_things/AWS/storage.md
+        - Azure: notes/internet_of_things/Azure/overview.md
+        - General Notes: notes/internet_of_things/General Notes.md
+        - TLS Security: notes/internet_of_things/TLS Security/TLS Security.md
+    - Kubernetes:
+        - Cheat Sheet: notes/kubernetes/basics.md
+        - Greenfield: notes/kubernetes/greenfield_deployment.md
+        - Sample Deployment (Django): notes/kubernetes/sample-django-deployment.md
+        - Sample Deployment (Flask): notes/kubernetes/sample-flask-deployment.md
+        - Azure Ingress\Cert\Static IP: notes/kubernetes/azure_ingress_cert_static_ip.md
     - Languages:
         - Python: 
             - Installs: notes/python/Installs.md
@@ -83,66 +134,16 @@ nav:
             - Mount: notes/bash/mount.md
             - On Startup: notes/bash/startup.md
             - PDFs: notes/bash/pdfs.md
-    - Docker:
-        - Install: notes/docker/install.md 
-        - Basics: notes/docker/basics.md
-        - Tutorial: notes/docker/tutorial.md
-        - Remote Registry: notes/docker/remote_registry.md
-        - Docker Compose: notes/docker/docker-compose.md
+    - Martinos:
+        - Cluster: notes/Martinos/cluster/cluster.md
+    - MKDocs: notes/MKDocs/Quick Notes.md
+    - Nginx: 
+        - Basics: notes/nginx/nginx.md
     - Singularity:
         - Install: notes/singularity/install.md
         - Basics: notes/singularity/basics.md
         - Use With Docker: notes/singularity/use_with_docker.md
         - Demo for QTIM: notes/singularity/demo_for_qtim.md
-    - Kubernetes:
-        - Cheat Sheet: notes/kubernetes/basics.md
-        - Greenfield: notes/kubernetes/greenfield_deployment.md
-        - Sample Deployment (Django): notes/kubernetes/sample-django-deployment.md
-        - Sample Deployment (Flask): notes/kubernetes/sample-flask-deployment.md
-        - Azure Ingress\Cert\Static IP: notes/kubernetes/azure_ingress_cert_static_ip.md
-    - CouchDB:
-        - As container: notes/couchdb/container.md
-        - Basics: notes/couchdb/basics.md
-    - Nginx: 
-        - Basics: notes/nginx/nginx.md
-
-    - Git:
-        - Basics: notes/git/git_basics.md
-        - Subtrees: notes/git/git_sub_trees.md
-        - Submodules: notes/git/git_submodules.md
-    - Internet Of Things:
-        - AWS: notes/internet_of_things/AWS/storage.md
-        - Azure: notes/internet_of_things/Azure/overview.md
-        - General Notes: notes/internet_of_things/General Notes.md
-        - TLS Security: notes/internet_of_things/TLS Security/TLS Security.md
-    - Fast.ai:
-        - Introduction: notes/fast.ai/introduction.md
-        - Lessons (Part 1): notes/fast.ai/lessons_part_1.md
-    - Algorithms:
-        - Python: 
-            - Folder\File Compare: notes/algorithms/python/directory_compare.md
-            - CSV Loader: notes/algorithms/python/csv_loader.md
-            - Wheel: notes/algorithms/python/wheel/wheel.md
-            - Breadth First Search: notes/algorithms/python/breadth_first_search.md
-            - Names and Dates: notes/algorithms/python/names_and_dates.md
-            - Alphabet Rangoli: notes/algorithms/python/alphabet_rangoli.md
-            - Averages: notes/algorithms/python/averages.md
-            - Collections Counter: notes/algorithms/python/collections_counter.md
-            - Default Dict: notes/algorithms/python/default_dict.md
-            - Door Mat: notes/algorithms/python/door_mat.md
-            - Find a String: notes/algorithms/python/find_a_string.md
-            - sWAP cASE: notes/algorithms/python/swap_case.md
-            - Class Quiz: notes/algorithms/python/class_quiz.md
-            - Print Directory: notes/algorithms/python/print_directory.md
-            - Node w Classes: notes/algorithms/python/nodes_w_classes.md
-            - Crossing Rects: notes/algorithms/python/crossing_rects.md
-            - Retry: notes/algorithms/python/retry.md
-            - Stairs: notes/algorithms/python/stairs.md
-            - Quick Sort: notes/algorithms/python/quick_sort.md
-            - Binary Search: notes/algorithms/python/binary_search.md
-    - Codalab:
-        - Docker Submission: notes/codalab/docker_submission.md
-    - MKDocs: notes/MKDocs/Quick Notes.md
 
 extra_css:
     - css/extra.css
