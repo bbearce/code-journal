@@ -6,15 +6,17 @@
 
 Locate the [Intranet](https://www.nmr.mgh.harvard.edu/intranet) in the top right on the homepage. This hosts all things Martinos related and should be your first stop for information.
 
-Other userful links within the intranet:
-* [Compute Resources](https://www.nmr.mgh.harvard.edu/intranet/computer)  
-* [Frequently Asked Questions](https://www.nmr.mgh.harvard.edu/faq)
-* [Martinos User Information (sometimes more granular about technical things)](https://www.nmr.mgh.harvard.edu/martinos/userInfo/computer/index.php)
+Other userful links within the intranet:  
 
-Pre-requisites:  
-* Partners ID
-* [Martinos Account](https://www.nmr.mgh.harvard.edu/intranet/computer/request-account)
-* MLSC Access
+* [Compute Resources](https://www.nmr.mgh.harvard.edu/intranet/computer)  
+* [Frequently Asked Questions](https://www.nmr.mgh.harvard.edu/faq)  
+* [Martinos User Information (sometimes more granular about technical things)](https://www.nmr.mgh.harvard.edu/martinos/userInfo/computer/index.php)  
+
+Pre-requisites:   
+
+* Partners ID  
+* [Martinos Account](https://www.nmr.mgh.harvard.edu/intranet/computer/request-account)  
+* MLSC Access  
 
 ## Loggin in
 
@@ -121,7 +123,7 @@ This location is available you from any Martinos machine. It is 20TB large but w
 ## Anaconda
 We will need a python source for part of this demo. The Martinos center has setup an Anaconda distribution we can use thathas scientific modules as part of it. 
 
-[Instructions for Setup](https://freesurfer.net/fswiki/DevelopersGuide/NMRCenterPython/UsersGuide)
+[Instructions for setup](https://freesurfer.net/fswiki/DevelopersGuide/NMRCenterPython/UsersGuide)
 
 For now run this:
 ```bash
@@ -159,13 +161,16 @@ The Martinos Center Help Desk has created official instructions for the Cluster'
 
 It uses [SLURM](https://slurm.schedmd.com/documentation.html) to manage work loads.
 
+
 The Martinos cluster docs above give the details but the most important piece is the resources available:
+
 | Description         | #Nodes | #Cores | RAM   | #GPU               | Partition | Scratch |
 |---------------------|--------|--------|-------|--------------------|-----------|---------|
 | Dell R440 Server    |     30 |     24 | 384GB | none               | basic     |   1.5TB |
 | RTX 6000 GPU Server |      2 |     32 | 1.5TB | 8                  | rtx6000   |   7.0TB |
 | RTX 8000 GPU Server |      5 |     32 | 1.5TB | 4 have 10, 1 has 4 | rtx8000   |   7.0TB |
 | NVIDIA DGX A100     |      4 |     64 | 1.0TB | 8                  | dgx-a100  |    14TB |
+
 
 * R440 Server - CPU compute cluster
 * RTX6000 - 24GB GPU RAM
