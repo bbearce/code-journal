@@ -179,6 +179,11 @@ $ ssh-add ~/.ssh/<your_ssh_key>
 
 Add the SSH key to your GitHub account.
 
+## Access Token
+[Souce](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+
+This link above helps setup a way to push with access tokens.
+
 ## Branching
 
 Branches are used to develop features isolated from each other. The master branch is the "default" branch when you create a repository. Use other branches for development and merge them back to the master branch upon completion.
