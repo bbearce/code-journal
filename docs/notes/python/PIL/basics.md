@@ -4,6 +4,7 @@
 ```python
 from PIL import Image
 
+input_path = "."
 dest_path = "."
 new_image_name = "new_image.jpg"
 
