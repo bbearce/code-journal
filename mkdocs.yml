@@ -79,6 +79,7 @@ nav:
                 - Basics: notes/python/flask/basics.md
                 - Links to Check Out: notes/python/flask/links_to_checkout.md
             - Pandas: notes/python/pandas/basics.md
+            - PIL: notes/python/PIL/basics.md
             - Seaborn: notes/python/seaborn/basics.md
             - Jupyter:
                 - Run Remotely: notes/python/jupyter/basics.md
