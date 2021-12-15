@@ -2,7 +2,9 @@
 
 ## Resize Image
 ```python
+import os
 from PIL import Image
+from math import floor
 
 input_path = "."
 dest_path = "."
