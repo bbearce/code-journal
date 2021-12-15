@@ -137,6 +137,8 @@ nav:
     - Martinos:
         - Cluster: notes/Martinos/cluster/cluster.md
     - MKDocs: notes/MKDocs/Quick Notes.md
+    - Apache: 
+        - Basics: notes/apache/apache.md
     - Nginx: 
         - Basics: notes/nginx/nginx.md
     - Singularity:
