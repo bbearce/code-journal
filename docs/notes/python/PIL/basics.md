@@ -6,6 +6,7 @@ from PIL import Image
 
 input_path = "."
 dest_path = "."
+image_name = "image.jpg"
 new_image_name = "new_image.jpg"
 
 def resize(path):
@@ -15,6 +16,6 @@ def resize(path):
     i = i.resize(new_size, Image.ANTIALIAS)
     return i
 
-new_image = resize(os.path.join(dest_path, "image.jpg"))
+new_image = resize(os.path.join(dest_path, image_name))
 new_image.save(os.path.join(dest_path, new_image_name), optimize=True, quality=50)
 ```
