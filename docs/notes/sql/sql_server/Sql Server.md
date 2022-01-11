@@ -14,6 +14,32 @@ This is the standard way and it works pretty well. It's pretty simple to use.
 
 [pyodbc](https://pypi.org/project/pyodbc/)
 
+```python
+import pyodbc
+
+SQL_Server=""
+Database=""
+View=""
+USER=""
+PASS=""
+
+import pyodbc
+server = f'{SQL_Server}'
+database = f'{Database}'
+username = f'{USER}'
+password = f'{PASS}'   
+driver= '{ODBC Driver 17 for SQL Server}'
+
+with pyodbc.connect('DRIVER='+driver+';SERVER=tcp:'+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password) as conn:
+    with conn.cursor() as cursor:
+#        cursor.execute("SELECT TOP 3 name, collation_name FROM sys.databases")
+        cursor.execute("select top 10 * from viewInferencePXS")
+        row = cursor.fetchone()
+        while row:
+            print (str(row[0]) + " " + str(row[1]))
+            row = cursor.fetchone()
+```
+
 Much easier than JTDS below...
 
 ### JTDS - Java Tabular Data Stream
