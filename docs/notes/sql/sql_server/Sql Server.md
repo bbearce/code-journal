@@ -57,7 +57,7 @@ In DataGrip they have a connection for this driver and it looks like this when s
 #### python
 
 To use the jtds driver in python you need these things:
-* install [jaydebeapi]()
+* install [jaydebeapi](https://pypi.org/project/JayDeBeApi/)
 * Follow this stackoverflow article: [https://stackoverflow.com/questions/55376100/create-a-jtds-connection-string-in-python](https://stackoverflow.com/questions/55376100/create-a-jtds-connection-string-in-python)
   * under jar_path = ```"<path_to>\\jtds-1.3.1.jar"``` we need goto [http://jtds.sourceforge.net/](http://jtds.sourceforge.net/) and click on the Download navbar link and download and extract the *jtds-1.3.1-dist.zip* and then inside the extracted folder the jar is at: *jtds-1.3.1-dist/jtds-1.3.1.jar*.
 * In that article you will find a script. Below is an example
