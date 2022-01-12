@@ -95,7 +95,7 @@ def main():
         # Path to jTDS Jar
 
         # BB- !!! IMPORTANT !!! -BB
-        jar_path = "/home/bbearce/Downloads/jtds-1.3.1-dist/jtds-1.3.1.jar"
+        jar_path = "/home/bbearce/Documents/jtds-1.3.1-dist/jtds-1.3.1.jar"
         # BB- !!! IMPORTANT !!! -BB
 
         # Establish connection.
