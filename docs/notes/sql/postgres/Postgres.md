@@ -1,5 +1,8 @@
 # Postgres
 
+> [CentOS Stream 8 Notes](https://citizix.com/how-to-install-and-configure-postgres-13-on-centos-8/)
+
+
 > Courtesy of [Stackoverflow](https://stackoverflow.com/questions/1471571/how-to-configure-postgresql-for-the-first-time 
 )
 
