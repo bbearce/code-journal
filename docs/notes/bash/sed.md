@@ -35,3 +35,19 @@ XYZ
 
 XYZ
 ```
+
+## Find Line
+> [Source](https://www.baeldung.com/linux/read-specific-line-from-file)
+
+```bash
+$ sed -n '5{p;q}' input.txt
+```
+
+```bash
+* -n, --quiet, --silent
+              suppress automatic printing of pattern space
+
+* “-n ‘5p’” means print only the fifth line
+
+* The sed has provided a ‘q‘ command that allows to “quit” further processing. We can put the ‘q‘ command in the two one-liners
+```
