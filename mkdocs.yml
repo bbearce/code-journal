@@ -55,6 +55,21 @@ nav:
         - Sample Deployment (Flask): notes/kubernetes/sample-flask-deployment.md
         - Azure Ingress\Cert\Static IP: notes/kubernetes/azure_ingress_cert_static_ip.md
     - Languages:
+        - Bash: 
+            - Basics: notes/bash/basics.md
+            - Sed: notes/bash/sed.md
+            - SFTP: notes/bash/sftp/sftp.md
+            - Zip and Unzip: notes/bash/zip_and_unzip.md
+            - Screen: notes/bash/screen.md
+            - TMUX: notes/bash/tmux/tmux.md
+            - SSH: notes/bash/ssh.md
+            - Environment Variables: notes/bash/environment_variables.md
+            - VI: notes/bash/vi.md
+            - Users: notes/bash/users.md
+            - Processes: notes/bash/processes.md
+            - Mount: notes/bash/mount.md
+            - On Startup: notes/bash/startup.md
+            - PDFs: notes/bash/pdfs.md
         - Python: 
             - Installs: notes/python/Installs.md
             - Base Modules\Concepts: 
@@ -121,20 +136,6 @@ nav:
                 - Links To Checkout: notes/javascript/Vue/links_to_checkout.md
         - Sample Web Layouts: 
             - Holy Grail: notes/layouts/holy_grail.md
-        - Bash: 
-            - Basics: notes/bash/basics.md
-            - Sed: notes/bash/sed.md
-            - Zip and Unzip: notes/bash/zip_and_unzip.md
-            - Screen: notes/bash/screen.md
-            - TMUX: notes/bash/tmux/tmux.md
-            - SSH: notes/bash/ssh.md
-            - Environment Variables: notes/bash/environment_variables.md
-            - VI: notes/bash/vi.md
-            - Users: notes/bash/users.md
-            - Processes: notes/bash/processes.md
-            - Mount: notes/bash/mount.md
-            - On Startup: notes/bash/startup.md
-            - PDFs: notes/bash/pdfs.md
     - Martinos:
         - Cluster: notes/Martinos/cluster/cluster.md
     - MKDocs: notes/MKDocs/Quick Notes.md
