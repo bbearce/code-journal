@@ -20,6 +20,9 @@ nav:
             - Crossing Rects: notes/algorithms/python/crossing_rects.md
             - Retry: notes/algorithms/python/retry.md
             - Stairs: notes/algorithms/python/stairs.md
+            - Insertion Sort: notes/algorithms/python/insertion_sort.md
+            - Merge Sort: notes/algorithms/python/merge_sort.md
+            - Tim Sort: notes/algorithms/python/tim_sort.md
             - Quick Sort: notes/algorithms/python/quick_sort.md
             - Binary Search: notes/algorithms/python/binary_search.md
     - Codalab:
