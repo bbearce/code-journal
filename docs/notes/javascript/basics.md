@@ -353,3 +353,66 @@ p.then((message) => {
 })
 ```
 
+### Promises versus Async Functions
+
+```js
+var start = function(){
+  console.log("start")
+  return new Promise(function(resolve, reject){
+    setTimeout(() => resolve("start sending this off"), 1000);
+  })
+};
+
+var func1 = function(from_before){
+  console.log(from_before);
+  return new Promise(function(resolve, reject){
+    setTimeout(() => {console.log("func1"); resolve("func1 sending this off")}, 1000);
+  })
+};
+
+var func2 = function(from_before){
+  console.log(from_before);
+  return new Promise(function(resolve, reject){
+    setTimeout(() => {console.log("func2"); resolve("func2 sending this off")}, 1000);
+  })
+};
+
+start()
+.then(func1)
+.then(func2)
+.then(function(res){ console.log(res) });
+
+
+// async await
+var func1 = async function(from_before){
+  console.log(from_before);
+  return new Promise(resolve => {
+    setTimeout(function(){ resolve("func1 sending this off") }, 1000)
+  })
+};
+
+var func2 = async function(from_before){
+  console.log(from_before);
+  return new Promise(resolve => {
+    setTimeout(function(){ resolve("func2 sending this off") }, 1000)
+  })
+};
+
+var func3 = async function(from_before){
+  console.log(from_before);
+  return new Promise(resolve => {
+    setTimeout(function(){ resolve("func3 sending this off") }, 1000)
+  })
+};
+
+
+var start = async function(){
+  console.log("start")
+  fun1_out = await func1("start sending this off")
+  fun2_out = await func2(fun1_out)
+  fun3_out = await func3(fun2_out)
+};
+start();
+
+
+```
