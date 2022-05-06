@@ -41,6 +41,7 @@ nav:
         - Lessons (Part 1): notes/fast.ai/lessons_part_1.md
     - Git:
         - Basics: notes/git/git_basics.md
+        - Common Operations: notes/git/common_operations.md
         - Subtrees: notes/git/git_sub_trees.md
         - Submodules: notes/git/git_submodules.md
     - GPU Notes:
