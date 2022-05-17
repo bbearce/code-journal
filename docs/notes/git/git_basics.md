@@ -274,6 +274,56 @@ git fetch origin
 git reset --hard origin/master
 ```
 
+## Fetching Remote Branch
+[Source](https://stackoverflow.com/questions/9537392/git-fetch-remote-branch)
+[Github](https://git-scm.com/book/en/v2/Git-Branching-Remote-Branches#_tracking_branches)
+
+### Update:
+A new command, git switch has been added that simplifies the effort.
+
+If daves_branch exists on the remote repository, but not on your local branch, you can simply type:
+```bash
+git switch daves_branch
+```
+
+Since you do not have the branch locally, this will automatically make switch look on the remote repo. It will then also automatically set up remote branch tracking.
+
+### Original Way:
+Checking out a local branch from a remote-tracking branch automatically creates what is called a “tracking branch” (and the branch it tracks is called an “upstream branch”). Tracking branches are local branches that have a direct relationship to a remote branch. If you’re on a tracking branch and type ```git pull```, Git automatically knows which server to fetch from and which branch to merge in.
+
+When you clone a repository, it generally automatically creates a ```master``` branch that tracks ```origin/master```. However, you can set up other tracking branches if you wish — ones that track branches on other remotes, or don’t track the ```master``` branch. The simple case is the example you just saw, running ```git checkout -b <branch> <remote>/<branch>```. This is a common enough operation that Git provides the ```--track``` shorthand:
+
+```bash
+$ git checkout --track origin/serverfix
+Branch serverfix set up to track remote branch serverfix from origin.
+Switched to a new branch 'serverfix'
+```
+
+In fact, this is so common that there’s even a shortcut for that shortcut. If the branch name you’re trying to checkout (a) doesn’t exist and (b) exactly matches a name on only one remote, Git will create a tracking branch for you:
+
+```bash
+$ git checkout serverfix
+Branch serverfix set up to track remote branch serverfix from origin.
+Switched to a new branch 'serverfix'
+```
+
+To set up a local branch with a different name than the remote branch, you can easily use the first version with a different local branch name:
+
+```bash
+$ git checkout -b sf origin/serverfix
+Branch sf set up to track remote branch serverfix from origin.
+Switched to a new branch 'sf'
+```
+
+Now, your local branch ```sf``` will automatically pull from ```origin/serverfix```.
+
+If you already have a local branch and want to set it to a remote branch you just pulled down, or want to change the upstream branch you’re tracking, you can use the ```-u``` or ```--set-upstream-to``` option to ```git branch``` to explicitly set it at any time.
+
+```bash
+$ git branch -u origin/serverfix
+Branch serverfix set up to track remote branch serverfix from origin.
+```
+
 ## Useful Hints
 
 If you want a built-in git GUI, use:
