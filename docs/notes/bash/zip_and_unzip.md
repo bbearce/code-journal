@@ -205,3 +205,40 @@ tar zxvf Slicer-4.8.1-linux-amd64.tar.gz
 ```
 
 FYI: ([Link](https://stackoverflow.com/questions/21929223/what-does-zxvf-mean-in-tar-zxvf-filename))
+
+## RAR Files
+
+[linuxhint](https://linuxhint.com/extract_rar_files_ubuntu/)
+
+### Install rar and unrar
+#### rar
+```bash
+sudo apt-get install rar
+```
+
+```bash
+rar a filename.rar filename1
+```
+
+This will make a filename.rar with a folder filename1 in it and files won't be at root in te directory. To do that do the following:
+
+```bash
+cd filename1
+rar a ../filename.rar ./
+cd ../ # to return to original directory
+```
+
+#### unrar
+```bash
+sudo apt-get install unrar
+```
+
+Extract into current directory
+```bash
+unrar e filename.rar
+```
+
+Extract into specific directory (/home):
+```bash
+unrar  e filename.rar /home/
+```
