@@ -208,6 +208,29 @@ A branch is not available to others unless you push the branch to your remote re
 
 ```git push origin <branch>```
 
+### Show remote branches and their local associations
+```
+git remote show origin
+```
+
+### See what remote branch your local branch is tracking
+```
+git branch -vv
+```
+Ex:
+```
+debian@codabench-test-acl-220627:~/codabench$ git branch -vv
+  develop                   46c1ff7 [origin/develop] Merge pull request #696 from codalab/remove-vnc
+* leaderboard_v2_comp_fixes 7c2811e edit compute worker so that yaml gets correct amount of inputs
+```
+> local develop tracks remote develop branch at remote "origin". leaderboard_v2_comp_fixes is currently not tracking a remote branch
+
+### Add local branch to remote
+```
+git push -u origin <branch>
+# short for
+git push --set-upstream origin <branch>
+```
 
 ## Update and Merge
 
@@ -323,6 +346,7 @@ If you already have a local branch and want to set it to a remote branch you jus
 $ git branch -u origin/serverfix
 Branch serverfix set up to track remote branch serverfix from origin.
 ```
+
 
 ## Useful Hints
 
