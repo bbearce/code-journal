@@ -272,6 +272,14 @@ git push -u origin <branch>
 git push --set-upstream origin <branch>
 ```
 
+### Check out a PR from your repo's branch or another's:
+Check out a pr to a local branch
+```bash
+git fetch origin pull/763/head:anyname
+git checkout anyname
+```
+
+
 ## Update and Merge
 
 To update your local repository to the newest commit, execute:
