@@ -33,6 +33,7 @@ Your local repository consists of three "trees" maintained by git. the first one
 
 ## Add and Commit
 
+### Basics
 You can propose changes (add it to the Index) using:
 
 ```bash
@@ -63,6 +64,45 @@ OPTIONS
        -v, --verbose
            Be a little more verbose and show remote url after name. NOTE: This must be placed between remote and subcommand.
 ```
+
+### Add hunks
+
+> [Source](https://stackoverflow.com/questions/1085162/commit-only-part-of-a-files-changes-in-git)
+
+You can use:
+```
+git add --patch <filename>
+```
+
+or for short:
+```
+git add -p <filename>
+```
+
+Git will break down your file into what it thinks are sensible "hunks" (portions of the file). It will then prompt you with this question:
+
+```
+Stage this hunk [y,n,q,a,d,/,j,J,g,s,e,?]?
+```
+
+Here is a description of each option:
+
+* y stage this hunk for the next commit
+* n do not stage this hunk for the next commit
+* q quit; do not stage this hunk or any of the remaining hunks
+* a stage this hunk and all later hunks in the file
+* d do not stage this hunk or any of the later hunks in the file
+* g select a hunk to go to
+* / search for a hunk matching the given regex
+* j leave this hunk undecided, see next undecided hunk
+* J leave this hunk undecided, see next hunk
+* k leave this hunk undecided, see previous undecided hunk
+* K leave this hunk undecided, see previous hunk
+* s split the current hunk into smaller hunks
+* e manually edit the current hunk
+You can then edit the hunk manually by replacing +/- by # (thanks veksen)
+* ? print hunk help
+
 
 ## Adding a New Remote
 
