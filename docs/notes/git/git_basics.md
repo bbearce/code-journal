@@ -1,4 +1,5 @@
 # Git Basics
+Some basic git commands and workflows
 
 > Courtesy of [rogerdudler.github.io](https://rogerdudler.github.io/git-guide/)
 
