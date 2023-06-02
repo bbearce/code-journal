@@ -45,6 +45,7 @@ nav:
       - Submodules: notes/git/git_submodules.md
   - GPU Notes:
       - MIG: notes/gpu_notes/a100_mig.md
+      - NVIDIA / CUDA: notes/gpu_notes/NVIDIA_CUDA/nvidia_cuda.md
   - Home: index.md
   - Internet Of Things:
       - AWS: notes/internet_of_things/AWS/storage.md
