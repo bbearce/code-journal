@@ -104,6 +104,21 @@ Here is a description of each option:
 You can then edit the hunk manually by replacing +/- by # (thanks veksen)
 * ? print hunk help
 
+## Undo a Commit
+There are two main ways to undo commits:
+* soft: commit undone and changes left un-staged
+```bash
+git reset --soft HEAD~1
+```
+
+* hard: commit undone and changes completely removed (lost forever)
+```bash
+git reset --hard HEAD~1
+```
+
+> Here the ~1 indicates go back one commit
+
+> Note: really good notes on the diff between reset, revert and rebase [here](https://geekflare.com/git-reset-vs-revert-vs-rebase/).
 
 ## Adding a New Remote
 
