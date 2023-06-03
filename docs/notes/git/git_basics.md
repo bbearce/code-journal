@@ -105,6 +105,9 @@ You can then edit the hunk manually by replacing +/- by # (thanks veksen)
 * ? print hunk help
 
 ## Undo a Commit
+> Note: really good notes on the diff between reset, revert and rebase [here](https://geekflare.com/git-reset-vs-revert-vs-rebase/).
+
+### Reset
 There are two main ways to undo commits:
 * soft: commit undone and changes left un-staged
 ```bash
@@ -118,7 +121,14 @@ git reset --hard HEAD~1
 
 > Here the ~1 indicates go back one commit
 
-> Note: really good notes on the diff between reset, revert and rebase [here](https://geekflare.com/git-reset-vs-revert-vs-rebase/).
+### Revert
+In Git, the revert command is used to perform a revert operation, i.e., to revert some changes. It is similar to the reset command, but the only difference here is that you perform a new commit to go back to a particular commit. **In short, it is fair to say that the git revert command is a commit**.
+
+The Git revert command does not delete any data while performing the revert operation.
+
+### Rebase
+ebase can sometimes be a little confusing to understand because it is very similar to a merge. The goal of merging and rebasing both is to take the commits from my feature branch and put them on to a master branch or any other branch. 
+
 
 ## Adding a New Remote
 
