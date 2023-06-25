@@ -324,6 +324,29 @@ Before merging changes, you can also preview them by using:
 
 ```git diff <source_branch> <target_branch>```
 
+### Undo Merge
+
+> Source [freecodecamp](https://freecodecamp.org/news/git-undo-merge-how-to-revert-the-last-merge-commit-in-git/)
+
+Use ```git reflog``` to find commit before merge. Why? Because what if you merged in like 30 commits (I did). Then you have to go one by one to find the correct commit to go back to.
+
+Checkout reflog at the bottom of this page under Useful Hints.
+
+#### Using merge (safer)
+Git provides a safer flag which is ```--merge```. Use the ```HEAD``` keyword with the ```--merge``` flag by running ```git reset --merge HEAD~1```.
+
+Run ```git reset --merge <previous-commit>``` for a specific commit.
+
+> If you don’t get a response from this command when you use the --merge flag, don’t worry, it works.
+
+#### Using reset (dangerous)
+
+If you are not sure of the hash of the last commit, you can run ```git reset --hard HEAD~1``` to go back to the commit before the merge
+
+When you get the hash of the commit you want to get back to, run ```git reset --hard <commit-before-the-merge>```
+
+
+
 ## Tagging
 
 It's recommended to create tags for software releases. This is a known concept, which also exists in SVN. You can create a new tag named 1.0.0 by executing:
@@ -424,6 +447,61 @@ Branch serverfix set up to track remote branch serverfix from origin.
 
 ## Useful Hints
 
+### log
+
+#### General
+```git log``` - shows commits.
+
+#### Commit diff between branches
+
+2 dots:
+
+Suppose you are on myBranch, and you want to see only changes SINCE branching from master. 
+```bash
+git log --oneline master..myBranch
+```
+
+3 dots:
+
+The three-dot version gives all changes from the tip of master to the tip of myBranch
+```bash
+git log --oneline master..myBranch
+```
+
+### Reflog
+> [Source](https://staragile.com/blog/git-reflog)
+
+Reference logs, sometimes known as "reflogs" keep track of when the tips of branches and other references in the local repository are modified. Reflogs can be used in various Git operations to specify the previous value of a reference. 
+
+```
+git reflog <subcommand> <options>
+```
+
+The git reflog can be found in the “.git” directory under the following paths:
+
+.git/logs/refs/heads/
+
+.git/logs/HEAD
+
+.git/logs/refs/stash #if stash has been utilised
+
+Default (```git reflog```):
+```
+git reflog show
+```
+
+Ouptut:
+```bash
+82cdf5f (HEAD -> download_buttons) HEAD@{0}: merge develop: Merge made by the 'ort' strategy.
+81fade0 HEAD@{1}: checkout: moving from develop to download_buttons
+8b575df (origin/develop, origin/HEAD, develop) HEAD@{2}: pull: Fast-forward
+f55e5cc HEAD@{3}: pull: Fast-forward
+2b8de96 HEAD@{4}: checkout: moving from manual_comp_create_queue to develop
+eca5272 (origin/manual_comp_create_queue) HEAD@{5}: commit: remove debug statement
+c035cbe HEAD@{6}: commit: undefined calendar var in initial phase creation
+```
+
+### Gitk
 If you want a built-in git GUI, use:
 
 ```gitk```
