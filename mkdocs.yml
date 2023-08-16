@@ -50,7 +50,9 @@ nav:
   - Home: index.md
   - Internet Of Things:
       - AWS: notes/internet_of_things/AWS/storage.md
-      - Azure: notes/internet_of_things/Azure/overview.md
+      - Azure:
+          - Overview: notes/internet_of_things/Azure/overview.md
+          - Azure Storage: notes/internet_of_things/Azure/Azure_Storage/azure_storage.md
       - General Notes: notes/internet_of_things/General Notes.md
       - TLS Security: notes/internet_of_things/TLS Security/TLS Security.md
   - Kubernetes:

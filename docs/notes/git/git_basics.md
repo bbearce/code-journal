@@ -127,7 +127,23 @@ In Git, the revert command is used to perform a revert operation, i.e., to rever
 The Git revert command does not delete any data while performing the revert operation.
 
 ### Rebase
-ebase can sometimes be a little confusing to understand because it is very similar to a merge. The goal of merging and rebasing both is to take the commits from my feature branch and put them on to a master branch or any other branch. 
+Rebase can sometimes be a little confusing to understand because it is very similar to a merge. The goal of merging and rebasing both is to take the commits from my feature branch and put them on to a master branch or any other branch. 
+
+Get yourself into the right state which is an up to date develop\main branch and then checkout your feature branch which is a little behind develop\main but has a new feature.
+
+
+Ex:
+```bash
+bbearce@pop-os:~/Documents/codabench$ git checkout download_buttons                                                                                                                                                                                                                                                                   
+Switched to branch 'download_buttons'                                                                                                                                             
+Your branch is up to date with 'origin/download_buttons'.                                                                                                                         
+                                                                                                                                           
+bbearce@pop-os:~/Documents/codabench$ git branch                                                                                                                                  
+  develop
+* download_buttons
+
+
+```
 
 
 ## Adding a New Remote
