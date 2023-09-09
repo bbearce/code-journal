@@ -36,6 +36,7 @@ nav:
       - Tutorial: notes/docker/tutorial.md
       - Remote Registry: notes/docker/remote_registry.md
       - Docker Compose: notes/docker/docker-compose.md
+      - Impersonate: notes/docker/impersonate.md
   - Fast.ai:
       - Introduction: notes/fast.ai/introduction.md
       - Lessons (Part 1): notes/fast.ai/lessons_part_1.md
