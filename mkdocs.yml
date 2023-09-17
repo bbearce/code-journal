@@ -79,7 +79,9 @@ nav:
           - On Startup: notes/bash/startup.md
           - PDFs: notes/bash/pdfs.md
       - Python:
-          - Installs: notes/python/Installs.md
+          - Installs: 
+              - Base: notes/python/Installs.md
+              - Environments: notes/python/Environments.md
           - Base Modules\Concepts:
               - Collection:
                   - Counter: notes/python/base_modules/collections/Counter.md

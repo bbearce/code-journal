@@ -1,4 +1,5 @@
 # Installs
+> 09/17/2023 - Might be a bit out of date. 
 
 ## Installing python3.6
 
