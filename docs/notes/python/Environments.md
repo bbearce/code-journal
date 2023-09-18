@@ -309,7 +309,7 @@ curl -sSL https://pdm.fming.dev/install-pdm.py | python3 -
 
 ### New Project
 ```bash
-mkdir ~/Documents/pdm_setup_andexperimentation && cd ~/Documents/pdm_setup_andexperimentation
+mkdir ~/Documents/pdm_setup_and_experimentation && cd ~/Documents/pdm_setup_and_experimentation
 ```
 ```bash
 pdm init
@@ -326,7 +326,7 @@ You can choose the backend used by PDM to create a virtualenv. Currently it supp
 
 ##### Local Virtual Environment
 ```bash
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ pdm init
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ pdm init
 Creating a pyproject.toml for PDM...
 Please enter the Python interpreter to use
 0. /home/bbearce/.pyenv/shims/python3 (3.11)
@@ -339,7 +339,7 @@ Please enter the Python interpreter to use
 7. /home/bbearce/.pyenv/versions/3.10.4/bin/python3.10 (3.10)
 Please select (0): 6
 Would you like to create a virtualenv with /usr/bin/python3.10? [y/n] (y): y
-Virtualenv is created successfully at /home/bbearce/Documents/pdm_setup_andexperimentation/.venv
+Virtualenv is created successfully at /home/bbearce/Documents/pdm_setup_and_experimentation/.venv
 Is the project a library that is installable?
 If yes, we will need to ask a few more questions to include the project name and build backend [y/n] (n): n
 License(SPDX name) (MIT):  
@@ -353,7 +353,7 @@ Project is initialized successfully
 
 We can see the .venv directory which was made from ```/usr/bin/python3.10```.
 ```bash
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ ls -la
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ ls -la
 total 40
 drwxrwxr-x  6 bbearce bbearce 4096 Sep 17 18:25 .
 drwxr-xr-x 36 bbearce bbearce 4096 Sep 17 14:17 ..
@@ -370,16 +370,16 @@ drwxrwxr-x  4 bbearce bbearce 4096 Sep 17 18:24 .venv
 PDM Info:
 > If Project Packages is None (as show below by it not being present), virtualenv mode is enabled.
 ```bash
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ pdm info
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ pdm info
 PDM version:
   2.9.2
 Python Interpreter:
-  /home/bbearce/Documents/pdm_setup_andexperimentation/.venv/bin/python (3.10)
+  /home/bbearce/Documents/pdm_setup_and_experimentation/.venv/bin/python (3.10)
 Project Root:
-  /home/bbearce/Documents/pdm_setup_andexperimentation
+  /home/bbearce/Documents/pdm_setup_and_experimentation
 Local Packages:
 
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ pdm info --env
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ pdm info --env
 {
   "implementation_name": "cpython",
   "implementation_version": "3.10.12",
@@ -407,19 +407,19 @@ $ pdm venv create --with venv 3.9
 
 Notice you need an interpreter installed to use correctly:
 ```bash
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ pdm venv create 3.8
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ pdm venv create 3.8
 [VirtualenvCreateError]: Can't resolve python interpreter 3.8
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ pdm venv create --name for-test 3.8
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ pdm venv create --name for-test 3.8
 [VirtualenvCreateError]: Can't resolve python interpreter 3.8
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ pdm venv create --with venv 3.9
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ pdm venv create --with venv 3.9
 [VirtualenvCreateError]: Can't resolve python interpreter 3.9
 ```
 
 Use ```3.11.5``` that we have:
 ```bash
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ pdm venv create 3.11.5
-Virtualenv /home/bbearce/Documents/pdm_setup_andexperimentation/.venv is created successfully
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ ls -la
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ pdm venv create 3.11.5
+Virtualenv /home/bbearce/Documents/pdm_setup_and_experimentation/.venv is created successfully
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ ls -la
 total 44
 drwxrwxr-x  6 bbearce bbearce 4096 Sep 17 19:00 .
 drwxr-xr-x 36 bbearce bbearce 4096 Sep 17 14:17 ..
@@ -431,39 +431,39 @@ drwxrwxr-x  2 bbearce bbearce 4096 Sep 17 18:25 __pycache__
 drwxrwxr-x  3 bbearce bbearce 4096 Sep 17 18:25 src
 drwxrwxr-x  3 bbearce bbearce 4096 Sep 17 18:25 tests
 drwxrwxr-x  4 bbearce bbearce 4096 Sep 17 19:00 .venv
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$
 ```
 
 ```bash
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ pdm venv create --name for-test 3.11.5
-Virtualenv /home/bbearce/.local/share/pdm/venvs/pdm_setup_andexperimentation-wABLsGD0-for-test is created successfully
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ pdm venv create --name for-test 3.11.5
+Virtualenv /home/bbearce/.local/share/pdm/venvs/pdm_setup_and_experimentation-wABLsGD0-for-test is created successfully
 ```
 
 ```bash
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ pdm venv create --with venv 3.11.5
-Virtualenv /home/bbearce/Documents/pdm_setup_andexperimentation/.venv is created successfully
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ pdm venv create --with venv 3.11.5
+Virtualenv /home/bbearce/Documents/pdm_setup_and_experimentation/.venv is created successfully
 ```
 
 Reuse the virtualenv you created elsewhere:
 This will create file ```.pdm-python```:
 ```bash
-pdm use -f /home/bbearce/.local/share/pdm/venvs/pdm_setup_andexperimentation-wABLsGD0-for-test 
+pdm use -f /home/bbearce/.local/share/pdm/venvs/pdm_setup_and_experimentation-wABLsGD0-for-test 
 
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ cat .pdm-python 
-/home/bbearce/.local/share/pdm/venvs/pdm_setup_andexperimentation-wABLsGD0-for-test/bin/python3
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ cat .pdm-python 
+/home/bbearce/.local/share/pdm/venvs/pdm_setup_and_experimentation-wABLsGD0-for-test/bin/python3
 ```
 
 List all virtualenvs created with this projects:
 ```bash
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ pdm venv list
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ pdm venv list
 Virtualenvs created with this project:
 
--  in-project: /home/bbearce/Documents/pdm_setup_andexperimentation/.venv
-*  for-test: /home/bbearce/.local/share/pdm/venvs/pdm_setup_andexperimentation-wABLsGD0-for-testbbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ pdm venv list
+-  in-project: /home/bbearce/Documents/pdm_setup_and_experimentation/.venv
+*  for-test: /home/bbearce/.local/share/pdm/venvs/pdm_setup_and_experimentation-wABLsGD0-for-testbbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ pdm venv list
 Virtualenvs created with this project:
 
--  in-project: /home/bbearce/Documents/pdm_setup_andexperimentation/.venv
-*  for-test: /home/bbearce/.local/share/pdm/venvs/pdm_setup_andexperimentation-wABLsGD0-for-test
+-  in-project: /home/bbearce/Documents/pdm_setup_and_experimentation/.venv
+*  for-test: /home/bbearce/.local/share/pdm/venvs/pdm_setup_and_experimentation-wABLsGD0-for-test
 ```
 
 Remove a virtualenv:
@@ -477,15 +477,15 @@ eval $(pdm venv activate)
 ```
 
 ```bash
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ eval $(pdm venv activate)
-(pdm_setup_andexperimentation-3.11) bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ which python
-/home/bbearce/Documents/pdm_setup_andexperimentation/.venv/bin/python
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ eval $(pdm venv activate)
+(pdm_setup_and_experimentation-3.11) bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ which python
+/home/bbearce/Documents/pdm_setup_and_experimentation/.venv/bin/python
 
 
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ eval $(pdm venv activate for-test)
-(pdm_setup_andexperimentation-3.11) bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ which python
-/home/bbearce/.local/share/pdm/venvs/pdm_setup_andexperimentation-wABLsGD0-for-test/bin/python
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ eval $(pdm venv activate for-test)
+(pdm_setup_and_experimentation-3.11) bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ which python
+/home/bbearce/.local/share/pdm/venvs/pdm_setup_and_experimentation-wABLsGD0-for-test/bin/python
 ```
 
 > Remember the python interpreter you are using in this project is set in ```.pdm-python```
@@ -493,12 +493,12 @@ bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ eval $(pdm venv activat
 #### PEP 582
 Don't make a virtualenv:
 ```bash
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ pdm init
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ pdm init
 Creating a pyproject.toml for PDM...
 Please enter the Python interpreter to use
 0. /home/bbearce/.pyenv/shims/python3 (3.11)
 1. /home/bbearce/.pyenv/versions/3.11.5/bin/python (3.11)
-2. /home/bbearce/.local/share/pdm/venvs/pdm_setup_andexperimentation-wABLsGD0-for-test/bin/python (3.11)
+2. /home/bbearce/.local/share/pdm/venvs/pdm_setup_and_experimentation-wABLsGD0-for-test/bin/python (3.11)
 3. /home/bbearce/.pyenv/versions/3.11.5/bin/python3.11 (3.11)
 4. /home/bbearce/.pyenv/shims/python3.11 (3.11)
 5. /home/bbearce/.pyenv/shims/python (3.11)
@@ -518,11 +518,12 @@ Python requires('*' to allow any) (>=3.10):
 Project is initialized successfully
 ```
 
+Notice there is no ```.venv``` directory:
 ```bash
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ cat .pdm-python 
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ cat .pdm-python 
 /usr/bin/python3.10
 
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ ls -la
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ ls -la
 -rw-r--r--  1 bbearce bbearce 3102 Sep 17 13:47 .gitignore
 -rw-rw-r--  1 bbearce bbearce   19 Sep 17 19:17 .pdm-python
 drwxrwxr-x  2 bbearce bbearce 4096 Sep 17 19:17 __pycache__
@@ -530,10 +531,6 @@ drwxrwxr-x  2 bbearce bbearce 4096 Sep 17 19:17 __pycache__
 -rw-r--r--  1 bbearce bbearce   18 Sep 17 13:47 README.md
 drwxrwxr-x  3 bbearce bbearce 4096 Sep 17 19:17 src
 drwxrwxr-x  3 bbearce bbearce 4096 Sep 17 19:17 tests
-```
-
-```bash
-
 ```
 
 
@@ -551,7 +548,7 @@ pdm add pandas
 Let's look at the files used to manage this project:
 ```pyproject.toml```: Overall project management (check into git)
 ```bash
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ cat pyproject.toml
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ cat pyproject.toml
 [project]
 name = ""
 version = ""
@@ -569,7 +566,7 @@ license = {text = "MIT"}
 
 ```pdm.lock```: All pandas (and or others as needed) dependencies and is not to be touched (check into git)
 ```bash
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ cat pdm.lock
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ cat pdm.lock
 # This file is @generated by PDM.
 # It is not intended for manual editing.
 
@@ -592,13 +589,13 @@ files = [
 ```.pdm-python```: Interpreter (do not check into git)
 ```bash
 cat .pdm-python
-/home/bbearce/Documents/pdm_setup_andexperimentation/.venv/bin/python
+/home/bbearce/Documents/pdm_setup_and_experimentation/.venv/bin/python
 ```
 
 ```bash
 pdm list
 
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ pdm list
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ pdm list
 ╭─────────────────┬──────────────┬──────────╮
 │ name            │ version      │ location │
 ├─────────────────┼──────────────┼──────────┤
@@ -610,7 +607,7 @@ bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ pdm list
 │ python-dateutil │ 2.8.2        │          │
 ╰─────────────────┴──────────────┴──────────╯
 
-bbearce@pop-os:~/Documents/pdm_setup_andexperimentation$ pdm list --graph
+bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ pdm list --graph
 pandas 2.1.0 [ required: >=2.1.0 ]
 ├── numpy 1.26.0 [ required: >=1.22.4 ]
 ├── python-dateutil 2.8.2 [ required: >=2.8.2 ]
@@ -621,3 +618,76 @@ pandas 2.1.0 [ required: >=2.1.0 ]
 
 
 ### Using Python:
+
+#### Packages with venv
+When in this mode packages are in ```__pypackages__```:
+```bash
+bbearce@terry:~/Documents/pdm_setup_and_experimentation$ tree -L 3 __pypackages__
+__pypackages__
+└── 3.10
+    ├── bin
+    │   └── f2py
+    ├── include
+    └── lib
+        ├── dateutil
+        ├── numpy
+        ├── numpy-1.26.0.dist-info
+        ├── numpy.libs
+        ├── pandas
+        ├── pandas-2.1.0.dist-info
+        ├── python_dateutil-2.8.2.dist-info
+        ├── pytz
+        ├── pytz-2023.3.post1.dist-info
+        ├── six-1.16.0.dist-info
+        ├── six.py
+        ├── tzdata
+        └── tzdata-2023.3.dist-info
+```
+
+#### Packages with PEP 582
+When in this mode packages are in ```.venv/site-pypackages```:
+```bash
+bbearce@terry:~/Documents/pdm_setup_and_experimentation$ tree -L 3 .venv/lib
+.venv/lib
+└── python3.10
+    └── site-packages
+        ├── dateutil
+        ├── numpy
+        ├── numpy-1.26.0.dist-info
+        ├── numpy.libs
+        ├── pandas
+        ├── pandas-2.1.0.dist-info
+        ├── __pycache__
+        ├── python_dateutil-2.8.2.dist-info
+        ├── pytz
+        ├── pytz-2023.3.post1.dist-info
+        ├── six-1.16.0.dist-info
+        ├── six.py
+        ├── tzdata
+        ├── tzdata-2023.3.dist-info
+        ├── _virtualenv.pth
+        └── _virtualenv.py
+```
+
+If using a pdm created venv with a name in ```~/.local/share/pdm/venvs/``` then it would be under ```~/.local/share/pdm/venvs/<venv name>/site-packages```.
+
+When in this mode if you want a shell using this projects packages and interpreter you use ```pdm run python```:
+```bash
+bbearce@terry:~/Documents/pdm_setup_and_experimentation$ pdm run python
+Python 3.10.6 (main, Mar 10 2023, 10:55:28) [GCC 11.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pandas
+>>> pandas
+<module 'pandas' from '/home/bbearce/Documents/pdm_setup_and_experimentation/__pypackages__/3.10/lib/pandas/__init__.py'>
+```
+
+Notice without ```pdm run```, your system starts the same interpreter but doesn't have packages installed:
+```bash
+bbearce@terry:~/Documents/pdm_setup_and_experimentation$ python3
+Python 3.10.6 (main, Mar 10 2023, 10:55:28) [GCC 11.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pandas
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'pandas'
+```
