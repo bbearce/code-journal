@@ -145,7 +145,7 @@ ondemand  README.mdwn
 acompile # start session
 ```
 
-## Set important environment variables
+### Set important environment variables
 This is to now fill up your quota:
 ```bash
 module load singularity/3.6.4
@@ -159,7 +159,7 @@ export APPTAINER_CACHEDIR=$ALPINE_SCRATCH/singularity/cache
 mkdir -pv $APPTAINER_CACHEDIR $APPTAINER_TMPDIR
 ```
 
-## Create Recipe
+### Create From Recipe
 ```bash
 [bbearce@xsede.org@c3cpu-a5-u34-3 singularity]$ cd /projects/bbearce@xsede.org/singularity
 
