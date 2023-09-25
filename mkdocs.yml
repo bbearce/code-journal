@@ -158,6 +158,7 @@ nav:
       - Basics: notes/singularity/basics.md
       - Use With Docker: notes/singularity/use_with_docker.md
       - Demo for QTIM: notes/singularity/demo_for_qtim.md
+      - Demo for CU: notes/singularity/cu-singularity.md
 
 extra_css:
   - css/extra.css
