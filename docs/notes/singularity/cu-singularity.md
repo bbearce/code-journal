@@ -114,10 +114,11 @@ INFO:    Build complete: s_ubuntu_modified
 
 
 ## Run
-> Work on this
 ```bash
 singularity run ubuntu_latest.sif
+Apptainer>
 ```
+> For this image brings you to bash
 
 ## Alpine
 Picking up where Scott left off we want to run on Alpine.
@@ -179,7 +180,7 @@ Copying blob 035a286326d6 [=========>----------------------------] 782.8MiB / 2.
 ```
 
 
-## Sylabs Container Registry
+### Sylabs Container Registry
 List Remotes:
 ```bash
 apptainer remote list
@@ -232,24 +233,5 @@ apptainer pull library://bbearce/ubuntu/dockerhub:latest
 bearceb@ophlapps03:~/singularity$ ls
 dockerhub_latest.sif
 ```
-
-
-## Remote Builder (Haven't got working )
-[Remote Builder](https://curc.readthedocs.io/en/latest/software/Containerizationon.html?highlight=singularity#singularity)
-
-Build images remotely.
-
-### Make a syslabs token
-```bash
-cd ~
-mkdir .singularity; cd .singularity
-echo “<your-token>” > ~/.singularity/sylabs-token
-singularity build --remote <desired-image-name> <your-recipe>
-```
-
-```bash
-singularity build --remote pytorch.sif pytorch_based.recipe
-```
-
 
 
