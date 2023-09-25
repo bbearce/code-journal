@@ -61,7 +61,7 @@ Apptainer> pwd
 Apptainer> touch test.txt
 
 Apptainer> touch /mnt/test.txt
-touch: cannot touch '/mnttest.txt': Read-only file system
+touch: cannot touch '/mnt/test.txt': Read-only file system
 ```
 Only mounted directories have write permissions (```$PWD``` is one automatically mounted). Shelling provides read-only access to images.
 
@@ -101,7 +101,7 @@ exit
 bbearce@pop-os:~/Desktop/singularity$ apptainer shell --writable s_ubuntu 
 WARNING: Skipping mount /etc/localtime [binds]: /etc/localtime doesn't exist in container
 Apptainer> touch /mnt/test.txt
-Apptainer> 
+Apptainer> pip install <package>
 ```
 
 To build back into an image:
@@ -112,10 +112,6 @@ INFO:    Creating SIF file...
 INFO:    Build complete: s_ubuntu_modified
 ```
 
-Installing software
-```bash
-
-```
 
 ## Run
 > Work on this
@@ -145,8 +141,12 @@ Picking up where Scott left off we want to run on Alpine.
 ondemand  README.mdwn
 ```
 
+```bash
+acompile # start session
+```
+
 ## Set important environment variables
-This is to not fill up your quota:
+This is to now fill up your quota:
 ```bash
 module load singularity/3.6.4
 export TMP=/scratch/alpine/$USER
@@ -158,7 +158,6 @@ export APPTAINER_TMPDIR=$ALPINE_SCRATCH/singularity/tmp
 export APPTAINER_CACHEDIR=$ALPINE_SCRATCH/singularity/cache
 mkdir -pv $APPTAINER_CACHEDIR $APPTAINER_TMPDIR
 ```
-> Work in ```/projects``` and cache images and layers ```/scratch```
 
 ## Create Recipe
 ```bash
@@ -178,10 +177,6 @@ Copying blob 4ade0a4bc5d5 done
 Copying blob 2185b402c9ca done  
 Copying blob 035a286326d6 [=========>----------------------------] 782.8MiB / 2.9GiB
 ```
-
-
-sinteractive --partition=atesting --ntasks-per-node=1 --nodes=1 --time=00:10:00
-
 
 
 ## Sylabs Container Registry
@@ -237,8 +232,6 @@ apptainer pull library://bbearce/ubuntu/dockerhub:latest
 bearceb@ophlapps03:~/singularity$ ls
 dockerhub_latest.sif
 ```
-
-
 
 
 ## Remote Builder (Haven't got working )
