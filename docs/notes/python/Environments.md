@@ -88,6 +88,27 @@ VSCode Example:
 
 
 
+## Poetry
+[Poetry](https://python-poetry.org/docs/)
+
+### Install
+```bash
+curl -sSL https://install.python-poetry.org | python3 -
+```
+
+### Uninstall
+```bash
+curl -sSL https://install.python-poetry.org | python3 - --uninstall
+```
+
+### Version
+```bash
+$ poetry --version
+Poetry (version 1.6.1)
+```
+
+
+
 ## Pyenv
 [Official Docs](https://github.com/pyenv/pyenv)  
 [realpython.com](https://realpython.com/intro-to-pyenv/#installing-pyenv) (they use the above to guide you)
