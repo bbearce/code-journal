@@ -1,6 +1,8 @@
 # Environments
 You need to install [python](./Installs.md) first.
 
+> MGB's [QTIM Standards](https://github.com/QTIM-Lab/qtim-standards/blob/main/data.md) courtesy of [Chris Bridge](https://chrisbridge.science/) give a good layout idea for us to follow.
+
 ## Venv (virtualenv in python2)
 [packaging.python.org](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/)
 
