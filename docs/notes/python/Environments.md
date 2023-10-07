@@ -868,7 +868,7 @@ __pypackages__
         └── tzdata-2023.3.dist-info
 ```
 
-If using a pdm created venv with a name in ```~/.local/share/pdm/venvs/``` then it would be under ```~/.local/share/pdm/venvs/<venv name>/site-packages```.
+If using a pdm created venv with a name in ```~/.local/share/pdm/venvs/``` then packages would be under ```~/.local/share/pdm/venvs/<venv name>/site-packages```.
 
 When in this mode if you want a shell using this projects packages and interpreter you use ```pdm run python```:
 ```bash
