@@ -662,10 +662,6 @@ bbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ pdm venv list
 Virtualenvs created with this project:
 
 -  in-project: /home/bbearce/Documents/pdm_setup_and_experimentation/.venv
-*  for-test: /home/bbearce/.local/share/pdm/venvs/pdm_setup_and_experimentation-wABLsGD0-for-testbbearce@pop-os:~/Documents/pdm_setup_and_experimentation$ pdm venv list
-Virtualenvs created with this project:
-
--  in-project: /home/bbearce/Documents/pdm_setup_and_experimentation/.venv
 *  for-test: /home/bbearce/.local/share/pdm/venvs/pdm_setup_and_experimentation-wABLsGD0-for-test
 ```
 
