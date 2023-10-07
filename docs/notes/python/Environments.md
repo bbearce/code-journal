@@ -379,8 +379,9 @@ git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/py
 
 Create:
 ```bash
-bbearce@pop-os:~/Desktop/venv_demo$ pyenv virtualenv 3.10.4 venv3.10.4
-
+bbearce@pop-os:~/Desktop/venv_demo$ pyenv virtualenv 3.10.4 <venv-name>
+```
+```bash
 bbearce@pop-os:~/Desktop/venv_demo$ ls -la ~/.pyenv/versions
 drwxr-xr-x  6 bbearce bbearce 4096 Sep 17 17:03 3.10.4
 drwxr-xr-x  7 bbearce bbearce 4096 Sep 16 16:29 3.11.5
