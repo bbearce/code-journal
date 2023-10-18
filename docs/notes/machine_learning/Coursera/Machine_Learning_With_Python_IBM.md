@@ -101,7 +101,25 @@ car_id|engine_size|cylinders|fuel_consumption|co2_emissions
 
 > Remember dependent variables have to be continuous
 
-$y = \theta_0 + \theta_1 x_1$
+$y(hat) = \theta_0 + \theta_1 x_1$
+
+
+A residual error is the difference between y which is the data itself (x,y) from the csv and y(hat), the regression line evaluated at x (x, y(hat)).
+
+The mean of all residual errors shows how poorly the estimation approximates the best regression. This is called the Mean Squared Error:
+
+$MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y_i})^2$
+
+It can be shown that $\theta_0$ and $\theta_1$ are:
+
+$\theta_1 = \frac{\sum_{i=1}^{S} (x_i - x_m) (y_i - y_m)}{\sum_{i=1}^{S} (x_i - x_m)^2}$
+
+$\theta_0 = y_m - \theta_1 x_m$
+
+where:
+
+* $x_m$ is the mean of all x values
+* $y_m$ is the mean of all y values
 
 
 Let's use code:
