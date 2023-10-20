@@ -101,10 +101,9 @@ car_id|engine_size|cylinders|fuel_consumption|co2_emissions
 
 > Remember dependent variables have to be continuous
 
-$y(hat) = \theta_0 + \theta_1 x_1$
+$\hat{y} = \theta_0 + \theta_1 x_1$
 
-
-A residual error is the difference between y which is the data itself (x,y) from the csv and y(hat), the regression line evaluated at x (x, y(hat)).
+A residual error is the difference between y which is the data itself (x,y) from the csv and y(hat), the regression line evaluated at x (x, $\hat{y}$).
 
 The mean of all residual errors shows how poorly the estimation approximates the best regression. This is called the Mean Squared Error:
 
@@ -112,18 +111,82 @@ $MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y_i})^2$
 
 It can be shown that $\theta_0$ and $\theta_1$ are:
 
-$\theta_1 = \frac{\sum_{i=1}^{S} (x_i - x_m) (y_i - y_m)}{\sum_{i=1}^{S} (x_i - x_m)^2}$
+$\theta_1 = \frac{\sum_{i=1}^{S} (x_i - \bar{x}) (y_i - \bar{y})}{\sum_{i=1}^{S} (x_i - \bar{x})^2}$
 
-$\theta_0 = y_m - \theta_1 x_m$
+$\theta_0 = \bar{y} - \theta_1 \bar{x}$
 
 where:
 
-* $x_m$ is the mean of all x values
-* $y_m$ is the mean of all y values
-
+* $\bar{x}$ is the mean of all x values
+* $\bar{y}$ is the mean of all y values
 
 Let's use code:
 ```python
+import pandas as pd
 
+engine_size = [2.0,2.4,1.5,3.5,3.5,3.5,3.5,3.7,3.7]
+cylinders = [4,4,4,6,6,6,6,6,6]
+fuel_consumption_comb = [8.5,9.6,5.9,11.1,10.6,10.0,10.1,11.1,11.6]
+co2_emissions = [196,221,136,255,244,230,232,255,267]
+
+engines = pd.DataFrame({'engine_size':engine_size,
+                        'cylinders':cylinders,
+                        'fuel_consumption_comb':fuel_consumption_comb,
+                        'co2_emissions':co2_emissions})
+
+engines
+
+theta_0 = 100
+theta_1 = 30
+x1 = 4
+
+y = theta_0 + theta_1 * 4
+y
 ```
 
+Pros of regressions:
+* Very fast
+* No parameter tuning
+* East to understand, and highly interpretable
+
+### Model Evaluation Approaches
+* Train and Test on the Same Dataset
+* Train/Test Split
+
+#### Train and Test on the Same Dataset
+Identify a testing subset of all data having observations for a given *dependent* variable. We train on all the data then predict on the testing subset and compare predictions of the *dependent* variable from the test set to the observations of the test set for the same variable.
+
+* Training set is *all* data.
+* Testing set is *subset* of training.
+
+Let's evaluate the error ($y_i$ being the actual observation and $\hat{y}_j$ being the prediction):
+
+Error = $\frac{1}{n}\sum_{j=1}^{n}|y_i - \hat{y}_j|$
+
+It's the *average* error across all values.
+
+This approach has a high *training accuracy* but a low *out-of-sample* accuracy. High training accuracy isn't necessarily a good thing. It results in overfitting. It's important that our models have a high, out-of-sample accuracy.
+
+> The quiz made a point that I want to record. If a model is overly trained to the dataset, it may capture noise and produce a non-generalized model.
+
+
+#### Train/Test Split
+Let's select a train/test split. 
+
+* Training set is *subset* of data.
+* Testing set is also a *subset* of data but with no overlap with the training set.
+* Training and Test data are *mutually exclusive*, which is a statistical term describing two or more events that cannot happen simultaneously.
+
+This is more realistic for real world problems.
+
+One problem with this approach is the model is highly dependent on which datasets the data is trained and tested.
+
+#### K-Fold Cross-Validation
+Another evaluation model called **K-fold cross-validation** can resolve most of these issues. How do you fix a high variation that results from a dataset dependency? Well you average it.
+
+Example:
+Take a dataset and make a train\test split where 75% of the data is training and 25% is test. If we have **K equals four folds**, then we make 4 train/test splits. In the **first** fold for example, we use the **first** 25 percent of the dataset for testing and the rest for training. The model is built using the training set and is evaluated using the test set. Then, in the next round or in the **second** fold, the **second** 25 percent of the dataset is used for testing and the rest for training the model. Again, the accuracy of the model is calculated. We continue for all folds. Finally, the result of all four evaluations are averaged. That is, the accuracy of each fold is then averaged, keeping in mind that each fold is distinct, **where no training data in one fold is used in another**. K-fold cross-validation in its simplest form performs multiple train/test splits, using the same dataset where each split is different. Then, the result is average to produce a more consistent out-of-sample accuracy.
+
+> However, going in depth with K-fold cross-validation model is out of the scope for this course.
+
+### Evaluation Metrics in Regression Models
