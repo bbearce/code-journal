@@ -284,16 +284,78 @@ $\hat{y} = \theta_0 + \theta_1x_1 + \theta_2x_2 + ... + \theta_nx_n$
 Vector Form (more concise):  
 $\hat{y} = \theta^TX$ "Theta Transpose X, it's really just missing $\theta_0$ from above expanded form. That is *bias*."
 
-$\theta^T = [\theta^0,\theta^1,\theta^2,...]$  
-$X = \left[
-\begin{array}{ccc}
-1 \\
-x_1 \\
-x_2 \\
-\end{array}
-\right]
-$
+$\theta^T = [\theta^0,\theta^1,\theta^2,...]$
 
+$X = \left[ \begin{array}{c} 1 \\ x_1 \\ x_2 \\ \end{array} \right]$
 
+#### Estimating Multiple Linear Regression Parameters
+How to estimate $\theta^T$?
+* Ordinary Least Squares
+  * Linear algebra operations
+  * Takes a long time for large datasets (10K+rows)
+* An optimized algorithm
+  * Gradient Descent
+  * Proper approach if you have a very large dataset.
 
+Questions to consider:  
+* How to determine whether to use simple or multiple linear regression?
+* How many independent variables should you use?
+  * Too many causes overfit. It's too specific.
+* Should the indendent variable be continuous?
+* What are the linear relationships between the dependent variable and the independent variables?
+
+#### Sklearn Multiple Lenear Regression
+```bash
+# Setup Environment
+cd ~/Desktop; mkdir temp; cd temp; pyenv activate venv3.10.4;
+wget -O FuelConsumption.csv https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ML0101EN-SkillsNetwork/labs/Module%202/data/FuelConsumptionCo2.csv
+# cd ~/Desktop; rm -r temp; # To remove
+```
+```python
+import matplotlib.pyplot as plt
+import pandas as pd
+import pylab as pl
+import numpy as np
+from sklearn import linear_model
+# train\teset
+df = pd.read_csv("FuelConsumption.csv")
+cdf = df[['ENGINESIZE','CYLINDERS','FUELCONSUMPTION_CITY','FUELCONSUMPTION_HWY','FUELCONSUMPTION_COMB','CO2EMISSIONS']]
+msk = np.random.rand(len(df)) < 0.8
+train = cdf[msk]
+test = cdf[~msk]
+# multiple regression model
+regr = linear_model.LinearRegression()
+x = np.asanyarray(train[['ENGINESIZE','CYLINDERS','FUELCONSUMPTION_COMB']])
+y = np.asanyarray(train[['CO2EMISSIONS']])
+regr.fit (x, y)
+# The coefficients
+print ('Coefficients: ', regr.coef_)
+```
+
+As mentioned before, **Coefficient** and **Intercept**  are the parameters of the fitted line. 
+Given that it is a multiple linear regression model with 3 parameters and that the parameters are the intercept and coefficients of the hyperplane, sklearn can estimate them from our data. Scikit-learn uses plain **Ordinary Least Squares** method to solve this problem.
+
+It tries to minimize the sum of squared errors (SSE) or mean squared error (MSE) between the target variable (y) and our predicted output ($\hat{y}$) over all samples in the dataset.
+
+OLS can find the best parameters using of the following methods:
+* Solving the model parameters analytically using closed-form equations
+* Using an optimization algorithm (Gradient Descent, Stochastic Gradient Descent, Newton’s Method, etc.)
+
+Prediction:
+```python
+y_hat= regr.predict(test[['ENGINESIZE','CYLINDERS','FUELCONSUMPTION_COMB']])
+x = np.asanyarray(test[['ENGINESIZE','CYLINDERS','FUELCONSUMPTION_COMB']])
+y = np.asanyarray(test[['CO2EMISSIONS']])
+print("Mean Squared Error (MSE) : %.2f"
+      % np.mean((y_hat - y) ** 2))
+
+# Explained variance score: 1 is perfect prediction
+print('Variance score: %.2f' % regr.score(x, y))
+```
+
+**Explained variance regression score ($R^2$):**  
+Let $\hat{y}$ be the estimated target output, y the corresponding (correct) target output, and Var be the Variance (the square of the standard deviation). Then the explained variance is estimated as follows:
+
+$\texttt{explainedVariance}(y, \hat{y}) = 1 - \frac{Var\{ y - \hat{y}\}}{Var\{y\}}$  
+The best possible score is 1.0, the lower values are worse.
 
