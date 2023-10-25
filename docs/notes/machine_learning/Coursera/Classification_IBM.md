@@ -62,3 +62,76 @@ Probability of label versus label itself. Only for binary output.
 
 $LogLoss = \frac{1}{n}\sum_{i=1}^{i}(y\log(\hat{y}) +(1-y)*\log(1-\hat{y}))$
 
+# K-NN Code Example
+```bash
+# Setup Environment
+cd ~/Desktop; mkdir temp; cd temp; pyenv activate venv3.10.4;
+# cd ~/Desktop; rm -r temp; # To remove
+```
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+from sklearn import preprocessing, metrics
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+
+df = pd.read_csv('https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ML0101EN-SkillsNetwork/labs/Module%203/data/teleCust1000t.csv')
+df.head()
+# classes in dataset (customer category)
+key = {'1':'Basic Service','2':'E Service','3':'Plus Service','4':'Total Service'}
+df['custcat'].value_counts()
+# normalize the data
+X = df[['region', 'tenure','age', 'marital', 'address', 'income', 'ed', 'employ','retire', 'gender', 'reside']] .values  #.astype(float)
+y = df['custcat'].values; y[0:5]
+X = preprocessing.StandardScaler().fit(X).transform(X.astype(float)); X[0:5]
+# train/test/split
+X_train, X_test, y_train, y_test = train_test_split( X, y, test_size=0.2, random_state=4)
+print ('Train set:', X_train.shape,  y_train.shape)
+print ('Test set:', X_test.shape,  y_test.shape)
+# k-nearest neighbor
+k = 4
+# train model and predict  
+neigh = KNeighborsClassifier(n_neighbors = k).fit(X_train,y_train); neigh
+# predicting
+yhat = neigh.predict(X_test); yhat[0:5]
+print("Train set Accuracy: ", metrics.accuracy_score(y_train, neigh.predict(X_train)))
+print("Test set Accuracy: ", metrics.accuracy_score(y_test, yhat))
+# practice
+k=6 # do over with this k
+neigh = KNeighborsClassifier(n_neighbors = k).fit(X_train,y_train); neigh
+yhat = neigh.predict(X_test); yhat[0:5]
+print("Train set Accuracy: ", metrics.accuracy_score(y_train, neigh.predict(X_train)))
+print("Test set Accuracy: ", metrics.accuracy_score(y_test, yhat))
+```
+> metrics.accuracy_score is jaccard_score (jaccard index)
+```python
+# try even more Ks
+Ks = 10
+mean_acc = np.zeros((Ks-1))
+std_acc = np.zeros((Ks-1))
+
+for n in range(1,Ks):
+    #Train Model and Predict  
+    neigh = KNeighborsClassifier(n_neighbors = n).fit(X_train,y_train)
+    yhat=neigh.predict(X_test)
+    mean_acc[n-1] = metrics.accuracy_score(y_test, yhat) # jaccards
+    std_acc[n-1]=np.std(yhat==y_test)/np.sqrt(yhat.shape[0]) # standard error
+    # https://en.wikipedia.org/wiki/Standard_error
+
+mean_acc
+std_acc
+# plot
+plt.plot(range(1,Ks),mean_acc,'g')
+plt.fill_between(range(1,Ks),mean_acc - 1 * std_acc,mean_acc + 1 * std_acc, alpha=0.10)
+plt.fill_between(range(1,Ks),mean_acc - 3 * std_acc,mean_acc + 3 * std_acc, alpha=0.10,color="green")
+plt.legend(('Accuracy ', '+/- 1xstd','+/- 3xstd'))
+plt.ylabel('Accuracy ')
+plt.xlabel('Number of Neighbors (K)')
+plt.tight_layout()
+plt.show()
+# best accuracy
+print( "The best accuracy was with", mean_acc.max(), "with k=", mean_acc.argmax()+1) 
+```
+
