@@ -46,7 +46,7 @@ $Dis(x_1, x_2) = \sqrt{\sum_{i=0}^{n}(x_{1i}^`-x_{2i}^`)^2+(x_{1i}^{``}-x_{2i}^{
 * A high value is too general.
 * We're not sure yet... loop over k and test accuracy
 
-## Classification Accuracy (little shaky..review)
+## Classification Accuracy
 Compare predictions $y$ and actual $\hat{y}$ of test data set.
 
 ### Jaccard index
@@ -58,9 +58,25 @@ $J(y, \hat{y}) = \frac{|y\cap\hat{y}|}{|y\cup\hat{y}|} = \frac{|y\cap\hat{y}|}{|
 * F1-score = 2x(prc x rec)/(prc + rec)
 
 ### Log Loss
-Probability of label versus label itself. Only for binary output.
+Probability of label versus label itself. Only for binary output. This is related to logistic regression.
 
 $LogLoss = \frac{1}{n}\sum_{i=1}^{i}(y\log(\hat{y}) +(1-y)*\log(1-\hat{y}))$
+
+Looks like infinity towards 0 for x and 0 for correct prediction with 100% confidence.
+```bash
+(y)
+00|.
+  | .
+  | .
+  | .
+  |  .
+  |   .
+  |      .
+  |            .
+ 0|                         .
+ ------------------------------(x)
+```
+
 
 # K-NN Code Example
 ```bash
