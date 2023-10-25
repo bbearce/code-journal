@@ -147,7 +147,7 @@ nav:
       - Sample Web Layouts:
           - Holy Grail: notes/layouts/holy_grail.md
   - Machine Learning:
-      - Intro: notes/machine_learning/Coursera/Machine_Learning_With_Python_IBM.md
+      - Intro and Regression: notes/machine_learning/Coursera/Intro_and_Regression.md
       - Classification: notes/machine_learning/Coursera/Classification_IBM.md
       - Decision Trees: notes/machine_learning/Coursera/Decision_Trees_IBM.md
   - Martinos:
