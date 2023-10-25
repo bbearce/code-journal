@@ -36,10 +36,14 @@ Customer1 = {age: 34}
 Customer2 = {age: 30}
 
 $Dis(x_1, x_2) = \sqrt{\sum_{i=0}^{n}(x_{1i}-x_{2i})^2}$  
-$Dis(x_1, x_2) = \sqrt{\sum_{i=0}^{n}(34-30)^2}$
+$Dis(x_1, x_2) = \sqrt{(34-30)^2}$
+> n here is attributes and the 1 and 2 are neighbors 1 and 2.
 
-2 independent variables:
-$Dis(x_1, x_2) = \sqrt{\sum_{i=0}^{n}(x_{1i}^`-x_{2i}^`)^2+(x_{1i}^{``}-x_{2i}^{``})^2}$  
+2 independent variables (age and income):  
+Customer1 = {age: 34, income: 190}  
+Customer2 = {age: 30, income: 200}  
+$Dis(x_1, x_2) = \sqrt{(34-30)^2+(190-200)^2}$
+
 
 ### So, how do we choose the right K? 
 * A low value of K causes a highly complex model and causes overfitting.
