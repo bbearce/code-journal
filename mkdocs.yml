@@ -149,6 +149,7 @@ nav:
   - Machine Learning:
       - Intro: notes/machine_learning/Coursera/Machine_Learning_With_Python_IBM.md
       - Classification: notes/machine_learning/Coursera/Classification_IBM.md
+      - Decision Trees: notes/machine_learning/Coursera/Decision_Trees_IBM.md
   - Martinos:
       - Cluster: notes/Martinos/cluster/cluster.md
   - MKDocs: notes/MKDocs/Quick Notes.md
