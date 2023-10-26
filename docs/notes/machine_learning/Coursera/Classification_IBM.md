@@ -83,6 +83,8 @@ Looks like infinity towards 0 for x and 0 for correct prediction with 100% confi
 
 
 # K-NN Code Example
+[ML0101EN-Clas-K-Nearest-neighbors-CustCat.ipynb](JupyterNotebooks/ML0101EN-Clas-K-Nearest-neighbors-CustCat.ipynb)
+
 ```bash
 # Setup Environment
 cd ~/Desktop; mkdir temp; cd temp; pyenv activate venv3.10.4;

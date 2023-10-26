@@ -81,3 +81,70 @@ Ex:
 > Weights come from each node. For each decision, count total observations of that decision over total observations from both decisions
 
 What we learn is that we should choose sex first when choosing between sex and cholesterol. How do we choose the next branch? Well, as you can guess, we should repeat the process for each branch and test each of the other attributes to continue to reach the most pure leaves. 
+
+## Decision Tree Example
+[classification_tree_svm.ipynb](JupyterNotebooks/classification_tree_svm.ipynb)
+We will be exploring a decision tree and a support vector machine (SVM) to recognize fraudulent credit card transactions. You will use the trained model to assess if a credit card transaction is legitimate or not.
+
+After completing this lab you will be able to:
+* Perform basic data preprocessing in Python
+* Model a classification task using the Scikit-Learn and Snap ML Python APIs
+* Train Suppport Vector Machine and Decision Tree models using Scikit-Learn and Snap ML
+* Run inference and assess the quality of the trained models
+
+A transaction belongs to the positive class (1) if it is a fraud, otherwise it belongs to the negative class (0). You have access to transactions that occured over a certain period of time. The majority of the transactions are normally legitimate and only a small fraction are non-legitimate. Thus, typically you have access to a dataset that is highly unbalanced. This is also the case of the current dataset: only 492 transactions out of 284,807 are fraudulent (the positive class - the frauds - accounts for 0.172% of all transactions).
+
+To train the model you can use part of the input dataset and the remaining data can be used to assess the quality of the trained model. First, let's download the dataset.
+
+```bash
+# Setup Environment
+cd ~/Desktop; mkdir temp; cd temp; pyenv activate venv3.10.4;
+# cd ~/Desktop; rm -r temp; # To remove
+```
+```python
+import opendatasets as od
+
+# download the dataset (this is a Kaggle dataset)
+# during download you will be required to input your Kaggle username and password
+od.download("https://www.kaggle.com/mlg-ulb/creditcardfraud")
+```
+```python
+# Import the libraries we need to use in this lab
+from __future__ import print_function
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import normalize, StandardScaler
+from sklearn.utils.class_weight import compute_sample_weight
+from sklearn.metrics import roc_auc_score
+import time
+import warnings
+warnings.filterwarnings('ignore')
+# read the input data
+raw_data = pd.read_csv('creditcardfraud/creditcard.csv')
+print("There are " + str(len(raw_data)) + " observations in the credit card fraud dataset.")
+print("There are " + str(len(raw_data.columns)) + " variables in the dataset.")
+# display the first rows in the dataset
+raw_data.head()
+# In practice, a financial institution may have access to a much larger dataset of transactions. To simulate such a case, we will inflate the original one 10 times.
+n_replicas = 10
+# inflate the original dataset
+big_raw_data = pd.DataFrame(np.repeat(raw_data.values, n_replicas, axis=0), columns=raw_data.columns)
+print("There are " + str(len(big_raw_data)) + " observations in the inflated credit card fraud dataset.")
+print("There are " + str(len(big_raw_data.columns)) + " variables in the dataset.")
+# display first rows in the new dataset
+big_raw_data.head()
+# 'Class' is the target variable (1-fraud 0-otherwise)
+# get the set of distinct classes
+labels = big_raw_data.Class.unique()
+# get the count of each class
+sizes = big_raw_data.Class.value_counts().values
+# plot the class value counts
+fig, ax = plt.subplots()
+ax.pie(sizes, labels=labels, autopct='%1.3f%%')
+ax.set_title('Target Variable Value Counts')
+plt.show()
+```
+![lab_class_value_counts](Images/decision_trees/lab_class_value_counts.jpg)
+
