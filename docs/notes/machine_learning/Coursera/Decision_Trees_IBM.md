@@ -120,6 +120,13 @@ from sklearn.utils.class_weight import compute_sample_weight
 from sklearn.metrics import roc_auc_score
 import time
 import warnings
+# import the Decision Tree Classifier Model from scikit-learn
+from sklearn.tree import DecisionTreeClassifier
+# import the linear Support Vector Machine (SVM) model from Scikit-Learn
+from sklearn.svm import LinearSVC
+# import the hinge_loss metric from scikit-learn
+from sklearn.metrics import hinge_loss
+
 warnings.filterwarnings('ignore')
 # read the input data
 raw_data = pd.read_csv('creditcardfraud/creditcard.csv')
@@ -135,6 +142,7 @@ print("There are " + str(len(big_raw_data)) + " observations in the inflated cre
 print("There are " + str(len(big_raw_data.columns)) + " variables in the dataset.")
 # display first rows in the new dataset
 big_raw_data.head()
+big_raw_data.shape
 # 'Class' is the target variable (1-fraud 0-otherwise)
 # get the set of distinct classes
 labels = big_raw_data.Class.unique()
@@ -147,4 +155,135 @@ ax.set_title('Target Variable Value Counts')
 plt.show()
 ```
 ![lab_class_value_counts](Images/decision_trees/lab_class_value_counts.jpg)
+
+```python
+# generate historgram of amounts spent per transaction
+big_raw_data['Amount'].hist(bins=75)
+plt.show()
+big_raw_data['Amount'].describe()
+```
+![lab_class_value_histogram](Images/decision_trees/lab_class_value_histogram.jpg)
+
+```python
+# Data preprocessing such as scaling/normalization is typically useful for 
+# linear models to accelerate the training convergence.
+# Standardize features by removing the mean and scaling to unit variance.
+big_raw_data.iloc[:, 1:30] = StandardScaler().fit_transform(big_raw_data.iloc[:, 1:30])
+data_matrix = big_raw_data.values
+big_raw_data.head()
+# X: feature matrix (for this analysis, we exclude the Time variable from the dataset)
+X = data_matrix[:, 1:30]
+# y: labels vector
+y = data_matrix[:, 30]
+# data normalization
+X = normalize(X, norm="l1")
+# print the shape of the features matrix and the labels vector
+print('X.shape=', X.shape, 'y.shape=', y.shape)
+# train\test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, stratify=y)       
+print('X_train.shape=', X_train.shape, 'Y_train.shape=', y_train.shape)
+print('X_test.shape=', X_test.shape, 'Y_test.shape=', y_test.shape)
+# Compute the sample weights to be used as input to the train routine so that 
+# it takes into account the class imbalance present in this dataset.
+w_train = compute_sample_weight('balanced', y_train)
+# for reproducible output across multiple function calls, set random_state to a given integer value
+sklearn_dt = DecisionTreeClassifier(max_depth=4, random_state=35)
+# train a Decision Tree Classifier using scikit-learn
+t0 = time.time()
+sklearn_dt.fit(X_train, y_train, sample_weight=w_train)
+sklearn_time = time.time()-t0
+print("[Scikit-Learn] Training time (s):  {0:.5f}".format(sklearn_time))
+# run inference and compute the probabilities of the test samples 
+# to belong to the class of fraudulent transactions
+sklearn_pred = sklearn_dt.predict_proba(X_test)[:,1]
+# evaluate the Compute Area Under the Receiver Operating Characteristic 
+# Curve (ROC-AUC) score from the predictions
+sklearn_roc_auc = roc_auc_score(y_test, sklearn_pred)
+print('[Scikit-Learn] ROC-AUC score : {0:.3f}'.format(sklearn_roc_auc))
+# instatiate a scikit-learn SVM model
+# to indicate the class imbalance at fit time, set class_weight='balanced'
+# for reproducible output across multiple function calls, set random_state to a given integer value
+sklearn_svm = LinearSVC(class_weight='balanced', random_state=31, loss="hinge", fit_intercept=False)
+# train a linear Support Vector Machine model using Scikit-Learn
+t0 = time.time()
+sklearn_svm.fit(X_train, y_train)
+sklearn_time = time.time() - t0
+print("[Scikit-Learn] Training time (s):  {0:.2f}".format(sklearn_time))
+# run inference using the Scikit-Learn model
+# get the confidence scores for the test samples
+sklearn_pred = sklearn_svm.decision_function(X_test)
+# evaluate accuracy on test set
+acc_sklearn  = roc_auc_score(y_test, sklearn_pred)
+print("[Scikit-Learn] ROC-AUC score:   {0:.3f}".format(acc_sklearn))
+```
+
+> Note: **Decision function** is a method present in classifier{ SVC, Logistic Regression } class of sklearn machine learning framework. This method basically returns a Numpy array, In which each element represents whether a predicted sample for x_test by the classifier lies to the right or left side of the Hyperplane and also how far from the HyperPlane.
+
+### Decision Tree Versus Support Vector Machine
+[Chat GPT](https://chat.openai.com/)
+Prompt: What are the primary similarities and differences between decision trees and support vector machines?
+
+Decision trees and support vector machines (SVMs) are both machine learning algorithms used for classification and regression tasks, but they have different approaches and characteristics. Here are the primary similarities and differences between decision trees and support vector machines:
+
+**Similarities:**
+
+1. **Supervised Learning:** Both decision trees and SVMs are supervised learning algorithms, which means they require labeled training data to make predictions.
+
+2. **Classification and Regression:** Both algorithms can be used for both classification and regression tasks. Decision trees are versatile in this regard, while SVMs are often used for classification but can also be adapted for regression.
+
+**Differences:**
+
+1. **Algorithmic Approach:**
+
+**Decision Trees:** Decision trees use a tree-like structure to make decisions. They recursively split the data into subsets based on the features that provide the most information gain or reduction in impurity (e.g., Gini impurity or entropy).
+
+**Support Vector Machines:** SVMs aim to find a hyperplane that best separates data points into different classes while maximizing the margin (distance) between the hyperplane and the nearest data points (support vectors).
+
+2. **Linearity:**
+
+**Decision Trees:** Decision trees can handle both linear and non-linear relationships between features and the target variable. They can model complex decision boundaries.
+
+**Support Vector Machines:** SVMs are inherently designed for linear separation, but they can be extended to handle non-linear data by using kernel tricks (e.g., polynomial kernels or radial basis function kernels).
+
+3. **Interpretability:**
+
+**Decision Trees:** Decision trees are highly interpretable. You can easily visualize the decision-making process as a tree, making it easier to understand how the model arrived at a particular prediction.
+
+**Support Vector Machines:** SVMs are less interpretable by nature, as the decision boundary is defined by a hyperplane in a high-dimensional space, which is not as intuitive as a decision tree.
+
+4. **Overfitting:**
+
+**Decision Trees:** Decision trees are prone to overfitting when they become too deep and complex. Techniques like pruning and setting maximum depth can help mitigate this issue.
+
+**Support Vector Machines:** SVMs are less prone to overfitting, especially when using a large margin (C parameter) and appropriate kernel functions. They tend to generalize well to new data.
+
+5. **Handling Imbalanced Data:**
+
+**Decision Trees:** Decision trees can be biased towards the majority class in imbalanced datasets, as they tend to choose the splits that minimize impurity, which may not be ideal for the minority class.
+
+**Support Vector Machines:** SVMs can handle imbalanced data better because they aim to maximize the margin and are less influenced by class distribution.
+
+6. **Computation and Memory Requirements:**
+
+Decision trees are generally computationally less expensive and require less memory compared to SVMs, especially when dealing with large datasets.
+
+In summary, the choice between decision trees and SVMs depends on the specific characteristics of your dataset and the interpretability requirements. Decision trees are often favored for their simplicity and interpretability, while SVMs are powerful for cases where finding a well-defined margin is essential or when dealing with high-dimensional data.
+
+### Practice
+In this section you will evaluate the quality of the SVM models trained above using the hinge loss metric (https://scikit-learn.org/stable/modules/generated/sklearn.metrics.hinge_loss.html). Run inference on the test set using both Scikit-Learn and Snap ML models. Compute the hinge loss metric for both sets of predictions. Print the hinge losses of Scikit-Learn and Snap ML.
+
+```python
+# get the confidence scores for the test samples
+sklearn_pred = sklearn_svm.decision_function(X_test)
+
+# evaluate the hinge loss metric from the predictions
+loss_sklearn = hinge_loss(y_test, sklearn_pred)
+print("[Scikit-Learn] Hinge loss:   {0:.3f}".format(loss_sklearn))
+```
+
+### [Hinge Loss](https://hackernoon.com/hinge-loss-a-steadfast-loss-evaluation-function-for-the-svm-classification-models-in-ai-and-ml)
+Hinge loss is a function popularly used in support vector machine algorithms to measure the distance of data points from the decision boundary. This helps approximate the possibility of incorrect predictions and evaluate the model's performance.
+
+
+![Hinge Loss Graph](Images/decision_trees/hinge_loss.jpg)
 
