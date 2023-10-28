@@ -44,7 +44,9 @@ Impurity of nodes is calculated by entropy of data in the node. What is entropy?
 
 The lower the entropy , the less uniform the distribution.
 
-$Entropy = -p(A)\log_2(p(A)) - p(B)\log_2(p(B))$
+$Entropy = -p(A)*log_2(p(A)) - p(B)*log_2(p(B))$
+
+![Entropy Eq](Images/decision_trees/entropy_equation.jpg)
 > $p(A)$ is the probability of drug A and is also x on the graph below
 
 For reference: $y(x)=log_2(x)$
