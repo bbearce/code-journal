@@ -29,7 +29,7 @@ $x_n$'s = age and income
 1. Pick a value for k.
 2. Calc distance to unknown case from allcases
 3. Select the k-obserservations ,............
-4. Predict the response of the unknown data point using the most poilar responsecale from the K-nearest neighbors
+4. Predict the response of the unknown data point using the most popular value response value  from the K-nearest neighbors
 
 Ex:
 Customer1 = {age: 34}
