@@ -150,6 +150,7 @@ nav:
       - Intro and Regression: notes/machine_learning/Coursera/Intro_and_Regression.md
       - Classification: notes/machine_learning/Coursera/Classification_IBM.md
       - Decision Trees: notes/machine_learning/Coursera/Decision_Trees_IBM.md
+      - Regression Trees: notes/machine_learning/Coursera/Regression_Trees_IBM.md
   - Martinos:
       - Cluster: notes/Martinos/cluster/cluster.md
   - MKDocs: notes/MKDocs/Quick Notes.md
