@@ -62,4 +62,12 @@ of logistic regression.
 Recall we want to predict the class of each customer $\hat{y} = P(y=1|x)$ and also the probability of each sample belonging to a class.
 
 > y is the label's vector, also called **actual values**, that we would like to predict, and $\hat{y}$ is the vector of the predicted values by our model.
-...continue
+
+#### Let's Try Linear Regression
+Let's use age to predict chrun (categorical value). We need to plot churn versus age which will have two horizontal areas of points for churn=0 and churn=1.
+
+![logistic_regression_2](Images/logistic_regression_2.jpg)
+
+* $\hat{y}=\theta_0 + \theta_1x_1$
+* $\theta^T=[\theta_0,\theta_1]$
+* Formally the line is $\theta^TX=\theta_0+\theta_1x_1$
