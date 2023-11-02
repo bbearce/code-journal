@@ -68,6 +68,33 @@ Let's use age to predict chrun (categorical value). We need to plot churn versus
 
 ![logistic_regression_2](Images/logistic_regression_2.jpg)
 
-* $\hat{y}=\theta_0 + \theta_1x_1$
-* $\theta^T=[\theta_0,\theta_1]$
-* Formally the line is $\theta^TX=\theta_0+\theta_1x_1$
+* Prediction can be represented as $\hat{y}=\theta_0 + \theta_1x_1$
+* Where $\theta^T=[\theta_0,\theta_1,...,\theta_n]$
+* Formally the line is $\theta^TX=\theta_0+\theta_1x_1+\theta_2x_2+...+\theta_nx_n$
+* X (feature set) can be represented as: $X = \left[ \begin{array}{c} 1 \\ x_1 \\ x_2 \\ \end{array} \right]$
+
+Seen here we can estimate the regression line and predict churn with $\theta^TX$. Let's try with 13 for $x_1$.
+
+![logistic_regression_3.jpg](Images/logistic_regression_3.jpg)
+
+Then set a threshold of 0.5 for determining 0 or 1. Finally $\hat{y}$ can be represented as a piecewise function to force it to be categorical. In this example $P_1=[13]$ is Class 0. There is one problem here. What is the probability that this customer belongs to class zero?
+
+As you can see, it's not the best model to solve this problem. Also, there are some other issues which verify that linear regression is not the proper method for classification problems. So, as mentioned, if we use the regression line to calculate the class of a point, it always returns a number such as three or negative two, and so on. Then, we should use a threshold, for example, 0.5, to assign that point to either class of zero or one. This threshold works as a step function that outputs zero or one regardless of how big or small, positive or negative the input is. So, using the threshold, we can find the class of a record. Notice that in the step function, no matter how big the value is, as long as it's greater than 0.5, it simply equals one and vice versa. Regardless of how small the value y is, the output would be zero if it is less than 0.5. In other words, there is no difference between a customer who has a value of one or 1,000. The outcome would be one. Instead of having this step function, wouldn't it be nice if we had a smoother line, one that would project these values between zero and one? 
+
+Let's use the **Sigmoid Function**.
+![logistic_regression_4.jpg](Images/logistic_regression_4.jpg)
+
+It gives a non-step function approach that gives us the probabilty that a point belongs to a certain class instead of the value of y directly.
+
+Instead of calculating the value of Theta transpose x directly, it returns the probability that a Theta transpose x is very big or very small. It always returns a value between 0 and 1, depending on how large the Theta transpose x actually is. 
+
+Now, our model is $\hat{y}=\sigma(\theta^TX)$, which represents the probability that the output is 1 given x.
+
+#### Sigmoid Function
+$\sigma(\theta^TX)=\frac{1}{1+e^{-\theta^TX}}$
+
+When $\theta^T$ goes up $\sigma(\theta^TX)$ tends towards 1 and when small it tends to 0. This is the probability not the class itself.
+
+
+...stopped at "what is the output of our model 10:52"
+#### Logistic Regression
