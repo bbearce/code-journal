@@ -147,11 +147,11 @@ nav:
       - Sample Web Layouts:
           - Holy Grail: notes/layouts/holy_grail.md
   - Machine Learning:
-      - Intro and Regression: notes/machine_learning/Coursera/Intro_and_Regression.md
-      - Classification: notes/machine_learning/Coursera/Classification_IBM.md
-      - Decision Trees: notes/machine_learning/Coursera/Decision_Trees_IBM.md
-      - Regression Trees: notes/machine_learning/Coursera/Regression_Trees_IBM.md
-      - Logistic Regression: notes/machine_learning/Coursera/Logistic_Regression_IBM.md
+      - 1. Intro and Regression: notes/machine_learning/Coursera/Intro_and_Regression.md
+      - 2. Classification: notes/machine_learning/Coursera/Classification_IBM.md
+      - 3. Decision Trees: notes/machine_learning/Coursera/Decision_Trees_IBM.md
+      - 4. Regression Trees: notes/machine_learning/Coursera/Regression_Trees_IBM.md
+      - 5. Logistic Regression: notes/machine_learning/Coursera/Logistic_Regression_IBM.md
   - Martinos:
       - Cluster: notes/Martinos/cluster/cluster.md
   - MKDocs: notes/MKDocs/Quick Notes.md
