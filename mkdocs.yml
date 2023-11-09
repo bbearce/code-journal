@@ -152,6 +152,7 @@ nav:
       - 3. Decision Trees: notes/machine_learning/Coursera/Decision_Trees_IBM.md
       - 4. Regression Trees: notes/machine_learning/Coursera/Regression_Trees_IBM.md
       - 5. Logistic Regression: notes/machine_learning/Coursera/Logistic_Regression_IBM.md
+      - 5. Support Vector Machine: notes/machine_learning/Coursera/Support_Vector_Machine_IBM.md
   - Martinos:
       - Cluster: notes/Martinos/cluster/cluster.md
   - MKDocs: notes/MKDocs/Quick Notes.md
