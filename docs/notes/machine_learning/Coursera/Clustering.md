@@ -21,4 +21,25 @@ Let's look at our customer dataset again. Classification algorithms predict cate
 
 ![clustering_5.jpg](Images/clustering/clustering_5.jpg)
 
-## K-Means
+## K-Means Clustering
+
+![clustering_6.jpg](Images/clustering/clustering_6.jpg)
+Customer segmentation is the practice of partitioning a customer base into groups of individuals that have similar characteristics. One of the algorithms that can be used for customer segmentation is K-Means clustering. K-Means can group data only unsupervised based on the similarity of customers to each other. 
+
+![clustering_7.jpg](Images/clustering/clustering_7.jpg)
+
+There are various types of clustering algorithms such as:
+
+* Partitioning, hierarchical or density-based clustering.
+* K-Means is a type of partitioning clustering, that is, it divides the data into K **non-overlapping** subsets or clusters without any cluster internal structure or labels. This means, it's an unsupervised algorithm. 
+* Objects within a cluster are very similar
+* Objects across different clusters are very different or dissimilar. As you can see, for using K-Means we have to find similar samples: for example, similar customers.
+
+Now, we face a couple of key questions. First, how can we find the similarity of samples in clustering, and then how do we measure how similar two customers are with regard to their demographics?
+
+![clustering_8.jpg](Images/clustering/clustering_8.jpg)
+
+Though the objective of K-Means is to form clusters in such a way that similar samples go into a cluster, and dissimilar samples fall into different clusters, it can be shown that instead of a similarity metric, we can use dissimilarity metrics. In other words, conventionally the distance of samples from each other is used to shape the clusters. So we can say K-Means tries to minimize the intra-cluster distances and maximize the inter-cluster distances. Now, the question is, how can we calculate the dissimilarity or distance of two cases such as two customers?
+
+
+![clustering_9.jpg](Images/clustering/clustering_9.jpg)
