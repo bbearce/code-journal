@@ -1,4 +1,3 @@
 mkdocs
 mkdocs-windmill-dark==0.2.0
 pymdown-extensions
-mkdocs-mathjax
