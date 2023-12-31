@@ -30,6 +30,18 @@ nav:
   - CouchDB:
       - As container: notes/couchdb/container.md
       - Basics: notes/couchdb/basics.md
+  - Data Science:
+      - Coursera:
+          - Machine Learning:
+              - 1. Intro and Regression: notes/machine_learning/Coursera/Intro_and_Regression.md
+              - 2. Classification: notes/machine_learning/Coursera/Classification_IBM.md
+              - 3. Decision Trees: notes/machine_learning/Coursera/Decision_Trees_IBM.md
+              - 4. Regression Trees: notes/machine_learning/Coursera/Regression_Trees_IBM.md
+              - 5. Logistic Regression: notes/machine_learning/Coursera/Logistic_Regression_IBM.md
+              - 6. Support Vector Machine: notes/machine_learning/Coursera/Support_Vector_Machine.md
+              - 7. Multiclass Prediction: notes/machine_learning/Coursera/Multiclass_Prediction.md
+              - 8. Clustering: notes/machine_learning/Coursera/Clustering.md
+          - Keras: 
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
@@ -146,15 +158,7 @@ nav:
               - Links To Checkout: notes/javascript/Vue/links_to_checkout.md
       - Sample Web Layouts:
           - Holy Grail: notes/layouts/holy_grail.md
-  - Machine Learning:
-      - 1. Intro and Regression: notes/machine_learning/Coursera/Intro_and_Regression.md
-      - 2. Classification: notes/machine_learning/Coursera/Classification_IBM.md
-      - 3. Decision Trees: notes/machine_learning/Coursera/Decision_Trees_IBM.md
-      - 4. Regression Trees: notes/machine_learning/Coursera/Regression_Trees_IBM.md
-      - 5. Logistic Regression: notes/machine_learning/Coursera/Logistic_Regression_IBM.md
-      - 6. Support Vector Machine: notes/machine_learning/Coursera/Support_Vector_Machine.md
-      - 7. Multiclass Prediction: notes/machine_learning/Coursera/Multiclass_Prediction.md
-      - 8. Clustering: notes/machine_learning/Coursera/Clustering.md
+
 
   - Martinos:
       - Cluster: notes/Martinos/cluster/cluster.md
