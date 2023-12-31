@@ -158,8 +158,6 @@ nav:
               - Links To Checkout: notes/javascript/Vue/links_to_checkout.md
       - Sample Web Layouts:
           - Holy Grail: notes/layouts/holy_grail.md
-
-
   - Martinos:
       - Cluster: notes/Martinos/cluster/cluster.md
   - MKDocs: notes/MKDocs/Quick Notes.md
