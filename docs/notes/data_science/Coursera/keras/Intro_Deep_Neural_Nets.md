@@ -14,7 +14,7 @@
   * Self Driving Cars
 
 ## Neurons and Neural Networks
-![Images/biological_neuron.png](Images/biological_neuron.png)
+![Images/intro_deep_neural_nets/biological_neuron.png](Images/intro_deep_neural_nets/biological_neuron.png)
 
 The main body of the neuron is called the **soma**, which contains the nucleus of the neuron. The big network of arms sticking out of the body is called the **dendrites**, and then the long arm that sticks out of the soma in the other direction is called the **axon**. The whiskers at the end of the axon are called the terminal buttons or synapses. So the dendrites receive electrical impulses which carry information, or data, from sensors or **terminal buttons** of other adjoining neurons. The dendrites then carry the impulses or data to the soma. In the nucleus, electrical impulses, or the data, are processed by combining them together, and then they are passed on to the axon. The axon then carries the processed information to the terminal button or synapse, and the output of this neuron becomes the input to thousands of other neurons.
 
@@ -22,11 +22,11 @@ Learning in the brain occurs by repeatedly activating certain neural connections
 
 An artificial neuron behaves in the same way as a biological neuron. So it consists of a **soma, dendrites, and an axon** to pass on the output of this neuron to other neurons. The end of the axon can branch off to connect to many other neurons, but for simplicity we are just showing one branch here. The learning process also very much resembles the way learning occurs in the brain as you will see in the next couple of videos. Now that we understand the different parts of an artificial neuron, let's learn how we formulate the way artificial neural networks process information.
 
-![Images/artificial_neuron.png](Images/artificial_neuron.png)
+![Images/intro_deep_neural_nets/artificial_neuron.png](Images/intro_deep_neural_nets/artificial_neuron.png)
 
 ## Artificial Neural Nets
 
-![Images/artificial_neural_network.png](Images/artificial_neural_network.png)
+![Images/intro_deep_neural_nets/artificial_neural_network.png](Images/intro_deep_neural_nets/artificial_neural_network.png)
 For a network of neurons, we normally divide it into different layers: the first layer that feeds the input into the network is obviously called the input layer. The set of nodes that provide the output of the network is called the output layer. And any sets of nodes in between the input and the output layers are called the hidden layers.
 
 Three main topics are associated with artifical neural networks: 
@@ -35,7 +35,7 @@ Three main topics are associated with artifical neural networks:
 * Activation Functions
 
 ### Forward Propagation
-![Images/forward_prop_1.png](Images/forward_prop_1.png)
+![Images/intro_deep_neural_nets/forward_prop_1.png](Images/intro_deep_neural_nets/forward_prop_1.png)
 Forward propagation is the process through which data passes through layers of neurons in a neural network from the input layer all the way to the output layer.
 
 As shown here, the data flows through each neuron by connections or the dendrites. Every connection has a specific weight by which the flow of data is regulated.
@@ -53,7 +53,7 @@ $a = f(z) = \frac{1}{1 + e^-z}$
 Therefore, a better processing of the data would be to map the weighted sum to a nonlinear space. A popular function is the sigmoid function, where if the weighted sum is a very large positive number, then the output of the neuron is close to 1, and if the weighted sum is a very large negative number, then the output of the neuron is close to zero. Non-linear transformations like the sigmoid function are called activation functions. Activation functions are another extremely important feature of artificial neural networks. They basically decide whether a neuron should be activated or not.
 
 In other words, whether the information that the neuron is receiving is relevant or should be ignored. The takeaway message here is that a neural network without an activation function is essentially just a linear regression model. The activation function performs non-linear transformation to the input enabling the neural network of learning and performing more complex tasks, such as image classifications and language translations.
-![Images/forward_prop_2.png](Images/forward_prop_2.png)
+![Images/intro_deep_neural_nets/forward_prop_2.png](Images/intro_deep_neural_nets/forward_prop_2.png)
 
 For further simplification, I am going to proceed with a neural network of one neuron and one input. Let's go over an example of how to compute the output. Let's say that the value of x1 is 0.1, and we want to predict the output for this input. The network has optimized weight and bias where w1 is 0.15 and b1 is 0.4. The first step is to calculate z, which is the dot product of the inputs and the corresponding weights plus the bias. So we find that z is 0.415. The neuron then uses the sigmoid function to apply non-linear transformation to z. Therefore, the output of the neuron is 0.6023. For a network with two neurons, the output from the first neuron will be the input to the second neuron. The rest is then exactly the same. The second neuron takes the input and computes the dot product of the input, which is a1 in this case, and the weight which is w2, and adds the bias which is b2. Using a sigmoid function as the activation function, the output of the network would be 0.7153. And this would be the predicted value for the input 0.1. This is in essence how a neural network predicts the output for any given input. No matter how complicated the network gets, it is the same exact process. To summarize, given a neural network with a set of weights and biases, you should be able to compute the output of the network for any given input.
 
@@ -66,7 +66,7 @@ cd ~/Desktop; mkdir temp; cd temp; pyenv activate venv3.10.4;
 
 From the videos, let's recap how a neural network makes predictions through the forward propagation process. Here is a neural network that takes two inputs, has one hidden layer with two nodes, and an output layer with one node.
 
-![Images/forward_prop_3.png](Images/forward_prop_3.png)
+![Images/intro_deep_neural_nets/forward_prop_3.png](Images/intro_deep_neural_nets/forward_prop_3.png)
 
 Let's start by randomly initializing the weights and the biases in the network. We have 6 weights and 3 biases, one for each node in the hidden layer as well as for each node in the output layer.
 
@@ -133,7 +133,7 @@ print('The output of the network for x1 = 0.5 and x2 = 0.85 is {}'.format(np.aro
 
 In order to code an automatic way of making predictions, let's generalize our network.
 
-![Images/forward_prop_4.png](Images/forward_prop_4.png)
+![Images/intro_deep_neural_nets/forward_prop_4.png](Images/intro_deep_neural_nets/forward_prop_4.png)
 
 A general network would take $n$ inputs, would have many hidden layers, each hidden layer having $m$ nodes, and would have an output layer. **Although the network is showing one hidden layer, we will code the network to have many hidden layers**. Similarly, although the network shows an output layer with one node, we will code the network to have more than one node in the output layer.
 
@@ -258,9 +258,3 @@ def forward_propagate(network, inputs):
 
 forward_propagate(small_network, inputs)
 ```
-
-
-## Deep Learning Libraries
-
-
-## Deep Learning Models

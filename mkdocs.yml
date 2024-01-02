@@ -43,6 +43,7 @@ nav:
               - 8. Clustering: notes/data_science/Coursera/machine_learning/Clustering.md
           - Keras:
               - 1. Intro to Neural Networks and Deep Learning: notes/data_science/Coursera/keras/Intro_Deep_Neural_Nets.md
+              - 2. Artificial Neural Networks: notes/data_science/Coursera/keras/Artificial_Neural_Networks.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
