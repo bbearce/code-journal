@@ -33,15 +33,16 @@ nav:
   - Data Science:
       - Coursera:
           - Machine Learning:
-              - 1. Intro and Regression: notes/machine_learning/Coursera/Intro_and_Regression.md
-              - 2. Classification: notes/machine_learning/Coursera/Classification_IBM.md
-              - 3. Decision Trees: notes/machine_learning/Coursera/Decision_Trees_IBM.md
-              - 4. Regression Trees: notes/machine_learning/Coursera/Regression_Trees_IBM.md
-              - 5. Logistic Regression: notes/machine_learning/Coursera/Logistic_Regression_IBM.md
-              - 6. Support Vector Machine: notes/machine_learning/Coursera/Support_Vector_Machine.md
-              - 7. Multiclass Prediction: notes/machine_learning/Coursera/Multiclass_Prediction.md
-              - 8. Clustering: notes/machine_learning/Coursera/Clustering.md
-          - Keras: 
+              - 1. Intro and Regression: notes/data_science/Coursera/machine_learning/Intro_and_Regression.md
+              - 2. Classification: notes/data_science/Coursera/machine_learning/Classification_IBM.md
+              - 3. Decision Trees: notes/data_science/Coursera/machine_learning/Decision_Trees_IBM.md
+              - 4. Regression Trees: notes/data_science/Coursera/machine_learning/Regression_Trees_IBM.md
+              - 5. Logistic Regression: notes/data_science/Coursera/machine_learning/Logistic_Regression_IBM.md
+              - 6. Support Vector Machine: notes/data_science/Coursera/machine_learning/Support_Vector_Machine.md
+              - 7. Multiclass Prediction: notes/data_science/Coursera/machine_learning/Multiclass_Prediction.md
+              - 8. Clustering: notes/data_science/Coursera/machine_learning/Clustering.md
+          - Keras:
+              - 1. Intro to Neural Networks and Deep Learning: notes/data_science/Coursera/keras/Intro_Deep_Neural_Nets.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
