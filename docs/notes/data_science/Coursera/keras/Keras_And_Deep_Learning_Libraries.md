@@ -7,6 +7,8 @@
 
 ## Regression Models with Keras
 
+[See Jupyter Notebook Example]()
+
 Let's take a look at a regression example. Here is a data set of the compressive strength of different samples of concrete based on the volumes of the different materials that were used to make them. 
 
 ![Images/keras_and_deep_learning_libraries/dataset_example.png](Images/keras_and_deep_learning_libraries/dataset_example.png)
@@ -41,7 +43,7 @@ from keras.layers import Dense
 
 # Because our network consists of a linear stack of layers, then the Sequential model is what you would want to use. This is the case most of the time unless you are building something out of the ordinary. 
 model = Sequential()
-n_cols = concrete_data.shape[1] # Assuming you have the csv
+# n_cols = concrete_data.shape[1] # Assuming you have the csv
 
 # Now building your layers is pretty straightforward as well. For that, we would need to import the "Dense" type of layers from "keras.layers". Then we use the add method to add each dense layer. We specify the number of neurons in each layer and the activation function that we want to use. 
 model.add(Dense(5, activation='relu', input_Shape=(n_cols,)))
@@ -117,5 +119,162 @@ As for the last three datapoints, the decision would be 1 or acceptable, since t
 
 But notice how the probabilities for decision 0 and decision 1 are very close. Therefore, the model is not very confident but it would lean towards accepting purchasing these cars. In the lab part, you will get the chance to build your own regression and classification models using the Keras library, so make sure to complete this module's lab components.
 
+## Code Examples
 
-FINSIH STUDYING!!! DIDN'T FINISH UNDERSTANDING THIS!
+### Regressions Models with Keras
+
+```bash
+# Setup Environment
+cd ~/Desktop; rm -r temp; # To remove
+cd ~/Desktop; mkdir temp; cd temp; pyenv activate venv3.10.4;
+```
+We will be playing around with the same dataset that we used in the videos.
+
+The dataset is about the compressive strength of different samples of concrete based on the volumes of the different ingredients that were used to make them. Ingredients include:
+
+1. Cement
+2. Blast Furnace Slag
+3. Fly Ash
+4. Water
+5. Superplasticizer
+6. Coarse Aggregate
+7. Fine Aggregate
+
+The target variable in this problem is the **concrete sample strength**.
+
+```python
+import pandas as pd
+import numpy as np
+import keras
+from keras.models import Sequential
+from keras.layers import Dense
+
+concrete_data = pd.read_csv('https://s3-api.us-geo.objectstorage.softlayer.net/cf-courses-data/CognitiveClass/DL0101EN/labs/data/concrete_data.csv')
+concrete_data.head(1)
+concrete_data.describe()
+
+# Split into Predictors and Targets
+concrete_data_columns = concrete_data.columns
+
+predictors = concrete_data[concrete_data_columns[concrete_data_columns != 'Strength']] # all columns except Strength
+target = concrete_data['Strength'] # Strength column
+
+predictors.head()
+target.head()
+
+# Normalize Data (Scott always says this is really important)
+predictors_norm = (predictors - predictors.mean()) / predictors.std()
+predictors_norm.head()
+
+# Save predictors to n_cols since we need this for building the network
+n_cols = predictors_norm.shape[1] # number of predictors
+
+# define regression model
+def regression_model():
+    # create model
+    model = Sequential()
+    model.add(Dense(50, activation='relu', input_shape=(n_cols,)))
+    model.add(Dense(50, activation='relu'))
+    model.add(Dense(1))
+    # compile model
+    model.compile(optimizer='adam', loss='mean_squared_error')
+    return model
+
+
+# build the model
+model = regression_model()
+
+# Next, we will train and test the model at the same time using the *fit* method. We will leave out 30% of the data for validation and we will train the model for 100 epochs.
+
+# fit the model
+model.fit(predictors_norm, target, validation_split=0.3, epochs=100, verbose=2)
+```
+
+### Classifications Models with Keras
+The MNIST database, short for Modified National Institute of Standards and Technology database, is a large database of handwritten digits that is commonly used for training various image processing systems. The database is also widely used for training and testing in the field of machine learning.
+
+The MNIST database contains 60,000 training images and 10,000 testing images of digits written by high school students and employees of the United States Census Bureau.
+
+```bash
+# Setup Environment
+cd ~/Desktop; rm -r temp; # To remove
+cd ~/Desktop; mkdir temp; cd temp; pyenv activate venv3.10.4;
+```
+
+```python
+import keras
+
+from keras.models import Sequential
+from keras.layers import Dense
+from keras.utils import to_categorical
+from keras.models import load_model
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# import the data
+from keras.datasets import mnist
+
+# read the data
+(X_train, y_train), (X_test, y_test) = mnist.load_data()
+X_train.shape # (60000, 28, 28)
+X_test.shape # (10000, 28, 28)
+
+plt.imshow(X_train[0])
+plt.show()
+
+# flatten images into one-dimensional vector
+
+num_pixels = X_train.shape[1] * X_train.shape[2] # find size of one-dimensional vector
+
+X_train = X_train.reshape(X_train.shape[0], num_pixels).astype('float32') # flatten training images
+X_test = X_test.reshape(X_test.shape[0], num_pixels).astype('float32') # flatten test images
+
+# Normalize the vectors
+# normalize inputs from 0-255 to 0-1
+X_train = X_train / 255
+X_test = X_test / 255
+
+# one hot encode outputs
+y_train = to_categorical(y_train)
+y_test = to_categorical(y_test)
+
+num_classes = y_test.shape[1]
+print(num_classes)
+
+# Build a Neural Network
+# define classification model
+def classification_model():
+    # create model
+    model = Sequential()
+    model.add(Dense(num_pixels, activation='relu', input_shape=(num_pixels,)))
+    model.add(Dense(100, activation='relu'))
+    model.add(Dense(num_classes, activation='softmax'))
+    # compile model
+    model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+    return model
+
+
+# Train and Test the Network
+# build the model
+model = classification_model()
+
+# fit the model
+model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=10, verbose=2)
+
+# evaluate the model
+scores = model.evaluate(X_test, y_test, verbose=0)
+
+print('Accuracy: {}% \n Error: {}'.format(scores[1], 1 - scores[1]))        
+
+model.save('classification_model.h5')
+# or
+model.save('classification_model.keras')
+
+# Load Pre-trained Model
+pretrained_model = load_model('classification_model.h5')
+scores = pretrained_model.evaluate(X_test, y_test, verbose=0)
+
+print('Accuracy: {}% \n Error: {}'.format(scores[1], 1 - scores[1])) 
+```
