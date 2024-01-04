@@ -44,7 +44,8 @@ nav:
           - Keras:
               - 1. Intro to Neural Networks and Deep Learning: notes/data_science/Coursera/keras/Intro_Deep_Neural_Nets.md
               - 2. Artificial Neural Networks: notes/data_science/Coursera/keras/Artificial_Neural_Networks.md
-              - 3. Deep Learning Libraries: notes/data_science/Coursera/keras/Keras_And_Deep_Learning_Libraries.md
+              - 3. Keras and Deep Learning Libraries: notes/data_science/Coursera/keras/Keras_And_Deep_Learning_Libraries.md
+              - 4. Deep Learning Models: notes/data_science/Coursera/keras/Deep_Learning_Models.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
