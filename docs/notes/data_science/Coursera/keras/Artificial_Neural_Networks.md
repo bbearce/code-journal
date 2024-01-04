@@ -3,13 +3,14 @@
 ## Gradient Descent
 ### Cost Function
 We fit a line to data. If we nail the weight $w$ then we have 0 loss. There is much loss if $w$ is not ideal and the loss increases exponentially the further we get from the origin with the loss function we defined. We need derivatives or "gradients" so we know if we change $w$ that the loss will be lower. We do this iteravely adjusting learning rate $\eta$. 
-![Images/artificial_neural_networks/cost_func_gradient_descent_1.png](Images/artificial_neural_networks/cost_func_gradient_descent_1.png)
-![Images/artificial_neural_networks/cost_func_gradient_descent_2.png](Images/artificial_neural_networks/cost_func_gradient_descent_2.png)
-![Images/artificial_neural_networks/cost_func_gradient_descent_3.png](Images/artificial_neural_networks/cost_func_gradient_descent_3.png)
-![Images/artificial_neural_networks/cost_func_gradient_descent_4.png](Images/artificial_neural_networks/cost_func_gradient_descent_4.png)
-![Images/artificial_neural_networks/cost_func_gradient_descent_5.png](Images/artificial_neural_networks/cost_func_gradient_descent_5.png)
-![Images/artificial_neural_networks/cost_func_gradient_descent_6.png](Images/artificial_neural_networks/cost_func_gradient_descent_6.png)
-![Images/artificial_neural_networks/cost_func_gradient_descent_7.png](Images/artificial_neural_networks/cost_func_gradient_descent_7.png)
+
+![Images/artificial_neural_networks/cost_func_gradient_descent_1.png](Images/artificial_neural_networks/cost_func_gradient_descent_1.png)  
+![Images/artificial_neural_networks/cost_func_gradient_descent_2.png](Images/artificial_neural_networks/cost_func_gradient_descent_2.png)  
+![Images/artificial_neural_networks/cost_func_gradient_descent_3.png](Images/artificial_neural_networks/cost_func_gradient_descent_3.png)  
+![Images/artificial_neural_networks/cost_func_gradient_descent_4.png](Images/artificial_neural_networks/cost_func_gradient_descent_4.png)  
+![Images/artificial_neural_networks/cost_func_gradient_descent_5.png](Images/artificial_neural_networks/cost_func_gradient_descent_5.png)  
+![Images/artificial_neural_networks/cost_func_gradient_descent_6.png](Images/artificial_neural_networks/cost_func_gradient_descent_6.png)  
+![Images/artificial_neural_networks/cost_func_gradient_descent_7.png](Images/artificial_neural_networks/cost_func_gradient_descent_7.png)  
 
 ## Backpropogation
 How do we train and optimize weights and biases. Training is done in a supervised setting with a ground truth.
