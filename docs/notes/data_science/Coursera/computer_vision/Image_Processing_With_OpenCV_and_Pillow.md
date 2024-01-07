@@ -270,7 +270,7 @@ baboon_rotate_imshow = plt.imshow(im_rotate)
 plt.show() # show any one of those
 ```
 
-## Manipulating Images One Pixel At a Time
+### Manipulating Images One Pixel At a Time
 * Cropping
 * Changing Image Pixels
 
@@ -333,7 +333,7 @@ plt.imshow(baboon_c)
 plt.show()
 ```
 
-#### OpenCV Manipulations
+### OpenCV Manipulations
 ```python
 baboon = cv2.imread('baboon.png'); # baboon.show()
 baboon = cv2.cvtColor(baboon, cv2.COLOR_BGR2RGB)
@@ -803,3 +803,121 @@ ret, otsu = cv2.threshold(image,0,255,cv2.THRESH_OTSU)
 plot_image(image,otsu,"Orignal","Otsu")
 plot_hist(image, otsu,"Orignal"," Otsu's method")
 ```
+
+## Geometric Operations
+In this video we will discuss Geometric Operations we will cover:
+
+* Geometric Operations
+* Scaling
+* Translation
+* Rotation
+
+
+We will show the one channel representation, but unless specified we can apply these 
+operations to each channel simultaneously.
+
+![Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_1.png](Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_1.png)
+
+We will treat the image as a function of y and x. y is the vertical direction, x is the horizontal direction. Although x and y are real numbers, we will sample integer points of x and y. for example point 0,0 or point 1,1.
+
+![Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_2.png](Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_2.png)
+
+In a geometric transformation, we change the coordinates of the image x and y. The new image, g is a function of x prime and y- prime g of x prime and y prime has the value of f corresponding to the values that have been mapped from x and y. We will deal with a subset of Geometric Transformations called Affine transformations 
+
+
+### Scaling
+Scaling is where we reshape the image, we can shrink or expand the image in a horizontal and or vertical direction. Shrinking the image or making the image larger We can scale the image along the x axis.
+
+![Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_3.png](Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_3.png)
+
+Let us use “a” to represent the scaling factor We can scale the image by 2. g of y and 2x is equal to f of f of y and x, hence the values of the image g will look stretched relative to image f.
+
+![Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_4.png](Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_4.png)
+
+Consider the following image, we will only work on the corner pixels points. Consider the image at Point 0,0, the x coordinate is in red. Applying the transform nothing happens, here is point 0, 5. Applying the transform the the x coordinates is mapped from 5 to 10 in red. Applying the transform to point 5,0 nothing happens the point 5,5 is mapped to 5, 10 overlaying the image points we see the image appears stretched.
+
+![Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_5.png](Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_5.png)
+
+Let’s look at the relationship between the pixel f and g. The first column of f is mapped to the first column of g. The second column of f is mapped the third column of g the final column of f is mapped to the following column in g. The colors shows the relation between columns of image f and g. We see several column’s of g have no corresponding value in f. To determine the unknown pixel value we use Interpolation. Interpolation is where we used neighbouring pixels to determine the value of an unknown pixel. 
+
+![Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_6.png](Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_6.png)
+
+In this case, we use the nearest neighbours; this just assigns the value based on the nearest pixel; there are other methods that PIL and open cv use.
+
+![Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_7.png](Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_7.png)
+
+We can scale the horizontal axis; we will denote the vertical scale factor as d. Lets set d to two. Nothing changes when applying the transform to the top portion of the image For the point 5,0, the new value after the transform is applied is mapped to 10, 0 the point 5, 5 is mapped to 10,5. The result is the image is stretched in the horizontal direction We can use this method to make the image larger, if the values of a or d are less than zero; the image will shrink.
+
+### Translation
+
+Translation is where we shift the image. We can shift an image horizontally by adding the number of pixels “tx” then by mapping the new location x prime. We can add two pixels. Consider the following intensity values. 
+
+![Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_8.png](Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_8.png)
+
+We can apply the transform shifting the points. The points shift, transforming the next set of points. Shifting the points, the image appears shifted.
+
+Let’s see what happens to each pixel.
+
+![Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_9.png](Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_9.png)
+
+We see that pixels have been shifted, those pixels that are on the edge have been replaced by zero values. We can increase the size of the image to include the pixels that have been shifted.
+
+![Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_10.png](Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_10.png)
+
+
+We can shift the image vertically by adding pixels ty, this shifts the image vertically.
+
+We can represent a geometric transformation as a set of equations, putting the equations in matrix form, we get the Affine Transformation matrix With open cv you input this matrix as an array. We also have the shear parameters; we will not cover them in this Course. 
+
+![Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_11.png](Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_11.png)
+
+### Rotate Image
+
+You can also rotate an image We can rotate an image by an angle theta, where the red lines represent the original orientation of the horizontal and vertical axis. 
+
+![Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_12.png](Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_12.png)
+
+We can use a similar matrix to rotate an image. This Rotation matrix will perform a counter-clockwise rotation; the expression for the matrix is quite complex.
+
+![Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_13.png](Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_13.png)
+
+ We will simplify by assuming the Isotropic scale factor “r” is 1, and we will rotate from the center of the image to simplify If you make the above assumptions, libraries like PIL and open CV only require the parameter theta Lets try PIL.
+
+![Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_14.png](Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_14.png)
+
+### PIL
+
+In PIL we can scale the image by specifying the integer number of pixel’s using the method “resize". We can double the width of the image. We apply the method resize the image is twice as wide. You can also shrink the image but the input must be an integer. 
+
+![Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_15.png](Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_15.png)
+
+We can rotate the image. We use the method rotate; the input is the angle we would like to rotate the image by.
+
+![Images/Image_Processing_ With_OpenCV_and_Pillow/geometric_operations_16.png](Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_16.png)
+
+### OpenCV
+
+Lets try open CV. In open cv we can use the function resize to rescale the image. We scale the horizontal axis by two and leave the vertical axis as is.
+
+![Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_17.png](Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_17.png)
+
+We can also specify the interpolation the result is the image is twice as wide. The scaling factor does not have to be an integer, and it can be less than one,
+
+
+Translation requires the Affine Transformation matrix M. Where tx is the number of pixels you shift the location in the horizontal direction, ty is the number of pixels you shift in the vertical direction. We will leave the scale factors as one.
+
+
+![Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_18.png](Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_18.png)
+
+We input the image and matrix into the function warpAffine, we also input the shape of the output image. The image is shifted. There is a lot more you can do using this method.
+
+We can obtain the matrix to rotate the image using getRotationMatrix2D, this will rotate the image by angle θ The parameter center is the Center of the rotation in the source, scale will be set to one Like before we rotate the image. Check out the lab for more examples.
+
+![Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_19.png](Images/Image_Processing_With_OpenCV_and_Pillow/geometric_operations_19.png)
+
+### Code Lab
+
+```bash
+# Setup Environment
+cd ~/Desktop; rm -r temp; # To remove
+cd ~/Desktop; mkdir temp; cd temp; pyenv activate venv3.10.4;
