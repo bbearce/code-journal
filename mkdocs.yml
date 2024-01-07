@@ -48,7 +48,12 @@ nav:
               - 4. Deep Learning Models: notes/data_science/Coursera/keras/Deep_Learning_Models.md
           - Computer Vision:
               - 1. Overview: notes/data_science/Coursera/computer_vision/Overview.md
-              - 1. Image Processing With OpenCV and Pillow: notes/data_science/Coursera/computer_vision/Image_Processing_With_OpenCV_and_Pillow.md
+              - 2. What Is A Digital Image: notes/data_science/Coursera/computer_vision/What_Is_A_Digital_Image.md
+              - 3. Image Processing With Pillow: notes/data_science/Coursera/computer_vision/Image_Processing_With_Pillow.md
+              - 4. Manipulating Images: notes/data_science/Coursera/computer_vision/Manipulating_Images.md
+              - 5. Pixel Transformations: notes/data_science/Coursera/computer_vision/Pixel_Transformations.md
+              - 6. Geometric Operations: notes/data_science/Coursera/computer_vision/Geometric_Operations.md
+              - N. Image Processing With OpenCV and Pillow: notes/data_science/Coursera/computer_vision/Image_Processing_With_OpenCV_and_Pillow.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
