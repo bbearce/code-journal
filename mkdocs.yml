@@ -54,6 +54,7 @@ nav:
               - 5. Pixel Transformations: notes/data_science/Coursera/computer_vision/Pixel_Transformations.md
               - 6. Geometric Operations: notes/data_science/Coursera/computer_vision/Geometric_Operations.md
               - 7. Spatial Operations In Image Processing: notes/data_science/Coursera/computer_vision/Spatial_Operations_In_Image_Processing.md
+              - 8. Image Classification: notes/data_science/Coursera/computer_vision/Image_Classification.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
