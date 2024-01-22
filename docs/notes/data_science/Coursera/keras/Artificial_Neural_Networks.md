@@ -38,6 +38,8 @@ How do we train and optimize weights and biases. Training is done in a supervise
     
     Notice how $E$ is not directly a function of $w_2$. Through a [proof](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/keras/Images/artificial_neural_networks/Partial_Derivatives_Backpropagation.pdf) we can show that updating weights and biases is as follows (noticed small exponent errors...fyi):
 
+    > Below $\frac{\delta E a_2}{\delta z_2}$ becomes $a_2*(1-a_2)$. This isn't immediately obvious and [here is the derivation](Images/artificial_neural_networks/deriving_w2.png).
+
     ![Images/artificial_neural_networks/updating_w2_1.png](Images/artificial_neural_networks/updating_w2_1.png)
     ![Images/artificial_neural_networks/updating_w2_2.png](Images/artificial_neural_networks/updating_w2_2.png)
 
