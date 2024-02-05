@@ -56,6 +56,8 @@ nav:
               - 7. Spatial Operations In Image Processing: notes/data_science/Coursera/computer_vision/Spatial_Operations_In_Image_Processing.md
               - 8. Image Classification: notes/data_science/Coursera/computer_vision/Image_Classification.md
               - 9. Logistic Regression Training: notes/data_science/Coursera/computer_vision/Logistic_Regression_Training.md
+              - 10. Softmax and Multi-Class Classification: notes/data_science/Coursera/computer_vision/Softmax_and_Multi-Class_Classification.md
+              - 11. Support Vector Machines: notes/data_science/Coursera/computer_vision/Support_Vector_Machines.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
