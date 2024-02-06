@@ -38,9 +38,11 @@ Consider the similar circles. Converting the image to gray scale we see they loo
 
 ## HOG
 
+[Essential HOG explaination](https://learnopencv.com/histogram-of-oriented-gradients/)
+
 HOG Is one of many image features we can use, it's relatively simple to understand. **Histogram of oriented gradients – H.O.G.**, is one of many types of features that have been developed over the years. The technique counts occurrences of gradient orientation in localized portions of an image.
 
-HOG Is one of many image features we can use, it's relatively simple to understand Histogram of oriented gradients – H.O.G., is one of many types of features that have been developed over the years. The technique counts occurrences of gradient orientation in localized portions of an image. HOG would generate a Histogram for each of these regions separately. The histograms are created using the gradients and orientations of the pixel values, hence the name ‘Histogram of Oriented Gradients’. Let's give a basic idea of how hog works. Consider the unit circle:
+HOG would generate a Histogram for each of these regions separately. The histograms are created using the gradients and orientations of the pixel values, hence the name ‘Histogram of Oriented Gradients’. Let's give a basic idea of how hog works. Consider the unit circle:
 
 ![Images/Image_Features/image_features9.png](Images/Image_Features/image_features9.png)
 
