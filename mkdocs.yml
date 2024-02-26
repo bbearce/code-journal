@@ -59,6 +59,7 @@ nav:
               - 10. Softmax and Multi-Class Classification: notes/data_science/Coursera/computer_vision/Softmax_and_Multi-Class_Classification.md
               - 11. Support Vector Machines: notes/data_science/Coursera/computer_vision/Support_Vector_Machines.md
               - 12. Image Features: notes/data_science/Coursera/computer_vision/Image_Features.md
+              - 13. Neural Nets: notes/data_science/Coursera/computer_vision/Neural_Nets.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
