@@ -102,6 +102,7 @@ nav:
           - Awk: notes/bash/awk.md
           - Sed: notes/bash/sed.md
           - SFTP: notes/bash/sftp/sftp.md
+          - Find: notes/bash/find.md
           - Zip and Unzip: notes/bash/zip_and_unzip.md
           - Screen: notes/bash/screen.md
           - TMUX: notes/bash/tmux/tmux.md
