@@ -99,6 +99,7 @@ nav:
   - Languages:
       - Bash:
           - Basics: notes/bash/basics.md
+          - Awk: notes/bash/awk.md
           - Sed: notes/bash/sed.md
           - SFTP: notes/bash/sftp/sftp.md
           - Zip and Unzip: notes/bash/zip_and_unzip.md
