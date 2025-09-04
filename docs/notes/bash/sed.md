@@ -1,9 +1,26 @@
 # sed
 
-## Find and Replate
-
+## Search
+> `grep` is likely better
 ```bash
-$ sed -i -e "" file.txt
+$ sed -n "/pattern/p" file.txt
+
+$ cat test.txt 
+asdfasdf
+fjfjfjfjfj
+aaaaa
+
+$ sed -n "/a/p" test.txt 
+asdfasdf
+aaaaa
+```
+
+## Find and Replate
+> `g` is for global or replace all
+```bash
+$ sed -i -e "s/pattern_to_find/replace_string/" file.txt
+
+$ sed -i -e "s/pattern_to_find/replace_string/g" file.txt
 ```
 
 Flags:
@@ -21,14 +38,14 @@ Flags:
 
 Ex:
 ```bash
-bbearce@pop-os:~$ cat deleteme.txt 
+$ cat deleteme.txt 
 abc
 
 abc
 
 abc
-bbearce@pop-os:~$ sed -i -e "s/abc/XYZ/g" deleteme.txt
-bbearce@pop-os:~$ cat deleteme.txt 
+$ sed -i -e "s/abc/XYZ/g" deleteme.txt
+$ cat deleteme.txt 
 XYZ
 
 XYZ
@@ -40,7 +57,25 @@ XYZ
 > [Source](https://www.baeldung.com/linux/read-specific-line-from-file)
 
 ```bash
-$ sed -n '5{p;q}' input.txt
+$ cat test.txt 
+asdfasdf
+fjfjfjfjfj
+aaaaa
+
+$ sed -n "1p" test.txt 
+asdfasdf
+$ sed -n "2p" test.txt 
+fjfjfjfjfj
+$ sed -n "1,2p" test.txt 
+asdfasdf
+fjfjfjfjfj
+$ sed -n "1~2p" test.txt 
+asdfasdf
+aaaaa
+$ sed -n "2{p;q}" test.txt 
+fjfjfjfjfj
+$ sed -n "1,2{p;q}" test.txt 
+asdfasdf
 ```
 
 ```bash
@@ -50,4 +85,6 @@ $ sed -n '5{p;q}' input.txt
 * “-n ‘5p’” means print only the fifth line
 
 * The sed has provided a ‘q‘ command that allows to “quit” further processing. We can put the ‘q‘ command in the two one-liners
+
+* {p;q} is just to apply the p and the q command
 ```
