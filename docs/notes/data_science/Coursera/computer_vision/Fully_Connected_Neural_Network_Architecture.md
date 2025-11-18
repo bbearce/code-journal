@@ -30,3 +30,6 @@ $\theta = \theta - v_{t}$
 Data augmentation is a powerful technique for reducing overfitting, a common challenge in neural network training where the model performs well on training data but poorly on unseen data. It works by generating new, varied versions of existing training samples through random transformations such as cropping, resizing, flipping, rotating, or adding noise.
 
 In practice, data augmentation is often applied on the fly during training using tools such as tf.image in TensorFlow or torchvision in PyTorch, ensuring each training batch contains fresh variations for improved generalization.
+
+## Lab: Training A Neural Network with Momentum
+[Training A Neural Network with Momentum](JupyterNotebooks/Training A Neural Network with Momentum.ipynb)
