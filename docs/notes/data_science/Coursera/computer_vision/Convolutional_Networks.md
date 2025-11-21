@@ -44,3 +44,7 @@ Notice how even though slightly different, the "sense" is that there is some sig
 ![Flattening and Fully Connected 2](Images/CNNs/flattening_and_fully_connnected_2.png)
 
 All features lined up to be fully connected to neural net.
+
+
+## Lab: DataAugmentation
+[DataAugmentation](JupyterNotebooks/Data_Augmentation.ipynb)
