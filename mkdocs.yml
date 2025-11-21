@@ -61,7 +61,7 @@ nav:
               - 12. Image Features: notes/data_science/Coursera/computer_vision/Image_Features.md
               - 13. Neural Nets: notes/data_science/Coursera/computer_vision/Neural_Nets.md
               - 14. Fully Connected Neural Network Architectures: notes/data_science/Coursera/computer_vision/Fully_Connected_Neural_Network_Architecture.md
-              - 14. Convolutional Networks: notes/data_science/Coursera/computer_vision/Convolutional_Networks.md
+              - 15. Convolutional Networks: notes/data_science/Coursera/computer_vision/Convolutional_Networks.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
