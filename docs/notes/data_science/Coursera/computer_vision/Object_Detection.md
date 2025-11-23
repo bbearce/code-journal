@@ -68,3 +68,41 @@ Many object detection algorithms provide a score, letting you know how confident
 
 For each detection, a score is provided. We can adjust so we only accept detections above a specific score. Here we have detected one dog and two cats. It looks like we detected both a cat and a dog in the dog's location. Examining the score, we see that one of the cat predictions has a low score of 0.5. If we only accept scores above 0.9, we correctly detect the cat and dog. 
 ![bounding_box_7.png](Images/Object_Detection/bounding_box_7.png)
+
+# Object Detection with Haar Cascade Classifier
+
+We are going to use Haar feature-based cascade classifiers to detect cars, traffic lights, pedestrian stop signs, etc. in this image.
+
+* Based on Haar wavelets sequence
+    - After millions of training images are fed into the system, the classifier begins by extracting features from each image
+    - HAR wavelets are convolution kernels used to extract features.
+    - HAR wavelets extract information about edges, lines, diagonal edges.
+
+In this example, we overlay the HAR wavelets over the car. 
+
+
+![haar_wavelets_1.png](Images/Object_Detection/haar_wavelets_1.png)
+
+
+The integral image concept is each pixel represents the cumulative sum of the corresponding input pixels above and to the left of that pixel. The top and left are padded with zeros as nothing is before and up to the left of them.
+
+![haar_wavelets_2.png](Images/Object_Detection/haar_wavelets_2.png)
+
+The Viola-Jones paper used a 24 by 24 base window size as an example, and that would result in more than 180,000 features calculated in the integral image. That's a lot. A need for cutting down parameters was created.
+
+## Adaboost
+This algorithm selects a few important features from a large set to give highly efficient classifiers by employing the use of an adaboost. The idea is to set weights to both classifiers and samples in a way that forces classifiers to concentrate on observations that are difficult to correctly classify. Therefore, it selects only those features that help to improve the classifier accuracy by constructing a strong classifier, which is a linear combination of weak classifiers. In the case of the 24 by 24 window example used by Viola-Jones, over 180,000 features were generated. Using the adaboost, it cuts it down to about 6,000 features. 
+
+Let us illustrate with cats and dogs. Each weak classifier splits the examples with at least 50% accuracy. Still wrong a little though.The misclassified examples are then emphasized on the next round.
+![haar_wavelets_3.png](Images/Object_Detection/haar_wavelets_3.png)
+
+The idea is to set weights to both classifiers and samples in a way that forces classifiers to concentrate on observations that have been misclassified. The process is repeated until it has minimized the number of errors and constructs a strong classifier. 
+![haar_wavelets_4.png](Images/Object_Detection/haar_wavelets_4.png)
+
+Cascades of classifiers are then used. This classifier groups sub-images from the input images in stages and disregards any region that doesn't match the object it is trying to detect. To detect the car in this image, the classifier groups the features into multiple sub-images and the classifier at each stage determines whether the sub-image is the object we are trying to detect. 
+
+In the case that it is not, the sub-window is discarded along with the features in that window. If the sub-window moves past the classifier, it continues to the next stage where the second stage of feature is applied, until it is sure that it is a car. 
+![haar_wavelets_5.png](Images/Object_Detection/haar_wavelets_5.png)
+
+## Lab: Car Detection with Haar Classifiers
+[Car Detection with Haar Classifiers](JupyterNotebooks/Car Detection with Haar Classifiers.md)
