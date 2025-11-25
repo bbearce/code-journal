@@ -106,3 +106,15 @@ In the case that it is not, the sub-window is discarded along with the features 
 
 ## Lab: Car Detection with Haar Classifiers
 [Car Detection with Haar Classifiers](JupyterNotebooks/Car Detection with Haar Classifiers.md)
+
+
+# Object Detection with Deep Learning
+
+## Lab: Use Object Detection Faster RCNN
+[use-objectdetection-faster-r-cnn.ipynb](JupyterNotebooks/use-objectdetection-faster-r-cnn.ipynb.md)
+
+
+## Final Project: Building an Image Classifier with Transfer Learning
+[use-objectdetection-faster-r-cnn.ipynb](JupyterNotebooks/use-objectdetection-faster-r-cnn.ipynb.md)
+
+
