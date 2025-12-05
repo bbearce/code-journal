@@ -65,6 +65,8 @@ nav:
               - 15. Convolutional Networks: notes/data_science/Coursera/computer_vision/Convolutional_Networks.md
               - 16. CNN Architectures: notes/data_science/Coursera/computer_vision/CNN_Architectures.md
               - 17. Object Detection: notes/data_science/Coursera/computer_vision/Object_Detection.md
+          - Pytorch:
+              - 1. 1D Tensors: notes/data_science/Coursera/pytorch/1D_Tensors.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
