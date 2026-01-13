@@ -67,6 +67,7 @@ nav:
               - 17. Object Detection: notes/data_science/Coursera/computer_vision/Object_Detection.md
           - Pytorch:
               - 1. 1D Tensors: notes/data_science/Coursera/pytorch/1D_Tensors.md
+              - 2. 2D Tensors: notes/data_science/Coursera/pytorch/2D_Tensors.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
