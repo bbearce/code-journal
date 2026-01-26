@@ -70,6 +70,7 @@ nav:
               - 2. 2D Tensors: notes/data_science/Coursera/pytorch/2D_Tensors.md
               - 3. Simple Dataset: notes/data_science/Coursera/pytorch/Simple_Dataset.md
               - 4. Dataset: notes/data_science/Coursera/pytorch/Dataset.md
+              - 5. Linear Regression: notes/data_science/Coursera/pytorch/Linear_Regression.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
