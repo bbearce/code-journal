@@ -71,6 +71,8 @@ nav:
               - 3. Simple Dataset: notes/data_science/Coursera/pytorch/Simple_Dataset.md
               - 4. Dataset: notes/data_science/Coursera/pytorch/Dataset.md
               - 5. Linear Regression: notes/data_science/Coursera/pytorch/Linear_Regression.md
+              - 6. Linear Regression Training: notes/data_science/Coursera/pytorch/Linear_Regression_Training.md
+              - 7. Loss: notes/data_science/Coursera/pytorch/Loss.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
