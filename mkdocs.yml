@@ -68,11 +68,15 @@ nav:
           - Pytorch:
               - 1. 1D Tensors: notes/data_science/Coursera/pytorch/1D_Tensors.md
               - 2. 2D Tensors: notes/data_science/Coursera/pytorch/2D_Tensors.md
-              - 3. Simple Dataset: notes/data_science/Coursera/pytorch/Simple_Dataset.md
-              - 4. Dataset: notes/data_science/Coursera/pytorch/Dataset.md
-              - 5. Linear Regression: notes/data_science/Coursera/pytorch/Linear_Regression.md
-              - 6. Linear Regression Training: notes/data_science/Coursera/pytorch/Linear_Regression_Training.md
-              - 7. Loss: notes/data_science/Coursera/pytorch/Loss.md
+              - 3. Differentiation Pytorch: notes/data_science/Coursera/pytorch/Differentiation_pytorch.md
+              - 4. Simple Dataset: notes/data_science/Coursera/pytorch/Simple_Dataset.md
+              - 5. Dataset: notes/data_science/Coursera/pytorch/Dataset.md
+              - 6. Linear Regression: notes/data_science/Coursera/pytorch/Linear_Regression.md
+              - 7. Linear Regression Training: notes/data_science/Coursera/pytorch/Linear_Regression_Training.md
+              - 8. Loss: notes/data_science/Coursera/pytorch/Loss.md
+              - 9. Gradient Descent: notes/data_science/Coursera/pytorch/Gradient_Descent.md
+              - 10. Cost: notes/data_science/Coursera/pytorch/cost.md
+              - 11. Linear Regression Pytorch: notes/data_science/Coursera/pytorch/Linear_Regression_Pytorch.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
