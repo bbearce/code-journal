@@ -77,6 +77,7 @@ nav:
               - 9. Gradient Descent: notes/data_science/Coursera/pytorch/Gradient_Descent.md
               - 10. Cost: notes/data_science/Coursera/pytorch/cost.md
               - 11. Linear Regression Pytorch: notes/data_science/Coursera/pytorch/Linear_Regression_Pytorch.md
+              - 12. Linear Regression Pytorch Slope and Bias: notes/data_science/Coursera/pytorch/Linear_Regression_Pytorch_Slope_and_Bias.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
