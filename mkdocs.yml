@@ -81,6 +81,8 @@ nav:
               - 13. Stochastic Gradient Descent: notes/data_science/Coursera/pytorch/Stochastic_Gradient_Descent.md
               - 14. Mini Batch Gradient Descent: notes/data_science/Coursera/pytorch/Mini_Batch_Gradient_Descent.md
               - 15. Optimizer: notes/data_science/Coursera/pytorch/Optimizer.md
+              - 16. Training Val Test: notes/data_science/Coursera/pytorch/Training_Val_Test.md
+              - 16. Training Val Test Pytorch: notes/data_science/Coursera/pytorch/Training_Val_Test_Pytorch.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
