@@ -87,6 +87,8 @@ nav:
               - 19. Multiple Linear Regression Training: notes/data_science/Coursera/pytorch/Multiple_Linear_Regression_Training.md
               - 20. Linear Regression Multiple Output: notes/data_science/Coursera/pytorch/Linear_Regression_Multiple_Output.md
               - 21. Multiple Output Linear Regression Training: notes/data_science/Coursera/pytorch/Multiple_Output_Linear_Regression_Training.md
+              - 22. Linear Classifiers: notes/data_science/Coursera/pytorch/Linear_Classifiers.md
+              - 22. Logistic Regression Prediction: notes/data_science/Coursera/pytorch/Logistic_Regression_Prediction.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
