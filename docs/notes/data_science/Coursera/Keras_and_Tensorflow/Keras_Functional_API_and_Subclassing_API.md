@@ -229,5 +229,5 @@ In addition, the subclassing API allows the use of dynamic graphs.
 
 This example code will first add edges for dynamic flow and then draw the graph with the title as shown in the output. In this video, you learned that Keras Functional API allows you to define layers and connect them in a graph of layers. The Functional API can handle models with multiple inputs and outputs. Another powerful feature of the functional API is shared layers, which are helpful when you want to apply the same transformation to multiple inputs. Subclassing API allows you to define custom and dynamic models by subclassing the model class and implementing your own call() method. The tf.GradientTape method provides more flexibility and control over the training process compared to the built in keras.fit method.
 
-
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/Keras_and_Tensorflow/JupyterNotebooks/M01L01_Lab_%20Implementing%20the%20Functional%20API%20in%20Keras.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/Keras_and_Tensorflow/JupyterNotebooks/M01L01_Lab_%20Implementing%20the%20Functional%20API%20in%20Keras.ipynb)
 
