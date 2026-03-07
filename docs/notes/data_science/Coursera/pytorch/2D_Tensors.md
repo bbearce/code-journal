@@ -134,3 +134,7 @@ In PyTorch, we can define the tensors A and B. We can perform matrix multiplicat
 
 
 There are many other operations you can perform on 2D tensors in PyTorch. Check out the labs and documentation for more. 
+
+## Lab
+
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/1%201_2_Two-Dimensional_Tensors_v2.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/1%201_2_Two-Dimensional_Tensors_v2.ipynb)

@@ -35,3 +35,6 @@ Just like before, we have the first loop for every epoch. We obtain the samples 
 Let's use the following diagram to help clarify the process. When we created the optimizer object, we entered the learnable parameters via the parameters method. We loaded the samples. The model takes x to produce an estimate, y-hat. We will calculate the loss function. In the diagram, we represent this connection between the loss and the model with an edge. Loss backward differentiates the loss. Although we did not create an explicit connection between the optimizer and the loss, under the hood, optimizer dot step will update the parameters. We represent this link with an edge between backward, optimizer, and model. 
 Most training in PyTorch will follow this methodology. 
 
+## Lab
+
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/3%203_PyTorchway_v3.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/3%203_PyTorchway_v3.ipynb)

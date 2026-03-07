@@ -55,6 +55,8 @@ Torch Vision has a set of widely used pre build transforms, that are used on ima
 Torch Vision also has pre built datasets that are commonly used to compare models. We import the the dataset module from torch vision, we create the dataset object. In this case, we use the MNIST dataset. The parameter root is the Root directory of the dataset. The parameter train indicates, if you would like to use the training or testing dataset, true means you are using the training dataset false indicates the test dataset. If the download parameter is set to true, the object downloads the dataset from the internet and puts it into the root directory. If the dataset is already downloaded, it is not downloaded again in this case, we convert the image to a tensor. (Music) 
 
 
+## Lab
 
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/1%203%202_Datasets_and_transforms.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/1%203%202_Datasets_and_transforms.ipynb)
 
-
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/1%203%203_pre-Built%20Datasets_and_transforms_v2.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/1%203%203_pre-Built%20Datasets_and_transforms_v2.ipynb)

@@ -61,3 +61,7 @@ A vector of all partial derivatives is called the gradient.
 ![linear_regression_training_slope_and_bias_15](Images/Linear_Regression_Training_Slope_And_Bias/linear_regression_training_slope_and_bias_15.png)
 
 The gradient is perpendicular to contour lines and points to the greatest change. It also points to the direction of the next iteration.
+
+## Lab
+
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/2%202_linear_regression_one_parameter_v3.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/2%202_linear_regression_one_parameter_v3.ipynb)

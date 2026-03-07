@@ -103,3 +103,15 @@ We start by loading our dataset. We then create the logistic regression model. S
 ![Images/Logistic_Regression_Cross_Entropy_Loss/Logistic_Regression_Cross_Entropy_Loss_25.png](Images/Logistic_Regression_Cross_Entropy_Loss/Logistic_Regression_Cross_Entropy_Loss_25.png)
 
 Finally, here's all the code you will need for performing logistic regression in PyTorch. Let's understand what this code does. We run this code for 100 epochs. For each iteration, we load the x and y from the dataset. We then pass the input i.e. x to our model and get a predicted value, i.e. y-hat from the model. Next, we calculate the loss based upon our selected criteria for selecting the best model. We then get the gradients for the parameters using the loss.backward function and finally update the parameter using the optimizer.step function. By the end of 100 epochs, we would have the best model based upon the above criteria for performing logistic regression. Just a final note, the output produced by our model will have a value between 0 and 1. We will perform some thresholding in the lab to get the actual class values. Thank you for watching this video. 
+
+## Lab
+
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/5%202%202bad_inshilization_logistic_regression_with_mean_square_error_v2.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/5%202%202bad_inshilization_logistic_regression_with_mean_square_error_v2.ipynb)
+
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/5%203_cross_entropy_logistic_regression_v2.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/5%203_cross_entropy_logistic_regression_v2.ipynb)
+
+## Final Project
+
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/Neural%20Network%20for%20Breast%20Cancer%20Classification.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/Neural%20Network%20for%20Breast%20Cancer%20Classification.ipynb)
+
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/Final%20Project%20League%20of%20Legends%20Match%20Predictor.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/Final%20Project%20League%20of%20Legends%20Match%20Predictor.ipynb)

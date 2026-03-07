@@ -40,3 +40,7 @@ We can represent the model as a plane essentially a line in two dimensions, the 
 ![Multiple_Linear_Regression_Training_9](Images/Multiple_Linear_Regression_Training/Multiple_Linear_Regression_Training_9.png)
 
 After the 100 epochs, we see the plane is much better at tracking the data points. Now let's see how to make multiple predictions.
+
+## Lab
+
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/4%202%20multiple_linear_regression_training_v2.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/4%202%20multiple_linear_regression_training_v2.ipynb)

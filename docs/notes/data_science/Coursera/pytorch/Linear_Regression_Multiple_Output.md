@@ -61,3 +61,7 @@ The second output of the first sample is the dot product of the second column wi
 ![Linear_Regression_Multiple_Output_14](Images/Linear_Regression_Multiple_Output/Linear_Regression_Multiple_Output_14.png)
 
 In Pytorch we create a tensor with two columns and three rows, using colors to help clarify the process, we call the object. It performs a linear transformation, we get the following output. The correspondence with the colors is as follows. In the next video we will see how to train the model. 
+
+## Lab
+
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/4%203%20multi-target_linear_regression.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/4%203%20multi-target_linear_regression.ipynb)

@@ -47,3 +47,7 @@ We can store the loss value in a list and record it. We can use it to track our 
 ![Images/mini_batch_gradient_descent/mini_batch_gradient_descent9.png](Images/mini_batch_gradient_descent/mini_batch_gradient_descent9.png)
 
 The following plot shows the cost or average loss with different batch sizes. We see that different batch sizes change how long it takes the cost to stop decreasing. This is called the convergence rate. 
+
+## Lab
+
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/3%202_mini-batch_gradient_descent_v3.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/3%202_mini-batch_gradient_descent_v3.ipynb)

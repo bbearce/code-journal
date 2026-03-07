@@ -43,3 +43,4 @@ In linear regression, we plot the points on the Cartesian plane. We would like t
 ![Images/linear_regression_training_10](Images/linear_regression_training_10.png)
 
 The following is the Average Loss, Mean Squared Error, or COST function. It is a function of the slope and bias. As we plug in different slope and biases, we get different values. It turns out the line with the best fit has the smallest value for this function. Now let's see how to minimize this cost. 
+

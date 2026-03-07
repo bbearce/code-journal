@@ -65,3 +65,9 @@ The top left plot shows the cost function, in the bottom left plot, we see the d
 ![linear_regression_pytorch_14](Images/Linear_Regression_Pytorch/linear_regression_pytorch_14.png)
 
 We see in both plots the average loss or cost decreases for each iteration. (Music) 
+
+
+# Lab
+
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/2%202_linear_regression_one_parameter_v3.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/2%202_linear_regression_one_parameter_v3.ipynb)](
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/2%202_linear_regression_one_parameter_v3.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/2%202_linear_regression_one_parameter_v3.ipynb))

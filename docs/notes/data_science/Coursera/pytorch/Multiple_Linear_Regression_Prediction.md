@@ -100,3 +100,7 @@ We create our custom module or class. This behaves like the linear object, the p
 ![Multiple_Linear_Regression_Prediction_20](Images/Multiple_Linear_Regression_Prediction/Multiple_Linear_Regression_Prediction_20.png)
 
 Or we can make predictions for multiple samples.
+
+## Lab
+
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/4%201%20multiple_linear_regression_prediction_v2.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/4%201%20multiple_linear_regression_prediction_v2.ipynb)

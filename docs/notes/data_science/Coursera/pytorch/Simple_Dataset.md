@@ -96,3 +96,7 @@ data_transform = transforms.Compose([add_mult(), mult()])
 dataset_ = toy_set(length=100, transform=data_transform)
 dataset_[0] # (tensor([300., 300.]), tensor([100.]))
 ```
+
+## Lab
+
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/1%203%201_simple_data_set_v2.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/1%203%201_simple_data_set_v2.ipynb)

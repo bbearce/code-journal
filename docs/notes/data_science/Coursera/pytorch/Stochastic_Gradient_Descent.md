@@ -59,3 +59,7 @@ We can create a DataLoader object. We will represent it with a box. The input to
 ![Images/stochastisc_gradient_descent/stochastic_gradient_descent14.png](Images/stochastic_gradient_descent/stochastic_gradient_descent14.png)
 
 Instead of iteration through the tensors, we iterate through the DataLoader object.
+
+## Lab
+
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/3%201_stochastic_gradient_descent_v3.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/3%201_stochastic_gradient_descent_v3.ipynb)

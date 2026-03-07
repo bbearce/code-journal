@@ -76,3 +76,9 @@ In Summary, we now create a custom module which is our own class, we can create 
 ![Linear_Regression_15](Images/Linear_Regression/Linear_Regression_15.png)
 
 Finally, an important method is state_dict(); this returns a python dictionary. We will use it as our models get more complex. One Function is to map the relationship of the linear layers to its parameters. we can print out the keys and values. Now lets see how to train the model.
+
+
+## Lab
+
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/2%201Prediction1Dregression_v3.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/2%201Prediction1Dregression_v3.ipynb)
+

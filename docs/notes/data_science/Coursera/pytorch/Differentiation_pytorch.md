@@ -47,3 +47,4 @@ Calling the grad function on u will calculate the derivative of f with respect t
 
 Here’s a similar process for calculating the derivative of f with respect to v. We have only scratched the surface see the labs, for more examples. 
 
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/1%201_2_Two-Dimensional_Tensors_v2.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/1%201_2_Two-Dimensional_Tensors_v2.ipynb)

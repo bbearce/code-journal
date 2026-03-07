@@ -125,3 +125,7 @@ The space between samples is 1. If we change the parameter num to 9, we get 9 ev
 We can use the function line space to generate 100 evenly spaced samples from the interval 0 to 2 pi. We can use the pytorch function sine to map the tensor x to a new tensor, y. We can import the library pyplot to plt to help us plot the function. As we are using a Jupyter notebook, we use the command matplotlib inline to display the plot. The following command plots a graph. The first input corresponds to the x value. We have to convert the tensor to a numpy array using the method numpy. The second input corresponds to the values for the vertical or y-axis. We convert the values. Similarly, we have to convert it to a numpy array using the method numpy.  
 
 ![1D_Tensors32](Images/1D_Tensors/1D_Tensors32.png)
+
+
+## Lab
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/1%201_1Dtensors_v2.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/1%201_1Dtensors_v2.ipynb)

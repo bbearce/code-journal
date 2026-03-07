@@ -40,3 +40,7 @@ We plot the training loss and validation loss for each learning rate. We see the
 
 
 We can iterate for each model in the list. We produce a prediction by using the validation data for each model. We can plot the data. We see the line with the optimal learning rate is nearest to all the points. There are other methods we can use to improve our model and we can even save the model. We'll cover this in the next set of videos. 
+
+## Lab
+
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/3%206_training_and_validation_v3.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/3%206_training_and_validation_v3.ipynb)

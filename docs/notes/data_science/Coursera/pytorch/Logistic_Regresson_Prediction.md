@@ -63,3 +63,7 @@ Finally, producing an output. We do the same thing for multiple samples of 2 dim
 ![Images/Logistic_Regression_Prediction/Logistic_Regression_Prediction_15.png](Images/Logistic_Regression_Prediction/Logistic_Regression_Prediction_15.png)
 
 We have the X tensor here – a multi dimensional multi sample input. We apply the model to x, which in turn applies the linear function and sigmoid function to each intermediate output. And we get three final outputs. 
+
+## Lab
+
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/5%201logistic_regression_prediction_v2.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/pytorch/JupyterNotebooks/5%201logistic_regression_prediction_v2.ipynb)
