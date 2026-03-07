@@ -93,6 +93,7 @@ nav:
               - 24. Logistic Regression Cross Entropy Loss: notes/data_science/Coursera/pytorch/Logistic_Regression_Cross_Entropy_Loss.md
           -  Keras and Tensorflow:
               - 1. Intro to Advanced Keras: notes/data_science/Coursera/Keras_and_Tensorflow/Intro_to_Advanced_Keras.md
+              - 2. Keras Functional API and Subclassing API: notes/data_science/Coursera/Keras_and_Tensorflow/Keras_Functional_API_and_Subclassing_API.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md

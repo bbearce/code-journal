@@ -1,6 +1,6 @@
 # Intro to Advanced Keras
 
-![Images/Intro_to_Advanced_Keras_1](Images/Intro_to_Advanced_Keras_1.png)
+![Images/Intro_to_Advanced_Keras/Intro_to_Advanced_Keras_1](Images/Intro_to_Advanced_Keras/Intro_to_Advanced_Keras_1.png)
 
 While the sequential API in Keras is excellent for a simple linear stack of layers, the functional API provides more flexibility and control, essential for building complex models. Let's take a closer look at the functional API. 
 
