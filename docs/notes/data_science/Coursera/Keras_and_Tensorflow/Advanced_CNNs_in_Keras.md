@@ -219,4 +219,5 @@ Ex:
 
 ## Lab
 
-[]()
+[https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/Keras_and_Tensorflow/JupyterNotebooks/M2L1_Lab_%20Advanced%20Data%20Augmentation%20with%20Keras.ipynb](https://github.com/bbearce/code-journal/blob/master/docs/notes/data_science/Coursera/Keras_and_Tensorflow/JupyterNotebooks/M2L1_Lab_%20Advanced%20Data%20Augmentation%20with%20Keras.ipynb)
+
