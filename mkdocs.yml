@@ -98,6 +98,9 @@ nav:
               - 4. Overview of Tensorflow 2.x: notes/data_science/Coursera/Keras_and_Tensorflow/Overview_of_Tensorflow_2.x.md
               - 5. Advanced CNNs in Keras: notes/data_science/Coursera/Keras_and_Tensorflow/Advanced_CNNs_in_Keras.md
               - 6. Data Augmentation Techniques: notes/data_science/Coursera/Keras_and_Tensorflow/Data_Augmentation_Techniques.md
+              - 7. Transfer Learning: notes/data_science/Coursera/Keras_and_Tensorflow/Transfer_Learning.md
+              - 8. Using Pre-trained Models: notes/data_science/Coursera/Keras_and_Tensorflow/Using_Pretrained_Models.md
+              - 9. Tensorflow for Image Processing: notes/data_science/Coursera/Keras_and_Tensorflow/Tensorflow_for_Image_Processing.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
