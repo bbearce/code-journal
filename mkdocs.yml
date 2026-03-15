@@ -94,7 +94,10 @@ nav:
           -  Keras and Tensorflow:
               - 1. Intro to Advanced Keras: notes/data_science/Coursera/Keras_and_Tensorflow/Intro_to_Advanced_Keras.md
               - 2. Keras Functional API and Subclassing API: notes/data_science/Coursera/Keras_and_Tensorflow/Keras_Functional_API_and_Subclassing_API.md
-              - 3. Advanced CNNs in Keras: notes/data_science/Coursera/Keras_and_Tensorflow/Advanced_CNNs_in_Keras.md
+              - 3. Creating Custom Layers in Keras: notes/data_science/Coursera/Keras_and_Tensorflow/Creating_Custom_Layers_in_Keras.md
+              - 4. Overview of Tensorflow 2.x: notes/data_science/Coursera/Keras_and_Tensorflow/Overview_of_Tensorflow_2.x.md
+              - 5. Advanced CNNs in Keras: notes/data_science/Coursera/Keras_and_Tensorflow/Advanced_CNNs_in_Keras.md
+              - 6. Data Augmentation Techniques: notes/data_science/Coursera/Keras_and_Tensorflow/Data_Augmentation_Techniques.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
@@ -107,7 +110,7 @@ nav:
       - Lessons (Part 1): notes/fast.ai/lessons_part_1.md
   - Git:
       - Basics: notes/git/git_basics.md
-      - Git Tricks w Rob: notes/git/git_tricks_with_rob.md
+      - Git Tricks w Rob: notes/git/git_tricks_with_rob.mdgvbhhh
       - Subtrees: notes/git/git_sub_trees.md
       - Submodules: notes/git/git_submodules.md
   - GPU Notes:
