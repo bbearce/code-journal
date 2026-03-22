@@ -101,6 +101,9 @@ nav:
               - 7. Transfer Learning: notes/data_science/Coursera/Keras_and_Tensorflow/Transfer_Learning.md
               - 8. Using Pre-trained Models: notes/data_science/Coursera/Keras_and_Tensorflow/Using_Pretrained_Models.md
               - 9. Tensorflow for Image Processing: notes/data_science/Coursera/Keras_and_Tensorflow/Tensorflow_for_Image_Processing.md
+              - 10. Introducing Transpose Convolution: notes/data_science/Coursera/Keras_and_Tensorflow/Introducing_Transpose_Convolution.md
+              - 11. Introduction To Transformers: notes/data_science/Coursera/Keras_and_Tensorflow/Introduction_To_Transformers.md
+              - 12. Building Transformers for Sequential Data: notes/data_science/Coursera/Keras_and_Tensorflow/Building_Transformers_for_Sequential_Data.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
