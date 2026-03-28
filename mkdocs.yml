@@ -104,6 +104,7 @@ nav:
               - 10. Introducing Transpose Convolution: notes/data_science/Coursera/Keras_and_Tensorflow/Introducing_Transpose_Convolution.md
               - 11. Introduction To Transformers: notes/data_science/Coursera/Keras_and_Tensorflow/Introduction_To_Transformers.md
               - 12. Building Transformers for Sequential Data: notes/data_science/Coursera/Keras_and_Tensorflow/Building_Transformers_for_Sequential_Data.md
+              - 13. Advanced Transformer Applications: notes/data_science/Coursera/Keras_and_Tensorflow/Advanced_Transformer_Applications.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
