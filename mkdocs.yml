@@ -105,6 +105,8 @@ nav:
               - 11. Introduction To Transformers: notes/data_science/Coursera/Keras_and_Tensorflow/Introduction_To_Transformers.md
               - 12. Building Transformers for Sequential Data: notes/data_science/Coursera/Keras_and_Tensorflow/Building_Transformers_for_Sequential_Data.md
               - 13. Advanced Transformer Applications: notes/data_science/Coursera/Keras_and_Tensorflow/Advanced_Transformer_Applications.md
+              - 14. Transformers For Time Series Predictions: notes/data_science/Coursera/Keras_and_Tensorflow/Transformers_For_Time_Series_Predictions.md
+              - 15. Tensorflow for Sequential Data: notes/data_science/Coursera/Keras_and_Tensorflow/Tensorflow_for_Sequential_Data.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
