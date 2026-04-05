@@ -109,6 +109,7 @@ nav:
               - 15. Tensorflow for Sequential Data: notes/data_science/Coursera/Keras_and_Tensorflow/Tensorflow_for_Sequential_Data.md
               - 16. Intro to Unsupervised Learning in Keras: notes/data_science/Coursera/Keras_and_Tensorflow/Intro_to_Unsupervised_Learning_in_Keras.md
               - 17. Building Autoencoders in Keras: notes/data_science/Coursera/Keras_and_Tensorflow/Building_Autoencoders_in_Keras.md
+              - 18. Diffusion Models: notes/data_science/Coursera/Keras_and_Tensorflow/Diffusion_Models.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
