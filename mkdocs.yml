@@ -91,6 +91,8 @@ nav:
               - 22. Logistic Regression Prediction: notes/data_science/Coursera/pytorch/Logistic_Regression_Prediction.md
               - 23. Bernoulli Distribution and Maximum Likelihood Estimation: notes/data_science/Coursera/pytorch/Bernoulli_Distribution_and_Maximum_Likelihood_Estimation.md
               - 24. Logistic Regression Cross Entropy Loss: notes/data_science/Coursera/pytorch/Logistic_Regression_Cross_Entropy_Loss.md
+              - 25. Advanced Keras Techniques: notes/data_science/Coursera/pytorch/Advanced_Keras_Techniques.md
+              - 26. Custom Training Loops in Keras: notes/data_science/Coursera/pytorch/Custom_Training_Loops_in_Keras.md
           -  Keras and Tensorflow:
               - 1. Intro to Advanced Keras: notes/data_science/Coursera/Keras_and_Tensorflow/Intro_to_Advanced_Keras.md
               - 2. Keras Functional API and Subclassing API: notes/data_science/Coursera/Keras_and_Tensorflow/Keras_Functional_API_and_Subclassing_API.md
