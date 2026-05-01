@@ -114,6 +114,8 @@ nav:
               - 18. Diffusion Models: notes/data_science/Coursera/Keras_and_Tensorflow/Diffusion_Models.md
               - 19. Generative Adversarial Networks: notes/data_science/Coursera/Keras_and_Tensorflow/Generative_Adversarial_Networks.md
               - 20. TensorFlow for Unsupervised Learning: notes/data_science/Coursera/Keras_and_Tensorflow/TensorFlow_for_Unsupervised_Learning.md
+              - 21. Hyperparameter Tuning with Keras Tuner: notes/data_science/Coursera/Keras_and_Tensorflow/Hyperparameter_Tuning_with_Keras_Tuner.md
+              - 22. Model Optimization: notes/data_science/Coursera/Keras_and_Tensorflow/Model_Optimization.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
