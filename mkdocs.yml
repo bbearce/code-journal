@@ -117,6 +117,9 @@ nav:
               - 21. Hyperparameter Tuning with Keras Tuner: notes/data_science/Coursera/Keras_and_Tensorflow/Hyperparameter_Tuning_with_Keras_Tuner.md
               - 22. Model Optimization: notes/data_science/Coursera/Keras_and_Tensorflow/Model_Optimization.md
               - 23. TensorFlow for Model Optimization: notes/data_science/Coursera/Keras_and_Tensorflow/TensorFlow_for_Model_Optimization.md
+              - 24. Reinforcement Learning: notes/data_science/Coursera/Keras_and_Tensorflow/Reinforcement_Learning.md
+              - 25. Q-Learning with Keras: notes/data_science/Coursera/Keras_and_Tensorflow/Q-Learning_with_Keras.md
+              - 26. Deep Q-Networks (DQNs) with Keras: notes/data_science/Coursera/Keras_and_Tensorflow/Deep_Q_Networks_DQNs_with_Keras.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
