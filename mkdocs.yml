@@ -120,6 +120,9 @@ nav:
               - 24. Reinforcement Learning: notes/data_science/Coursera/Keras_and_Tensorflow/Reinforcement_Learning.md
               - 25. Q-Learning with Keras: notes/data_science/Coursera/Keras_and_Tensorflow/Q-Learning_with_Keras.md
               - 26. Deep Q-Networks (DQNs) with Keras: notes/data_science/Coursera/Keras_and_Tensorflow/Deep_Q_Networks_DQNs_with_Keras.md
+          -  Capstone:
+              - 1. DataLoading: notes/data_science/Coursera/capstone/DataLoading.md
+              - 2. Memory-Based versus Generator-Based Data Loading: notes/data_science/Coursera/capstone/Memory-Based_versus_Generator-Based_Data_Loading.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
