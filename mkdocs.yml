@@ -123,6 +123,7 @@ nav:
           -  Capstone:
               - 1. DataLoading: notes/data_science/Coursera/capstone/DataLoading.md
               - 2. Memory-Based versus Generator-Based Data Loading: notes/data_science/Coursera/capstone/Memory-Based_versus_Generator-Based_Data_Loading.md
+              - 3. Building a CNN Classifier: notes/data_science/Coursera/capstone/Building_a_CNN_Classifier.md
   - Docker:
       - Install: notes/docker/install.md
       - Basics: notes/docker/basics.md
